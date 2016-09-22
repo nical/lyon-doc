@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `PathIterator` trait in crate `lyon`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, PathIterator">
+
+    <title>lyon::path_iterator::PathIterator - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>lyon</a>::<wbr><a href='index.html'>path_iterator</a></p><script>window.sidebarCurrent = {name: 'PathIterator', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content trait">
+<h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>lyon</a>::<wbr><a href='index.html'>path_iterator</a>::<wbr><a class='trait' href=''>PathIterator</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-100' class='srclink' href='../../lyon_path_iterator/path_iterator/trait.PathIterator.html?gotosrc=100' title='goto source code'>[src]</a></span></h1>
+<pre class='rust trait'>pub trait PathIterator: <a class='trait' href='https://doc.rust-lang.org/nightly/core/iter/iterator/trait.Iterator.html' title='core::iter::iterator::Iterator'>Iterator</a>&lt;Item=<a class='enum' href='../../lyon/tessellation/enum.PathEvent.html' title='lyon::tessellation::PathEvent'>PathEvent</a>&gt; {
+    fn <a href='#tymethod.get_state' class='fnname'>get_state</a>(&amp;self) -&gt; &amp;<a class='struct' href='../../lyon/tessellation/struct.PathState.html' title='lyon::tessellation::PathState'>PathState</a>;
+
+    fn <a href='#method.flattened' class='fnname'>flattened</a>(self, tolerance: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>) -&gt; <a class='struct' href='../../lyon/path_iterator/struct.FlatteningIter.html' title='lyon::path_iterator::FlatteningIter'>FlatteningIter</a>&lt;Self&gt; { ... }
+    fn <a href='#method.svg_iter' class='fnname'>svg_iter</a>(self) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/core/iter/struct.Map.html' title='core::iter::Map'>Map</a>&lt;Self,&nbsp;fn(<a class='enum' href='../../lyon/tessellation/enum.PathEvent.html' title='lyon::tessellation::PathEvent'>PathEvent</a>) -&gt; <a class='enum' href='../../lyon/tessellation/events/enum.SvgEvent.html' title='lyon::tessellation::events::SvgEvent'>SvgEvent</a>&gt; { ... }
+}</pre><div class='docblock'><p>An extension to the common Iterator interface, that adds information which is useful when
+chaining path-specific iterators.</p>
+</div>
+            <h2 id='required-methods'>Required Methods</h2>
+            <div class='methods'>
+        <h3 id='tymethod.get_state' class='method stab '><code>fn <a href='#tymethod.get_state' class='fnname'>get_state</a>(&amp;self) -&gt; &amp;<a class='struct' href='../../lyon/tessellation/struct.PathState.html' title='lyon::tessellation::PathState'>PathState</a></code></h3><div class='docblock'><p>The returned structure exposes the current position, the first position in the current
+sub-path, and the position of the last control point.</p>
+</div></div>
+            <h2 id='provided-methods'>Provided Methods</h2>
+            <div class='methods'>
+        <h3 id='method.flattened' class='method stab '><code>fn <a href='#method.flattened' class='fnname'>flattened</a>(self, tolerance: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>) -&gt; <a class='struct' href='../../lyon/path_iterator/struct.FlatteningIter.html' title='lyon::path_iterator::FlatteningIter'>FlatteningIter</a>&lt;Self&gt;</code></h3><div class='docblock'><p>Returns an iterator that turns curves into line segments.</p>
+</div><h3 id='method.svg_iter' class='method stab '><code>fn <a href='#method.svg_iter' class='fnname'>svg_iter</a>(self) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/core/iter/struct.Map.html' title='core::iter::Map'>Map</a>&lt;Self,&nbsp;fn(<a class='enum' href='../../lyon/tessellation/enum.PathEvent.html' title='lyon::tessellation::PathEvent'>PathEvent</a>) -&gt; <a class='enum' href='../../lyon/tessellation/events/enum.SvgEvent.html' title='lyon::tessellation::events::SvgEvent'>SvgEvent</a>&gt;</code></h3><div class='docblock'><p>Returns an iterator of SVG events.</p>
+</div></div>
+        <h2 id='implementors'>Implementors</h2>
+        <ul class='item-list' id='implementors-list'>
+    <li><code>impl&lt;SvgIter&gt; PathIterator for <a class='struct' href='../../lyon/path_iterator/struct.SvgToPathIter.html' title='lyon::path_iterator::SvgToPathIter'>SvgToPathIter</a>&lt;SvgIter&gt; <span class='where'>where SvgIter: <a class='trait' href='../../lyon/path_iterator/trait.SvgIterator.html' title='lyon::path_iterator::SvgIterator'>SvgIterator</a></span></code></li>
+<li><code>impl&lt;Iter&gt; PathIterator for <a class='struct' href='../../lyon/path_iterator/struct.PathStateIter.html' title='lyon::path_iterator::PathStateIter'>PathStateIter</a>&lt;Iter&gt; <span class='where'>where Iter: <a class='trait' href='https://doc.rust-lang.org/nightly/core/iter/iterator/trait.Iterator.html' title='core::iter::iterator::Iterator'>Iterator</a>&lt;Item=<a class='enum' href='../../lyon/tessellation/enum.PathEvent.html' title='lyon::tessellation::PathEvent'>PathEvent</a>&gt;</span></code></li>
+</ul><script type="text/javascript" async
+                         src="../../implementors/lyon_path_iterator/path_iterator/trait.PathIterator.js">
+                 </script></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "lyon";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `BuffersBuilder` struct in crate `lyon`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, BuffersBuilder">
+
+    <title>lyon::tessellation::geometry_builder::BuffersBuilder - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../../index.html'>lyon</a>::<wbr><a href='../index.html'>tessellation</a>::<wbr><a href='index.html'>geometry_builder</a></p><script>window.sidebarCurrent = {name: 'BuffersBuilder', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../../index.html'>lyon</a>::<wbr><a href='../index.html'>tessellation</a>::<wbr><a href='index.html'>geometry_builder</a>::<wbr><a class='struct' href=''>BuffersBuilder</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-1092' class='srclink' href='../../../lyon_tessellation/geometry_builder/struct.BuffersBuilder.html?gotosrc=1092' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct BuffersBuilder&lt;'l,&nbsp;VertexType,&nbsp;Input,&nbsp;Ctor&gt; <span class='where'>where Ctor: <a class='trait' href='../../../lyon/tessellation/geometry_builder/trait.VertexConstructor.html' title='lyon::tessellation::geometry_builder::VertexConstructor'>VertexConstructor</a>&lt;Input,&nbsp;VertexType&gt;, VertexType: 'l</span> {
+    // some fields omitted
+}</pre><div class='docblock'><p>A temporary view on a VertexBuffers object which facilitate the population of vertex and index
+data.</p>
+
+<p>BuffersBuilders record the vertex offset from when they are created so that algorithms using
+them don&#39;t need to worry about offsetting indices if some geometry was added beforehand. This
+means that from the point of view of a BuffersBuilder user, the first added vertex is at always
+offset at the offset 0 and VertexBuilfer takes care of translating indices adequately.</p>
+
+<p>Often, algorithms are built to generate vertex positions without knowledge of eventual other
+vertex attributes. The VertexConstructor does the translation from generic Input to VertexType.
+If your logic generates the actual vertex type directly, you can use the SimpleBuffersBuilder
+convenience typedef.</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl&lt;'l,&nbsp;VertexType,&nbsp;Input,&nbsp;Ctor&gt; <a class='struct' href='../../../lyon/tessellation/geometry_builder/struct.BuffersBuilder.html' title='lyon::tessellation::geometry_builder::BuffersBuilder'>BuffersBuilder</a>&lt;'l,&nbsp;VertexType,&nbsp;Input,&nbsp;Ctor&gt; <span class='where'>where Ctor: <a class='trait' href='../../../lyon/tessellation/geometry_builder/trait.VertexConstructor.html' title='lyon::tessellation::geometry_builder::VertexConstructor'>VertexConstructor</a>&lt;Input,&nbsp;VertexType&gt;, VertexType: 'l</span></code></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>(buffers: &amp;'l mut <a class='struct' href='../../../lyon/tessellation/geometry_builder/struct.VertexBuffers.html' title='lyon::tessellation::geometry_builder::VertexBuffers'>VertexBuffers</a>&lt;VertexType&gt;, ctor: Ctor) -&gt; <a class='struct' href='../../../lyon/tessellation/geometry_builder/struct.BuffersBuilder.html' title='lyon::tessellation::geometry_builder::BuffersBuilder'>BuffersBuilder</a>&lt;'l,&nbsp;VertexType,&nbsp;Input,&nbsp;Ctor&gt;</code></h4>
+</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl&lt;'l,&nbsp;VertexType,&nbsp;Input,&nbsp;Ctor&gt; <a class='trait' href='../../../lyon/tessellation/geometry_builder/trait.GeometryBuilder.html' title='lyon::tessellation::geometry_builder::GeometryBuilder'>GeometryBuilder</a>&lt;Input&gt; for <a class='struct' href='../../../lyon/tessellation/geometry_builder/struct.BuffersBuilder.html' title='lyon::tessellation::geometry_builder::BuffersBuilder'>BuffersBuilder</a>&lt;'l,&nbsp;VertexType,&nbsp;Input,&nbsp;Ctor&gt; <span class='where'>where Ctor: <a class='trait' href='../../../lyon/tessellation/geometry_builder/trait.VertexConstructor.html' title='lyon::tessellation::geometry_builder::VertexConstructor'>VertexConstructor</a>&lt;Input,&nbsp;VertexType&gt;, VertexType: 'l + <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a></span></code></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.begin_geometry' class='method'><code>fn <a href='../../../lyon/tessellation/geometry_builder/trait.GeometryBuilder.html#tymethod.begin_geometry' class='fnname'>begin_geometry</a>(&amp;mut self)</code></h4>
+<div class='docblock'><p>Called at the beginning of a generation. <a href="../../../lyon/tessellation/geometry_builder/trait.GeometryBuilder.html#tymethod.begin_geometry">Read more</a></p>
+</div><h4 id='method.end_geometry' class='method'><code>fn <a href='../../../lyon/tessellation/geometry_builder/trait.GeometryBuilder.html#tymethod.end_geometry' class='fnname'>end_geometry</a>(&amp;mut self) -&gt; <a class='struct' href='../../../lyon/tessellation/geometry_builder/struct.Count.html' title='lyon::tessellation::geometry_builder::Count'>Count</a></code></h4>
+<div class='docblock'><p>Called at the end of a generation. Returns the number of vertices and indices added since the last time begin_geometry was called. <a href="../../../lyon/tessellation/geometry_builder/trait.GeometryBuilder.html#tymethod.end_geometry">Read more</a></p>
+</div><h4 id='method.add_vertex' class='method'><code>fn <a href='../../../lyon/tessellation/geometry_builder/trait.GeometryBuilder.html#tymethod.add_vertex' class='fnname'>add_vertex</a>(&amp;mut self, v: Input) -&gt; <a class='struct' href='../../../lyon/tessellation/geometry_builder/struct.VertexId.html' title='lyon::tessellation::geometry_builder::VertexId'>VertexId</a></code></h4>
+<div class='docblock'><p>Inserts a vertex, providing its position, and optionally a normal. Retuns a vertex id that is only valid between begin_geometry and end_geometry. <a href="../../../lyon/tessellation/geometry_builder/trait.GeometryBuilder.html#tymethod.add_vertex">Read more</a></p>
+</div><h4 id='method.add_triangle' class='method'><code>fn <a href='../../../lyon/tessellation/geometry_builder/trait.GeometryBuilder.html#tymethod.add_triangle' class='fnname'>add_triangle</a>(&amp;mut self, a: <a class='struct' href='../../../lyon/tessellation/geometry_builder/struct.VertexId.html' title='lyon::tessellation::geometry_builder::VertexId'>VertexId</a>, b: <a class='struct' href='../../../lyon/tessellation/geometry_builder/struct.VertexId.html' title='lyon::tessellation::geometry_builder::VertexId'>VertexId</a>, c: <a class='struct' href='../../../lyon/tessellation/geometry_builder/struct.VertexId.html' title='lyon::tessellation::geometry_builder::VertexId'>VertexId</a>)</code></h4>
+<div class='docblock'><p>Insert a triangle made of vertices that were added after the last call to begin_geometry. <a href="../../../lyon/tessellation/geometry_builder/trait.GeometryBuilder.html#tymethod.add_triangle">Read more</a></p>
+</div><h4 id='method.abort_geometry' class='method'><code>fn <a href='../../../lyon/tessellation/geometry_builder/trait.GeometryBuilder.html#tymethod.abort_geometry' class='fnname'>abort_geometry</a>(&amp;mut self)</code></h4>
+<div class='docblock'><p>abort_geometry is called instead of end_geometry if an error occured while producing the geometry and we won&#39;t be able to finish. <a href="../../../lyon/tessellation/geometry_builder/trait.GeometryBuilder.html#tymethod.abort_geometry">Read more</a></p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl&lt;'l,&nbsp;VertexType,&nbsp;Input,&nbsp;Ctor&gt; <a class='trait' href='../../../lyon/tessellation/geometry_builder/trait.BezierGeometryBuilder.html' title='lyon::tessellation::geometry_builder::BezierGeometryBuilder'>BezierGeometryBuilder</a>&lt;Input&gt; for <a class='struct' href='../../../lyon/tessellation/geometry_builder/struct.BuffersBuilder.html' title='lyon::tessellation::geometry_builder::BuffersBuilder'>BuffersBuilder</a>&lt;'l,&nbsp;VertexType,&nbsp;Input,&nbsp;Ctor&gt; <span class='where'>where Ctor: <a class='trait' href='../../../lyon/tessellation/geometry_builder/trait.VertexConstructor.html' title='lyon::tessellation::geometry_builder::VertexConstructor'>VertexConstructor</a>&lt;Input,&nbsp;VertexType&gt;, VertexType: 'l + <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a></span></code></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.add_quadratic_bezier' class='method'><code>fn <a href='../../../lyon/tessellation/geometry_builder/trait.BezierGeometryBuilder.html#tymethod.add_quadratic_bezier' class='fnname'>add_quadratic_bezier</a>(&amp;mut self, _from: <a class='struct' href='../../../lyon/tessellation/geometry_builder/struct.VertexId.html' title='lyon::tessellation::geometry_builder::VertexId'>VertexId</a>, _to: <a class='struct' href='../../../lyon/tessellation/geometry_builder/struct.VertexId.html' title='lyon::tessellation::geometry_builder::VertexId'>VertexId</a>, _ctrl: Input)</code></h4>
+<div class='docblock'><p>Insert a quadratic bezier curve. The interrior is on the right side of the curve. <a href="../../../lyon/tessellation/geometry_builder/trait.BezierGeometryBuilder.html#tymethod.add_quadratic_bezier">Read more</a></p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "lyon";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../../jquery.js"></script>
+    <script src="../../../main.js"></script>
+    
+    <script defer src="../../../search-index.js"></script>
+</body>
+</html>

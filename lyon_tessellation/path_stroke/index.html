@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `path_stroke` mod in crate `lyon_tessellation`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, path_stroke">
+
+    <title>lyon_tessellation::path_stroke - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>lyon_tessellation</a></p><script>window.sidebarCurrent = {name: 'path_stroke', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod">
+<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>lyon_tessellation</a>::<wbr><a class='mod' href=''>path_stroke</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-764' class='srclink' href='../../src/lyon_tessellation/tessellation/src/path_stroke.rs.html#1-433' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'>
+<h2 id='path-stroke-tessellator' class='section-header'><a href='#path-stroke-tessellator'>Path stroke tessellator</a></h2>
+<p>Tessellation routines for path stroke operations.</p>
+
+<h2 id='overview' class='section-header'><a href='#overview'>Overview</a></h2>
+<p>The stroke tessellation algorithm simply generates a strip of triangles along
+the path. This method is fast and simple to implement, howerver it means that
+if the path overlap with itself (for example in the case of a self-intersecting
+path), some triangles will overlap in the interesecting region, which may not
+be the desired behavior. This needs to be kept in mind when rendering transparent
+SVG strokes since the spec mandates that each point along a semi-transparent path
+is shaded once no matter how many times the path overlaps with itself at this
+location.</p>
+
+<p>The main interface is the <a href="struct.StrokeTessellator.html">StrokeTessellator</a>,
+which exposes a similar interface to its
+<a href="../path_fill/struct.FillTessellator.html">fill equivalent</a>.</p>
+
+<p>This stroke tessellator takes an iterator of path events as inputs as well as
+a <a href="struct.StrokeOptions.html">StrokeOption</a>, and prodices its outputs using
+a <a href="../geometry_builder/trait.BezierGeometryBuilder.html">BezierGeometryBuilder</a>.</p>
+
+<p>See the <a href="../geometry_builder/index.html">geometry_builder module documentation</a>
+for more details about how to output custom vertex layouts.</p>
+
+<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
+<pre class='rust rust-example-rendered'>
+<span class='comment'>// Create a simple path.</span>
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>path_builder</span> <span class='op'>=</span> <span class='ident'>Path</span>::<span class='ident'>builder</span>();
+<span class='ident'>path_builder</span>.<span class='ident'>move_to</span>(<span class='ident'>point</span>(<span class='number'>0.0</span>, <span class='number'>0.0</span>));
+<span class='ident'>path_builder</span>.<span class='ident'>line_to</span>(<span class='ident'>point</span>(<span class='number'>1.0</span>, <span class='number'>2.0</span>));
+<span class='ident'>path_builder</span>.<span class='ident'>line_to</span>(<span class='ident'>point</span>(<span class='number'>2.0</span>, <span class='number'>0.0</span>));
+<span class='ident'>path_builder</span>.<span class='ident'>line_to</span>(<span class='ident'>point</span>(<span class='number'>1.0</span>, <span class='number'>1.0</span>));
+<span class='ident'>path_builder</span>.<span class='ident'>close</span>();
+<span class='kw'>let</span> <span class='ident'>path</span> <span class='op'>=</span> <span class='ident'>path_builder</span>.<span class='ident'>build</span>();
+
+<span class='comment'>// Create the destination vertex and index buffers.</span>
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>buffers</span>: <span class='ident'>VertexBuffers</span><span class='op'>&lt;</span><span class='ident'>Point</span><span class='op'>&gt;</span> <span class='op'>=</span> <span class='ident'>VertexBuffers</span>::<span class='ident'>new</span>();
+
+{
+    <span class='comment'>// Create the destination vertex and index buffers.</span>
+    <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>vertex_builder</span> <span class='op'>=</span> <span class='ident'>simple_builder</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>buffers</span>);
+
+    <span class='comment'>// Create the tessellator.</span>
+    <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>tessellator</span> <span class='op'>=</span> <span class='ident'>StrokeTessellator</span>::<span class='ident'>new</span>();
+
+    <span class='comment'>// Compute the tessellation.</span>
+    <span class='kw'>let</span> <span class='ident'>result</span> <span class='op'>=</span> <span class='ident'>tessellator</span>.<span class='ident'>tessellate</span>(
+        <span class='ident'>path</span>.<span class='ident'>path_iter</span>().<span class='ident'>flattened</span>(<span class='number'>0.05</span>),
+        <span class='kw-2'>&amp;</span><span class='ident'>StrokeOptions</span>::<span class='ident'>default</span>(),
+        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>vertex_builder</span>
+    );
+    <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>result</span>.<span class='ident'>is_ok</span>());
+}
+
+<span class='macro'>println</span><span class='macro'>!</span>(<span class='string'>&quot;The generated vertices are: {:?}.&quot;</span>, <span class='kw-2'>&amp;</span><span class='ident'>buffers</span>.<span class='ident'>vertices</span>[..]);
+<span class='macro'>println</span><span class='macro'>!</span>(<span class='string'>&quot;The generated indices are: {:?}.&quot;</span>, <span class='kw-2'>&amp;</span><span class='ident'>buffers</span>.<span class='ident'>indices</span>[..]);
+</pre>
+</div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.StrokeBuilder.html'
+                                  title='lyon_tessellation::path_stroke::StrokeBuilder'>StrokeBuilder</a></td>
+                           <td class='docblock short'>
+                                <p>A builder that tessellates a stroke directly without allocating any intermediate data structure.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.StrokeOptions.html'
+                                  title='lyon_tessellation::path_stroke::StrokeOptions'>StrokeOptions</a></td>
+                           <td class='docblock short'>
+                                <p>Parameters for the tessellator.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.StrokeTessellator.html'
+                                  title='lyon_tessellation::path_stroke::StrokeTessellator'>StrokeTessellator</a></td>
+                           <td class='docblock short'>
+                                <p>A Context object that can tessellate stroke operations for complex paths.</p>
+                           </td>
+                       </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.LineCap.html'
+                                  title='lyon_tessellation::path_stroke::LineCap'>LineCap</a></td>
+                           <td class='docblock short'>
+                                <p>Line cap as defined by the SVG specification.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.LineJoin.html'
+                                  title='lyon_tessellation::path_stroke::LineJoin'>LineJoin</a></td>
+                           <td class='docblock short'>
+                                <p>Line join as defined by the SVG specification.</p>
+                           </td>
+                       </tr></table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='type' href='type.StrokeResult.html'
+                                  title='lyon_tessellation::path_stroke::StrokeResult'>StrokeResult</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "lyon_tessellation";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

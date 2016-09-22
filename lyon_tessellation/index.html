@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `lyon_tessellation` crate.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, lyon_tessellation">
+
+    <title>lyon_tessellation - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'></p><script>window.sidebarCurrent = {name: 'lyon_tessellation', ty: 'mod', relpath: '../'};</script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod">
+<h1 class='fqn'><span class='in-band'>Crate <a class='mod' href=''>lyon_tessellation</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-0' class='srclink' href='../src/lyon_tessellation/tessellation/src/lib.rs.html#1-92' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'>
+<h1 id='lyon-tessellation' class='section-header'><a href='#lyon-tessellation'>Lyon Tessellation</a></h1>
+<p>This crate implements tools to compute the tessellation of 2d paths fill and stroke operations, in order to render them efficiently on the GPU.</p>
+
+<p><svg viewBox="0 0 600.0 300.0" height="300" width="600">
+  <g transform="translate(0,-752.36216)">
+    <path style="fill:none;stroke:#ff9955;" d="m 346.4,790.7 186.8,11.2 -213.6,25.9 196.8,12.7 -185.1,41.4 192.4,24.4 -205.5,10.3 194.1,33.4 -97.3,25.5 -96.9,-58.9"/>
+    <path style="fill:#ffb380;stroke:none;" d="m 59.1,965.3 -15.1,-48.7 13.0,-34.4 -11.5,-54.2 26.7,-37.1 73.2,-19.2 114.4,30.4 -17.0,38.0 1.1,15.3 13.4,-8.1 14.8,6.8 -5.2,48.2 -16.8,4.8 -11.4,43.5 -40.4,29.9 -31.3,-3.0 0,28.2 19.0,8.3 -44.2,19.0 -10.6,-25.1 9.9,-3.8 0,-28.2 z"/>
+    <path style="fill:#de8787;stroke:none;" d="m 106.4,853.1 2.2,67.9 49.6,0.7 13.7,-22.9 -20.6,-3.8 -4.5,-44.2 -17.5,-13.7 z"/>
+    <path style="fill:#a02c2c;stroke:none;" d="m 108.74845,940.94089 61.08369,3.05419 -13.74383,15.27092 -33.59604,-3.05418 z"/>
+    <path style="fill:#784421;stroke:none;" d="m 176.93475,845.6345 20.51653,4.85918 -5.39908,30.7748 -12.68786,-1.88968 z"/>
+    <path style="fill:#784421;stroke:none;" d="m 78.4,882.0 9.4,-3.2 3.7,-30.7 -13.2,8.6 z"/>
+    <path style="fill:none;stroke:#ff9955;stroke-linecap:round;stroke-linejoin:round;" d="m 333.2,965.3 -15.1,-48.7 13.0,-34.4 -11.5,-54.2 26.7,-37.1 73.2,-19.2 114.4,30.4 -17.0,38.0 1.2,15.3 13.2,-8.0 14.8,6.8 -5.2,48.2 -16.8,4.8 -11.4,43.5 -40.4,29.9 -31.3,-3.0 0,28.2 19.0,8.3 -44.2,19.0 -10.6,-25.1 9.9,-3.8 0,-28.2 z"/>
+    <path style="fill:none;stroke:#de8787;stroke-linecap:round;stroke-linejoin:round;" d="m 380.5,853.1 2.2,67.9 49.6,0.7 13.7,-22.9 -20.6,-3.8 -4.5,-44.2 -17.5,-13.7 z"/>
+    <path style="fill:none;stroke:#a02c2c;stroke-linecap:round;stroke-linejoin:round;" d="m 382.8,940.9 61.0,3.0 -13.7,15.2 -33.5,-3.0 z"/>
+    <path style="fill:none;stroke:#803300;stroke-linecap:round;stroke-linejoin:round;" d="m 451.0,845.6 20.5,4.8 -5.3,30.7 -12.6,-1.8 z"/>
+    <path style="fill:none;stroke:#803300;stroke-linecap:round;stroke-linejoin:round;" d="m 352.5,882.0 9.4,-3.2 3.7,-30.7 -13.2,8.6 z"/>
+    <path style="fill:none;stroke:#803300;stroke-linecap:round;stroke-linejoin:round;" d="m 352.5,856.4 9.3,22.2"/>
+    <path style="fill:none;stroke:#de8787;stroke-linecap:round;stroke-linejoin:round;" d="m 380.8,853.3 40.2,-2.5 -38.3,70.1 42.6,-25.9 6.6,26.5"/>
+    <path style="fill:none;stroke:#803300;stroke-linecap:round;stroke-linejoin:round;" d="m 471.4,850.4 -17.6,28.6"/>
+    <path style="fill:none;stroke:#a02c2c;stroke-linecap:round;stroke-linejoin:round;" d="m 443.3,943.9 -46.7,12.2"/>
+    <path style="fill:none;stroke:#ff9955;stroke-linecap:round;stroke-linejoin:round;" d="m 540.7,902.0 -22.5,-46.9 5.7,51.7"/>
+    <path style="fill:none;stroke:#ff9955;stroke-linecap:round;stroke-linejoin:round;" d="m 512.2,950.2 -71.0,27.1 -26.1,-1.7 25.3,30.1 -25.1,-1.7 44.0,10.3 -53.8,-6.1"/>
+    <path style="fill:none;stroke:#ff9955;stroke-linecap:round;stroke-linejoin:round;" d="m 518.5,8.3 27.5,-1.2"/>
+  </g>
+</svg></p>
+
+<h2 id='overview' class='section-header'><a href='#overview'>Overview</a></h2>
+<p>The most interesting modules of this crate are:</p>
+
+<ul>
+<li><a href="path_fill/index.html">path_fill</a> - Implementing the tessellation of complex path fill
+operations.</li>
+<li><a href="path_storke/index.html">path_storke</a> - Implementing the tessellation of complex path
+stroke operations.</li>
+<li><a href="geometry_builder/index.html">geometry_builder</a> - Which the above two are built on. It
+provides traits to facilitate generating arbitrary vertex and index buffers.</li>
+</ul>
+
+<h3 id='the-input-iterators' class='section-header'><a href='#the-input-iterators'>The input: iterators</a></h3>
+<p>The path tessellators are not tied to a particular data structure. Instead they consume
+iterators of <a href="../lyon_core/events/index.html">path events</a>.
+A <a href="../lyon_path/path/struct.Path.html">Path struct</a> in the crate <a href="../lyon_path/">lyon_path</a>
+is provided for convenience (but is not mandatory).</p>
+
+<p>The fill tessellator builds a <a href="path_fill/struct.FillEvents.html">FillEvents object</a> from
+the iterator. It is an intermediate representation which can be cached if the path needs
+to be tessellated again.</p>
+
+<h3 id='the-output-geometry-builders' class='section-header'><a href='#the-output-geometry-builders'>The output: geometry builders</a></h3>
+<p>The tessellators are parametrized over a type implementing the
+<a href="geometry_builder/trait.GeometryBuilder.html">BezierGeometryBuilder trait</a>.
+This trait provides some simple methods to add vertices and triangles, without enforcing
+any particular representation for the resulting geometry. This is important because each
+application has its own internal representation for the vertex and index buffers sent to
+the GPU, and the tessellator needs to be able to write directly into these buffers without
+enforcing a particular vertex layout.</p>
+
+<p>Each application will implement the <code>BezierGeometryBuilder&lt;Point&gt;</code> trait in order to
+generate vertex buffers and index buffers any type of vertex they want taking a 2d Point
+as input for each vertex.
+The structs <a href="geometry_builder/struct.VertexBuffers.html">VertexBuffers</a> and
+<a href="geometry_builder/struct.BuffersBuilder.html">geometry_buider::BuffersBuilder</a> are provided
+for convenience.</p>
+
+<h2 id='examples' class='section-header'><a href='#examples'>Examples</a></h2>
+<p>See the examples in the <a href="path_fill/index.html">path_fill</a> and <a href="path_stroke/index.html">path_stroke</a>
+modules documentation.</p>
+</div><h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
+<table><tr><td><code>pub use <a class='mod' href='../lyon_core/index.html' title='lyon_core'>core</a>::*;</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='basic_shapes/index.html'
+                                  title='lyon_tessellation::basic_shapes'>basic_shapes</a></td>
+                           <td class='docblock short'>
+                                <p>Tessellation routines for simple shapes.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='geometry_builder/index.html'
+                                  title='lyon_tessellation::geometry_builder'>geometry_builder</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='path_fill/index.html'
+                                  title='lyon_tessellation::path_fill'>path_fill</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='path_stroke/index.html'
+                                  title='lyon_tessellation::path_stroke'>path_stroke</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "lyon_tessellation";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["PathState","Represents the current state of a path while it is being built."]]});

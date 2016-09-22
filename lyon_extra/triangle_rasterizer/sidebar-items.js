@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["rasterize_triangles","A software triangle rasterizer intended for ref testing and to help debugging the output of the various tessellation routines."]],"trait":[["GetColor","Implemented vertices and constants that can return a color."],["PixelShader","An operation that is applied to each rasterized pixel"],["VertexData",""]]});

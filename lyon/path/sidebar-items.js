@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["Verb","Enumeration corresponding to the PathEvent enum without the parameters."]],"fn":[["flattened_path_builder","FlattenedPathBuilder constructor."]],"struct":[["Builder","Builds path object using the BaseBuilder interface."],["Path","A simple path data structure."],["PathIter",""],["PathSlice",""]],"type":[["FlattenedPathBuilder",""]]});

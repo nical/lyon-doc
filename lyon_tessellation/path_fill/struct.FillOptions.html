@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `FillOptions` struct in crate `lyon_tessellation`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, FillOptions">
+
+    <title>lyon_tessellation::path_fill::FillOptions - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>lyon_tessellation</a>::<wbr><a href='index.html'>path_fill</a></p><script>window.sidebarCurrent = {name: 'FillOptions', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>lyon_tessellation</a>::<wbr><a href='index.html'>path_fill</a>::<wbr><a class='struct' href=''>FillOptions</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-657' class='srclink' href='../../src/lyon_tessellation/tessellation/src/path_fill.rs.html#1309-1327' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct FillOptions {
+    pub tolerance: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,
+    pub fill_rule: <a class='enum' href='../../lyon_tessellation/path_fill/enum.FillRule.html' title='lyon_tessellation::path_fill::FillRule'>FillRule</a>,
+    pub vertex_aa: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>,
+    // some fields omitted
+}</pre><div class='docblock'><p>Parameters for the tessellator.</p>
+</div><h2 class='fields'>Fields</h2><span id='structfield.tolerance' class='structfield'><code>tolerance: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Maximum allowed distance to the path when building an approximation.</p>
+</div><span id='structfield.fill_rule' class='structfield'><code>fill_rule: <a class='enum' href='../../lyon_tessellation/path_fill/enum.FillRule.html' title='lyon_tessellation::path_fill::FillRule'>FillRule</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>See the SVG specification.</p>
+
+<p>Currently, only the EvenOdd rule is implemented.</p>
+</div><span id='structfield.vertex_aa' class='structfield'><code>vertex_aa: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>An anti-aliasing trick extruding a 1-px wide strip around the edges with
+a gradient to smooth the edges.</p>
+
+<p>Not implemented yet!</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class='struct' href='../../lyon_tessellation/path_fill/struct.FillOptions.html' title='lyon_tessellation::path_fill::FillOptions'>FillOptions</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-662' class='srclink' href='../../src/lyon_tessellation/tessellation/src/path_fill.rs.html#1329-1356' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.default' class='method'><code>fn <a href='#method.default' class='fnname'>default</a>() -&gt; <a class='struct' href='../../lyon_tessellation/path_fill/struct.FillOptions.html' title='lyon_tessellation::path_fill::FillOptions'>FillOptions</a></code></h4>
+<h4 id='method.even_odd' class='method'><code>fn <a href='#method.even_odd' class='fnname'>even_odd</a>() -&gt; <a class='struct' href='../../lyon_tessellation/path_fill/struct.FillOptions.html' title='lyon_tessellation::path_fill::FillOptions'>FillOptions</a></code></h4>
+<h4 id='method.non_zero' class='method'><code>fn <a href='#method.non_zero' class='fnname'>non_zero</a>() -&gt; <a class='struct' href='../../lyon_tessellation/path_fill/struct.FillOptions.html' title='lyon_tessellation::path_fill::FillOptions'>FillOptions</a></code></h4>
+<h4 id='method.with_tolerance' class='method'><code>fn <a href='#method.with_tolerance' class='fnname'>with_tolerance</a>(self, tolerance: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>) -&gt; <a class='struct' href='../../lyon_tessellation/path_fill/struct.FillOptions.html' title='lyon_tessellation::path_fill::FillOptions'>FillOptions</a></code></h4>
+<h4 id='method.with_vertex_aa' class='method'><code>fn <a href='#method.with_vertex_aa' class='fnname'>with_vertex_aa</a>(self) -&gt; <a class='struct' href='../../lyon_tessellation/path_fill/struct.FillOptions.html' title='lyon_tessellation::path_fill::FillOptions'>FillOptions</a></code></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "lyon_tessellation";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `path_fill` mod in crate `lyon`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, path_fill">
+
+    <title>lyon::tessellation::path_fill - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../../index.html'>lyon</a>::<wbr><a href='../index.html'>tessellation</a></p><script>window.sidebarCurrent = {name: 'path_fill', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod">
+<h1 class='fqn'><span class='in-band'>Module <a href='../../index.html'>lyon</a>::<wbr><a href='../index.html'>tessellation</a>::<wbr><a class='mod' href=''>path_fill</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-77' class='srclink' href='../../../lyon_tessellation/path_fill/index.html?gotosrc=77' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'>
+<h1 id='path-fill-tessellator' class='section-header'><a href='#path-fill-tessellator'>Path fill tessellator</a></h1>
+<p>Tessellation routines for complex path fill operations.</p>
+
+<p><svg version="1.1" viewBox="0 0 400 200" height="200" width="400">
+  <g transform="translate(0,-852.36216)">
+    <path style="fill:#aad400;stroke:none;" transform="translate(0,852.36216)" d="M 20 20 L 20 180 L 180.30273 180 L 180.30273 20 L 20 20 z M 100 55 L 145 145 L 55 145 L 100 55 z "/>
+    <path style="fill:#aad400;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-" d="m 219.75767,872.36216 0,160.00004 160.30273,0 0,-160.00004 -160.30273,0 z m 80,35 45,90 -90,0 45,-90 z"/>
+    <path style="fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-" d="m 220,1032.3622 35,-35.00004 125,35.00004 -35,-35.00004 35,-125 -80,35 -80,-35 35,125"/>
+    <circle r="5" cy="872.36218" cx="20" style="color:#000000;;fill:#ff6600;fill-;stroke:#000000;" />
+    <circle r="5" cx="180.10918" cy="872.61475" style="fill:#ff6600;stroke:#000000;"/>
+    <circle r="5" cy="1032.2189" cx="180.10918" style="fill:#ff6600;stroke:#000000;"/>
+    <circle r="5" cx="20.505075" cy="1032.4714" style="fill:#ff6600;stroke:#000000;"/>
+    <circle r="5" cy="907.21252" cx="99.802048" style="fill:#ff6600;stroke:#000000;"/>
+    <circle r="5" cx="55.102798" cy="997.36865" style="fill:#ff6600;stroke:#000000;"/>
+    <circle r="5" cy="997.62122" cx="145.25891" style="fill:#ff6600;stroke:#000000;"/>
+  </g>
+</svg></p>
+
+<h2 id='overview' class='section-header'><a href='#overview'>Overview</a></h2>
+<p>The most important structure is <a href="struct.FillTessellator.html">FillTessellator</a>.
+It implements the path fill tessellation algorithm which is by far the most advanced
+feature in all lyon crates.</p>
+
+<p>The FillTessellator takes a <a href="struct.FillEvents.html">FillEvents</a> object and
+<a href="struct.FillOptions.html">FillOptions</a> as input. The former is an intermediate representaion
+of the path, containing all edges sorted from top to bottom. FillOption contains
+some extra parameters (Some of which are not implemented yet).</p>
+
+<p>The output of the tessellator is produced by the
+<a href="../geometry_builder/trait.BezierGeometryBuilder.html">BezierGeometryBuilder</a> (see the
+<a href="../geometry_builder/index.html">geometry_builder documentation</a> for more details about
+how tessellators produce their output geometry, and how to generate custom vertex layouts).</p>
+
+<p>The <a href="https://github.com/nical/lyon/wiki/Tessellator">tessellator&#39;s wiki page</a> is a good place
+to learn more about how the tessellator&#39;s algorithm works. The source code also contains
+inline documentation for the adventurous who want to delve into more details.</p>
+
+<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
+<pre class='rust rust-example-rendered'>
+<span class='comment'>// Create a simple path.</span>
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>path_builder</span> <span class='op'>=</span> <span class='ident'>Path</span>::<span class='ident'>builder</span>();
+<span class='ident'>path_builder</span>.<span class='ident'>move_to</span>(<span class='ident'>point</span>(<span class='number'>0.0</span>, <span class='number'>0.0</span>));
+<span class='ident'>path_builder</span>.<span class='ident'>line_to</span>(<span class='ident'>point</span>(<span class='number'>1.0</span>, <span class='number'>2.0</span>));
+<span class='ident'>path_builder</span>.<span class='ident'>line_to</span>(<span class='ident'>point</span>(<span class='number'>2.0</span>, <span class='number'>0.0</span>));
+<span class='ident'>path_builder</span>.<span class='ident'>line_to</span>(<span class='ident'>point</span>(<span class='number'>1.0</span>, <span class='number'>1.0</span>));
+<span class='ident'>path_builder</span>.<span class='ident'>close</span>();
+<span class='kw'>let</span> <span class='ident'>path</span> <span class='op'>=</span> <span class='ident'>path_builder</span>.<span class='ident'>build</span>();
+
+<span class='comment'>// Create the destination vertex and index buffers.</span>
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>buffers</span>: <span class='ident'>VertexBuffers</span><span class='op'>&lt;</span><span class='ident'>Point</span><span class='op'>&gt;</span> <span class='op'>=</span> <span class='ident'>VertexBuffers</span>::<span class='ident'>new</span>();
+
+{
+    <span class='comment'>// Create the destination vertex and index buffers.</span>
+    <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>vertex_builder</span> <span class='op'>=</span> <span class='ident'>simple_builder</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>buffers</span>);
+
+    <span class='comment'>// Create the tessellator.</span>
+    <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>tessellator</span> <span class='op'>=</span> <span class='ident'>FillTessellator</span>::<span class='ident'>new</span>();
+
+    <span class='comment'>// Allocate the FillEvents object and initialize it from a path iterator.</span>
+    <span class='kw'>let</span> <span class='ident'>events</span> <span class='op'>=</span> <span class='ident'>FillEvents</span>::<span class='ident'>from_iter</span>(<span class='ident'>path</span>.<span class='ident'>path_iter</span>().<span class='ident'>flattened</span>(<span class='number'>0.05</span>));
+
+    <span class='comment'>// Compute the tessellation.</span>
+    <span class='kw'>let</span> <span class='ident'>result</span> <span class='op'>=</span> <span class='ident'>tessellator</span>.<span class='ident'>tessellate_events</span>(
+        <span class='kw-2'>&amp;</span><span class='ident'>events</span>,
+        <span class='kw-2'>&amp;</span><span class='ident'>FillOptions</span>::<span class='ident'>default</span>(),
+        <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>vertex_builder</span>
+    );
+    <span class='macro'>assert</span><span class='macro'>!</span>(<span class='ident'>result</span>.<span class='ident'>is_ok</span>());
+}
+
+<span class='macro'>println</span><span class='macro'>!</span>(<span class='string'>&quot;The generated vertices are: {:?}.&quot;</span>, <span class='kw-2'>&amp;</span><span class='ident'>buffers</span>.<span class='ident'>vertices</span>[..]);
+<span class='macro'>println</span><span class='macro'>!</span>(<span class='string'>&quot;The generated indices are: {:?}.&quot;</span>, <span class='kw-2'>&amp;</span><span class='ident'>buffers</span>.<span class='ident'>indices</span>[..]);
+</pre>
+</div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.FillEvents.html'
+                                  title='lyon::tessellation::path_fill::FillEvents'>FillEvents</a></td>
+                           <td class='docblock short'>
+                                <p>A sequence of edges sorted from top to bottom, to be used as the tessellator&#39;s input.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.FillOptions.html'
+                                  title='lyon::tessellation::path_fill::FillOptions'>FillOptions</a></td>
+                           <td class='docblock short'>
+                                <p>Parameters for the tessellator.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.FillTessellator.html'
+                                  title='lyon::tessellation::path_fill::FillTessellator'>FillTessellator</a></td>
+                           <td class='docblock short'>
+                                <p>A Context object that can tessellate fill operations for complex paths.</p>
+                           </td>
+                       </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.FillError.html'
+                                  title='lyon::tessellation::path_fill::FillError'>FillError</a></td>
+                           <td class='docblock short'>
+                                <p>The fill tessellator&#39;s error enumeration.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.FillRule.html'
+                                  title='lyon::tessellation::path_fill::FillRule'>FillRule</a></td>
+                           <td class='docblock short'>
+                                <p>The fill rule defines how to determine what is inside and what is outside of the shape.</p>
+                           </td>
+                       </tr></table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='type' href='type.FillResult.html'
+                                  title='lyon::tessellation::path_fill::FillResult'>FillResult</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "lyon";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../../jquery.js"></script>
+    <script src="../../../main.js"></script>
+    
+    <script defer src="../../../search-index.js"></script>
+</body>
+</html>

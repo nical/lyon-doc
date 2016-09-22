@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["events",""],["fixed",""],["math",""],["math_utils","Various math tools that are usefull for several modules."],["path_state",""]],"struct":[["ArcFlags","Flag parameters for arcs as described by the SVG specification."]]});

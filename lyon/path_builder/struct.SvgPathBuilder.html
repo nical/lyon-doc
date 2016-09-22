@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `SvgPathBuilder` struct in crate `lyon`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, SvgPathBuilder">
+
+    <title>lyon::path_builder::SvgPathBuilder - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>lyon</a>::<wbr><a href='index.html'>path_builder</a></p><script>window.sidebarCurrent = {name: 'SvgPathBuilder', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>lyon</a>::<wbr><a href='index.html'>path_builder</a>::<wbr><a class='struct' href=''>SvgPathBuilder</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-150' class='srclink' href='../../lyon_path_builder/path_builder/struct.SvgPathBuilder.html?gotosrc=150' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct SvgPathBuilder&lt;Builder&gt; <span class='where'>where Builder: <a class='trait' href='../../lyon/path_builder/trait.PathBuilder.html' title='lyon::path_builder::PathBuilder'>PathBuilder</a></span> {
+    // some fields omitted
+}</pre><div class='docblock'><p>Implements the Svg building interface on top of a PathBuilder.</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl&lt;Builder&gt; <a class='struct' href='../../lyon/path_builder/struct.SvgPathBuilder.html' title='lyon::path_builder::SvgPathBuilder'>SvgPathBuilder</a>&lt;Builder&gt; <span class='where'>where Builder: <a class='trait' href='../../lyon/path_builder/trait.PathBuilder.html' title='lyon::path_builder::PathBuilder'>PathBuilder</a></span></code></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>(builder: Builder) -&gt; <a class='struct' href='../../lyon/path_builder/struct.SvgPathBuilder.html' title='lyon::path_builder::SvgPathBuilder'>SvgPathBuilder</a>&lt;Builder&gt;</code></h4>
+</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl&lt;Builder&gt; <a class='trait' href='../../lyon/path_builder/trait.BaseBuilder.html' title='lyon::path_builder::BaseBuilder'>BaseBuilder</a> for <a class='struct' href='../../lyon/path_builder/struct.SvgPathBuilder.html' title='lyon::path_builder::SvgPathBuilder'>SvgPathBuilder</a>&lt;Builder&gt; <span class='where'>where Builder: <a class='trait' href='../../lyon/path_builder/trait.PathBuilder.html' title='lyon::path_builder::PathBuilder'>PathBuilder</a></span></code></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='associatedtype.PathType' class='type'><code>type <a href='../../lyon/path_builder/trait.BaseBuilder.html#associatedtype.PathType' class='type'>PathType</a> = Builder::<a class='trait' href='../../lyon/path_builder/trait.BaseBuilder.html' title='lyon::path_builder::BaseBuilder'>PathType</a></code></h4>
+<div class='docblock'><p>The type of object that is created by this builder.</p>
+</div><h4 id='method.move_to' class='method'><code>fn <a href='../../lyon/path_builder/trait.BaseBuilder.html#tymethod.move_to' class='fnname'>move_to</a>(&amp;mut self, to: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;)</code></h4>
+<div class='docblock'><p>Sets the current position in preparation for the next sub-path. If the current sub-path contains edges, this ends the sub-path without closing it. <a href="../../lyon/path_builder/trait.BaseBuilder.html#tymethod.move_to">Read more</a></p>
+</div><h4 id='method.line_to' class='method'><code>fn <a href='../../lyon/path_builder/trait.BaseBuilder.html#tymethod.line_to' class='fnname'>line_to</a>(&amp;mut self, to: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;)</code></h4>
+<div class='docblock'><p>Adds a line segment to the current sub-path and set the current position.</p>
+</div><h4 id='method.close' class='method'><code>fn <a href='../../lyon/path_builder/trait.BaseBuilder.html#tymethod.close' class='fnname'>close</a>(&amp;mut self)</code></h4>
+<div class='docblock'><p>Closes the current sub path and sets the current position to the first position of this the current sub-path. <a href="../../lyon/path_builder/trait.BaseBuilder.html#tymethod.close">Read more</a></p>
+</div><h4 id='method.current_position' class='method'><code>fn <a href='../../lyon/path_builder/trait.BaseBuilder.html#tymethod.current_position' class='fnname'>current_position</a>(&amp;self) -&gt; <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;</code></h4>
+<h4 id='method.build' class='method'><code>fn <a href='../../lyon/path_builder/trait.BaseBuilder.html#tymethod.build' class='fnname'>build</a>(self) -&gt; Builder::<a class='trait' href='../../lyon/path_builder/trait.BaseBuilder.html' title='lyon::path_builder::BaseBuilder'>PathType</a></code></h4>
+<div class='docblock'><p>Builds a path object and resets the builder so that it can be used again.</p>
+</div><h4 id='method.build_and_reset' class='method'><code>fn <a href='../../lyon/path_builder/trait.BaseBuilder.html#tymethod.build_and_reset' class='fnname'>build_and_reset</a>(&amp;mut self) -&gt; Builder::<a class='trait' href='../../lyon/path_builder/trait.BaseBuilder.html' title='lyon::path_builder::BaseBuilder'>PathType</a></code></h4>
+<div class='docblock'><p>Builds a path object and resets the builder so that it can be used again.</p>
+</div><h4 id='method.flat_event' class='method'><code>fn <a href='../../lyon/path_builder/trait.BaseBuilder.html#method.flat_event' class='fnname'>flat_event</a>(&amp;mut self, event: <a class='enum' href='../../lyon/tessellation/enum.FlattenedEvent.html' title='lyon::tessellation::FlattenedEvent'>FlattenedEvent</a>)</code></h4>
+<h4 id='method.flattened' class='method'><code>fn <a href='../../lyon/path_builder/trait.BaseBuilder.html#method.flattened' class='fnname'>flattened</a>(self, tolerance: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>) -&gt; <a class='struct' href='../../lyon/path_builder/struct.FlatteningBuilder.html' title='lyon::path_builder::FlatteningBuilder'>FlatteningBuilder</a>&lt;Self&gt;</code></h4>
+<div class='docblock'><p>Returns a builder that approximates all curves with sequences of line segments.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl&lt;Builder&gt; <a class='trait' href='../../lyon/path_builder/trait.PathBuilder.html' title='lyon::path_builder::PathBuilder'>PathBuilder</a> for <a class='struct' href='../../lyon/path_builder/struct.SvgPathBuilder.html' title='lyon::path_builder::SvgPathBuilder'>SvgPathBuilder</a>&lt;Builder&gt; <span class='where'>where Builder: <a class='trait' href='../../lyon/path_builder/trait.PathBuilder.html' title='lyon::path_builder::PathBuilder'>PathBuilder</a></span></code></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.quadratic_bezier_to' class='method'><code>fn <a href='../../lyon/path_builder/trait.PathBuilder.html#tymethod.quadratic_bezier_to' class='fnname'>quadratic_bezier_to</a>(&amp;mut self, ctrl: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;, to: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;)</code></h4>
+<h4 id='method.cubic_bezier_to' class='method'><code>fn <a href='../../lyon/path_builder/trait.PathBuilder.html#tymethod.cubic_bezier_to' class='fnname'>cubic_bezier_to</a>(&amp;mut self, ctrl1: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;, ctrl2: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;, to: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;)</code></h4>
+<h4 id='method.path_event' class='method'><code>fn <a href='../../lyon/path_builder/trait.PathBuilder.html#method.path_event' class='fnname'>path_event</a>(&amp;mut self, event: <a class='enum' href='../../lyon/tessellation/enum.PathEvent.html' title='lyon::tessellation::PathEvent'>PathEvent</a>)</code></h4>
+<h4 id='method.with_svg' class='method'><code>fn <a href='../../lyon/path_builder/trait.PathBuilder.html#method.with_svg' class='fnname'>with_svg</a>(self) -&gt; <a class='struct' href='../../lyon/path_builder/struct.SvgPathBuilder.html' title='lyon::path_builder::SvgPathBuilder'>SvgPathBuilder</a>&lt;Self&gt;</code></h4>
+<div class='docblock'><p>Returns a builder that support svg commands.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl&lt;Builder&gt; <a class='trait' href='../../lyon/path_builder/trait.SvgBuilder.html' title='lyon::path_builder::SvgBuilder'>SvgBuilder</a> for <a class='struct' href='../../lyon/path_builder/struct.SvgPathBuilder.html' title='lyon::path_builder::SvgPathBuilder'>SvgPathBuilder</a>&lt;Builder&gt; <span class='where'>where Builder: <a class='trait' href='../../lyon/path_builder/trait.PathBuilder.html' title='lyon::path_builder::PathBuilder'>PathBuilder</a></span></code></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.relative_move_to' class='method'><code>fn <a href='../../lyon/path_builder/trait.SvgBuilder.html#tymethod.relative_move_to' class='fnname'>relative_move_to</a>(&amp;mut self, to: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;)</code></h4>
+<h4 id='method.relative_line_to' class='method'><code>fn <a href='../../lyon/path_builder/trait.SvgBuilder.html#tymethod.relative_line_to' class='fnname'>relative_line_to</a>(&amp;mut self, to: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;)</code></h4>
+<h4 id='method.relative_quadratic_bezier_to' class='method'><code>fn <a href='../../lyon/path_builder/trait.SvgBuilder.html#tymethod.relative_quadratic_bezier_to' class='fnname'>relative_quadratic_bezier_to</a>(&amp;mut self, ctrl: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;, to: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;)</code></h4>
+<h4 id='method.relative_cubic_bezier_to' class='method'><code>fn <a href='../../lyon/path_builder/trait.SvgBuilder.html#tymethod.relative_cubic_bezier_to' class='fnname'>relative_cubic_bezier_to</a>(&amp;mut self, ctrl1: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;, ctrl2: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;, to: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;)</code></h4>
+<h4 id='method.smooth_cubic_bezier_to' class='method'><code>fn <a href='../../lyon/path_builder/trait.SvgBuilder.html#tymethod.smooth_cubic_bezier_to' class='fnname'>smooth_cubic_bezier_to</a>(&amp;mut self, ctrl2: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;, to: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;)</code></h4>
+<h4 id='method.smooth_relative_cubic_bezier_to' class='method'><code>fn <a href='../../lyon/path_builder/trait.SvgBuilder.html#tymethod.smooth_relative_cubic_bezier_to' class='fnname'>smooth_relative_cubic_bezier_to</a>(&amp;mut self, ctrl2: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;, to: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;)</code></h4>
+<h4 id='method.smooth_quadratic_bezier_to' class='method'><code>fn <a href='../../lyon/path_builder/trait.SvgBuilder.html#tymethod.smooth_quadratic_bezier_to' class='fnname'>smooth_quadratic_bezier_to</a>(&amp;mut self, to: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;)</code></h4>
+<h4 id='method.smooth_relative_quadratic_bezier_to' class='method'><code>fn <a href='../../lyon/path_builder/trait.SvgBuilder.html#tymethod.smooth_relative_quadratic_bezier_to' class='fnname'>smooth_relative_quadratic_bezier_to</a>(&amp;mut self, to: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;)</code></h4>
+<h4 id='method.horizontal_line_to' class='method'><code>fn <a href='../../lyon/path_builder/trait.SvgBuilder.html#tymethod.horizontal_line_to' class='fnname'>horizontal_line_to</a>(&amp;mut self, x: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>)</code></h4>
+<h4 id='method.relative_horizontal_line_to' class='method'><code>fn <a href='../../lyon/path_builder/trait.SvgBuilder.html#tymethod.relative_horizontal_line_to' class='fnname'>relative_horizontal_line_to</a>(&amp;mut self, dx: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>)</code></h4>
+<h4 id='method.vertical_line_to' class='method'><code>fn <a href='../../lyon/path_builder/trait.SvgBuilder.html#tymethod.vertical_line_to' class='fnname'>vertical_line_to</a>(&amp;mut self, y: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>)</code></h4>
+<h4 id='method.relative_vertical_line_to' class='method'><code>fn <a href='../../lyon/path_builder/trait.SvgBuilder.html#tymethod.relative_vertical_line_to' class='fnname'>relative_vertical_line_to</a>(&amp;mut self, dy: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>)</code></h4>
+<h4 id='method.arc_to' class='method'><code>fn <a href='../../lyon/path_builder/trait.SvgBuilder.html#tymethod.arc_to' class='fnname'>arc_to</a>(&amp;mut self, to: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;, radii: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;, x_rotation: <a class='struct' href='../../euclid/length/struct.Length.html' title='euclid::length::Length'>Length</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.Rad.html' title='euclid::Rad'>Rad</a>&gt;, flags: <a class='struct' href='../../lyon/tessellation/struct.ArcFlags.html' title='lyon::tessellation::ArcFlags'>ArcFlags</a>)</code></h4>
+<h4 id='method.relative_arc_to' class='method'><code>fn <a href='../../lyon/path_builder/trait.SvgBuilder.html#tymethod.relative_arc_to' class='fnname'>relative_arc_to</a>(&amp;mut self, to: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;, radii: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;, x_rotation: <a class='struct' href='../../euclid/length/struct.Length.html' title='euclid::length::Length'>Length</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.Rad.html' title='euclid::Rad'>Rad</a>&gt;, flags: <a class='struct' href='../../lyon/tessellation/struct.ArcFlags.html' title='lyon::tessellation::ArcFlags'>ArcFlags</a>)</code></h4>
+<h4 id='method.svg_event' class='method'><code>fn <a href='../../lyon/path_builder/trait.SvgBuilder.html#method.svg_event' class='fnname'>svg_event</a>(&amp;mut self, event: <a class='enum' href='../../lyon/tessellation/events/enum.SvgEvent.html' title='lyon::tessellation::events::SvgEvent'>SvgEvent</a>)</code></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "lyon";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

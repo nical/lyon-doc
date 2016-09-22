@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `SvgBuilder` trait in crate `lyon`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, SvgBuilder">
+
+    <title>lyon::path_builder::SvgBuilder - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>lyon</a>::<wbr><a href='index.html'>path_builder</a></p><script>window.sidebarCurrent = {name: 'SvgBuilder', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content trait">
+<h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>lyon</a>::<wbr><a href='index.html'>path_builder</a>::<wbr><a class='trait' href=''>SvgBuilder</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-57' class='srclink' href='../../lyon_path_builder/path_builder/trait.SvgBuilder.html?gotosrc=57' title='goto source code'>[src]</a></span></h1>
+<pre class='rust trait'>pub trait SvgBuilder: <a class='trait' href='../../lyon/path_builder/trait.PathBuilder.html' title='lyon::path_builder::PathBuilder'>PathBuilder</a> {
+    fn <a href='#tymethod.relative_move_to' class='fnname'>relative_move_to</a>(&amp;mut self, to: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;);
+    fn <a href='#tymethod.relative_line_to' class='fnname'>relative_line_to</a>(&amp;mut self, to: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;);
+    fn <a href='#tymethod.relative_quadratic_bezier_to' class='fnname'>relative_quadratic_bezier_to</a>(&amp;mut self, ctrl: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;, to: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;);
+    fn <a href='#tymethod.relative_cubic_bezier_to' class='fnname'>relative_cubic_bezier_to</a>(&amp;mut self, ctrl1: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;, ctrl2: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;, to: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;);
+    fn <a href='#tymethod.smooth_cubic_bezier_to' class='fnname'>smooth_cubic_bezier_to</a>(&amp;mut self, ctrl2: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;, to: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;);
+    fn <a href='#tymethod.smooth_relative_cubic_bezier_to' class='fnname'>smooth_relative_cubic_bezier_to</a>(&amp;mut self, ctrl2: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;, to: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;);
+    fn <a href='#tymethod.smooth_quadratic_bezier_to' class='fnname'>smooth_quadratic_bezier_to</a>(&amp;mut self, to: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;);
+    fn <a href='#tymethod.smooth_relative_quadratic_bezier_to' class='fnname'>smooth_relative_quadratic_bezier_to</a>(&amp;mut self, to: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;);
+    fn <a href='#tymethod.horizontal_line_to' class='fnname'>horizontal_line_to</a>(&amp;mut self, x: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>);
+    fn <a href='#tymethod.relative_horizontal_line_to' class='fnname'>relative_horizontal_line_to</a>(&amp;mut self, dx: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>);
+    fn <a href='#tymethod.vertical_line_to' class='fnname'>vertical_line_to</a>(&amp;mut self, y: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>);
+    fn <a href='#tymethod.relative_vertical_line_to' class='fnname'>relative_vertical_line_to</a>(&amp;mut self, dy: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>);
+    fn <a href='#tymethod.arc_to' class='fnname'>arc_to</a>(&amp;mut self, to: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;, radii: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;, x_rotation: <a class='struct' href='../../euclid/length/struct.Length.html' title='euclid::length::Length'>Length</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.Rad.html' title='euclid::Rad'>Rad</a>&gt;, flags: <a class='struct' href='../../lyon/tessellation/struct.ArcFlags.html' title='lyon::tessellation::ArcFlags'>ArcFlags</a>);
+    fn <a href='#tymethod.relative_arc_to' class='fnname'>relative_arc_to</a>(&amp;mut self, to: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;, radii: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;, x_rotation: <a class='struct' href='../../euclid/length/struct.Length.html' title='euclid::length::Length'>Length</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.Rad.html' title='euclid::Rad'>Rad</a>&gt;, flags: <a class='struct' href='../../lyon/tessellation/struct.ArcFlags.html' title='lyon::tessellation::ArcFlags'>ArcFlags</a>);
+
+    fn <a href='#method.svg_event' class='fnname'>svg_event</a>(&amp;mut self, event: <a class='enum' href='../../lyon/tessellation/events/enum.SvgEvent.html' title='lyon::tessellation::events::SvgEvent'>SvgEvent</a>) { ... }
+}</pre><div class='docblock'><p>A path building interface that tries to stay close to SVG&#39;s path specification.
+<a href="https://svgwg.org/specs/paths/">https://svgwg.org/specs/paths/</a></p>
+</div>
+            <h2 id='required-methods'>Required Methods</h2>
+            <div class='methods'>
+        <h3 id='tymethod.relative_move_to' class='method stab '><code>fn <a href='#tymethod.relative_move_to' class='fnname'>relative_move_to</a>(&amp;mut self, to: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;)</code></h3><h3 id='tymethod.relative_line_to' class='method stab '><code>fn <a href='#tymethod.relative_line_to' class='fnname'>relative_line_to</a>(&amp;mut self, to: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;)</code></h3><h3 id='tymethod.relative_quadratic_bezier_to' class='method stab '><code>fn <a href='#tymethod.relative_quadratic_bezier_to' class='fnname'>relative_quadratic_bezier_to</a>(&amp;mut self, ctrl: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;, to: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;)</code></h3><h3 id='tymethod.relative_cubic_bezier_to' class='method stab '><code>fn <a href='#tymethod.relative_cubic_bezier_to' class='fnname'>relative_cubic_bezier_to</a>(&amp;mut self, ctrl1: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;, ctrl2: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;, to: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;)</code></h3><h3 id='tymethod.smooth_cubic_bezier_to' class='method stab '><code>fn <a href='#tymethod.smooth_cubic_bezier_to' class='fnname'>smooth_cubic_bezier_to</a>(&amp;mut self, ctrl2: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;, to: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;)</code></h3><h3 id='tymethod.smooth_relative_cubic_bezier_to' class='method stab '><code>fn <a href='#tymethod.smooth_relative_cubic_bezier_to' class='fnname'>smooth_relative_cubic_bezier_to</a>(&amp;mut self, ctrl2: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;, to: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;)</code></h3><h3 id='tymethod.smooth_quadratic_bezier_to' class='method stab '><code>fn <a href='#tymethod.smooth_quadratic_bezier_to' class='fnname'>smooth_quadratic_bezier_to</a>(&amp;mut self, to: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;)</code></h3><h3 id='tymethod.smooth_relative_quadratic_bezier_to' class='method stab '><code>fn <a href='#tymethod.smooth_relative_quadratic_bezier_to' class='fnname'>smooth_relative_quadratic_bezier_to</a>(&amp;mut self, to: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;)</code></h3><h3 id='tymethod.horizontal_line_to' class='method stab '><code>fn <a href='#tymethod.horizontal_line_to' class='fnname'>horizontal_line_to</a>(&amp;mut self, x: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>)</code></h3><h3 id='tymethod.relative_horizontal_line_to' class='method stab '><code>fn <a href='#tymethod.relative_horizontal_line_to' class='fnname'>relative_horizontal_line_to</a>(&amp;mut self, dx: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>)</code></h3><h3 id='tymethod.vertical_line_to' class='method stab '><code>fn <a href='#tymethod.vertical_line_to' class='fnname'>vertical_line_to</a>(&amp;mut self, y: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>)</code></h3><h3 id='tymethod.relative_vertical_line_to' class='method stab '><code>fn <a href='#tymethod.relative_vertical_line_to' class='fnname'>relative_vertical_line_to</a>(&amp;mut self, dy: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>)</code></h3><h3 id='tymethod.arc_to' class='method stab '><code>fn <a href='#tymethod.arc_to' class='fnname'>arc_to</a>(&amp;mut self, to: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;, radii: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;, x_rotation: <a class='struct' href='../../euclid/length/struct.Length.html' title='euclid::length::Length'>Length</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.Rad.html' title='euclid::Rad'>Rad</a>&gt;, flags: <a class='struct' href='../../lyon/tessellation/struct.ArcFlags.html' title='lyon::tessellation::ArcFlags'>ArcFlags</a>)</code></h3><h3 id='tymethod.relative_arc_to' class='method stab '><code>fn <a href='#tymethod.relative_arc_to' class='fnname'>relative_arc_to</a>(&amp;mut self, to: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;, radii: <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;, x_rotation: <a class='struct' href='../../euclid/length/struct.Length.html' title='euclid::length::Length'>Length</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.Rad.html' title='euclid::Rad'>Rad</a>&gt;, flags: <a class='struct' href='../../lyon/tessellation/struct.ArcFlags.html' title='lyon::tessellation::ArcFlags'>ArcFlags</a>)</code></h3></div>
+            <h2 id='provided-methods'>Provided Methods</h2>
+            <div class='methods'>
+        <h3 id='method.svg_event' class='method stab '><code>fn <a href='#method.svg_event' class='fnname'>svg_event</a>(&amp;mut self, event: <a class='enum' href='../../lyon/tessellation/events/enum.SvgEvent.html' title='lyon::tessellation::events::SvgEvent'>SvgEvent</a>)</code></h3></div>
+        <h2 id='implementors'>Implementors</h2>
+        <ul class='item-list' id='implementors-list'>
+    <li><code>impl&lt;Builder&gt; SvgBuilder for <a class='struct' href='../../lyon/path_builder/struct.SvgPathBuilder.html' title='lyon::path_builder::SvgPathBuilder'>SvgPathBuilder</a>&lt;Builder&gt; <span class='where'>where Builder: <a class='trait' href='../../lyon/path_builder/trait.PathBuilder.html' title='lyon::path_builder::PathBuilder'>PathBuilder</a></span></code></li>
+</ul><script type="text/javascript" async
+                         src="../../implementors/lyon_path_builder/path_builder/trait.SvgBuilder.js">
+                 </script></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "lyon";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

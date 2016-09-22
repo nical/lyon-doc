@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["basic_shapes","Tessellation routines for simple shapes."],["geometry_builder","Geometry builder"],["path_fill","Path fill tessellator"],["path_stroke","Path stroke tessellator"]]});

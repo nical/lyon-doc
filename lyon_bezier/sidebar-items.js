@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["CubicBezierSegment",""],["CubicFlatteningIter","An iterator that expresses the linearization of a cubic bezier segment for given a tolerance threshold. The iterator starts at the first point *after* the origin of the curve and ends at the destination."],["QuadraticBezierSegment",""],["QuadraticFlatteningIter",""]],"type":[["Point",""],["Vec2",""]]});

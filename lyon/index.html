@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `lyon` crate.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, lyon">
+
+    <title>lyon - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'></p><script>window.sidebarCurrent = {name: 'lyon', ty: 'mod', relpath: '../'};</script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod">
+<h1 class='fqn'><span class='in-band'>Crate <a class='mod' href=''>lyon</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-0' class='srclink' href='../src/lyon/src/lib.rs.html#1-44' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'>
+<h1 id='lyon' class='section-header'><a href='#lyon'>Lyon</a></h1>
+<p>2d rendering on the GPU in rust.</p>
+
+<h1 id='crates' class='section-header'><a href='#crates'>Crates</a></h1>
+<ul>
+<li><a href="https://crates.io/crates/lyon_tessellation">lyon_tessellation</a> (<a href="../lyon_tessellation/index.html">documentation</a>): Path tessellation routines.</li>
+<li><a href="https://crates.io/crates/lyon_path_builder">lyon_path_builder</a> (<a href="../lyon_path_builder/index.html">documentation</a>): Tools to facilitate building paths.</li>
+<li><a href="https://crates.io/crates/lyon_path_iterator">lyon_path_iterator</a> (<a href="../lyon_path_iterator/index.html">documentation</a>): Tools to facilitate iteratring over paths.</li>
+<li><a href="https://crates.io/crates/lyon_path">lyon_path</a> (<a href="../lyon_path/index.html">documentation</a>): A simple optional path datat structure, provided for convenience.</li>
+<li><a href="https://crates.io/crates/lyon_bezier">lyon_bezier</a> (<a href="../lyon_bezier/index.html">documentation</a>): Cubic and Quadratic 2d bezier math.</li>
+<li><a href="https://crates.io/crates/lyon_extra">lyon_extra</a> (<a href="../lyon_extra/index.html">documentation</a>): Additional testing and debugging tools.</li>
+<li><a href="https://crates.io/crates/lyon_path">lyon_core</a> (<a href="../lyon_core/index.html">documentation</a>): Common types to most lyon crates.</li>
+</ul>
+
+<p><a href="https://crates.io/crates/lyon">This crate</a> is just a meta-crate, reexporting the crates listed above.</p>
+
+<h1 id='additional-documentation-and-links' class='section-header'><a href='#additional-documentation-and-links'>Additional documentation and links</a></h1>
+<ul>
+<li>There is some useful documentaion on the project&#39;s <a href="https://github.com/nical/lyon/wiki">wiki</a>.</li>
+<li>The source code is available on the project&#39;s <a href="https://github.com/nical/lyon">git repository</a>.</li>
+<li>Interested in contributing? <a href="https://github.com/nical/lyon/wiki/Contribute">This page is</a>
+is probably what you are looking for! You can also look at the list of
+<a href="https://github.com/nical/lyon/issues?q=is%3Aissue+is%3Aopen+label%3Aeasy">issues marked as easy</a>,
+they are a good place to start.</li>
+</ul>
+</div><h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
+<table><tr><td><code>pub extern crate <a class='mod' href='../lyon_core/index.html' title='lyon_core'>lyon_core</a>;</code></td></tr><tr><td><code>pub extern crate <a class='mod' href='../lyon/path/index.html' title='lyon::path'>lyon_path</a>;</code></td></tr><tr><td><code>pub extern crate <a class='mod' href='../lyon/path_builder/index.html' title='lyon::path_builder'>lyon_path_builder</a>;</code></td></tr><tr><td><code>pub extern crate <a class='mod' href='../lyon/path_iterator/index.html' title='lyon::path_iterator'>lyon_path_iterator</a>;</code></td></tr><tr><td><code>pub extern crate <a class='mod' href='../lyon/tessellation/index.html' title='lyon::tessellation'>lyon_tessellation</a>;</code></td></tr><tr><td><code>pub extern crate <a class='mod' href='../lyon/bezier/index.html' title='lyon::bezier'>lyon_bezier</a>;</code></td></tr><tr><td><code>pub extern crate <a class='mod' href='../lyon/extra/index.html' title='lyon::extra'>lyon_extra</a>;</code></td></tr><tr><td><code>pub use <a class='mod' href='../lyon_core/index.html' title='lyon_core'>lyon_core</a>::*;</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='bezier/index.html'
+                                  title='lyon::bezier'>bezier</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='extra/index.html'
+                                  title='lyon::extra'>extra</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='path/index.html'
+                                  title='lyon::path'>path</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='path_builder/index.html'
+                                  title='lyon::path_builder'>path_builder</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='path_iterator/index.html'
+                                  title='lyon::path_iterator'>path_iterator</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='tessellation/index.html'
+                                  title='lyon::tessellation'>tessellation</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "lyon";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

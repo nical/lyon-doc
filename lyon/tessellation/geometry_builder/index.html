@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `geometry_builder` mod in crate `lyon`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, geometry_builder">
+
+    <title>lyon::tessellation::geometry_builder - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../../index.html'>lyon</a>::<wbr><a href='../index.html'>tessellation</a></p><script>window.sidebarCurrent = {name: 'geometry_builder', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod">
+<h1 class='fqn'><span class='in-band'>Module <a href='../../index.html'>lyon</a>::<wbr><a href='../index.html'>tessellation</a>::<wbr><a class='mod' href=''>geometry_builder</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-1017' class='srclink' href='../../../lyon_tessellation/geometry_builder/index.html?gotosrc=1017' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'>
+<h1 id='geometry-builder' class='section-header'><a href='#geometry-builder'>Geometry builder</a></h1>
+<p>Tools to help with generating geometry to send to the GPU.</p>
+
+<h2 id='overview' class='section-header'><a href='#overview'>Overview</a></h2>
+<p>While it would be possible for the tessellation algorithms to manually generate vertex
+and index buffers with a certain layout, it would mean that most code using the tessellators
+would need to copy and convert all generated vertices in order to have their own vertex
+layout, or even several vertex layouts, which is a very common use-case.</p>
+
+<p>In order to provide flexibility with the generation of geometry, this module provides with
+the <a href="trait.GeometryBuilder.html">GeometryBuilder</a> and its extension the
+<a href="trait.BezierGeometryBuilder.html">BezierGeometryBuilder</a> trait. The former exposes
+the methods to facilitate adding vertices and triangles. The latter adds a method to
+specifically handle quadratic bezier curves. Quadratic bezier curves have interesting
+properties that make them a lot easier to render than most types of curves and we want
+to have the option to handle them separately in the renderer.</p>
+
+<p>See the <a href="https://github.com/nical/lyon/wiki/Experiments#rendering-curves">Rendering curves</a>
+section in the project&#39;s wiki for more details about the advantages of handling quadratic
+bezier curves separately in the tessellator and the renderer.</p>
+
+<p>This modules provides with a basic implementation of these traits through the following types:</p>
+
+<ul>
+<li>The struct <a href="struct.VertexBuffers.html">VertexBuffers<T></a> is a simple pair of vectors of u16
+indices and T (generic parameter) vertices.</li>
+<li>The struct <a href="struct.BuffersBuilder.html">BuffersBuilder</a> which implements
+<a href="trait.BezierGeometryBuilder.html">BezierGeometryBuilder</a> and writes into a
+<a href="struct.VertexBuffers.html">VertexBuffers</a>.</li>
+<li>The trait <a href="trait.VertexConstructor.html">VertexConstructor</a> used by
+<a href="struct.BuffersBuilder.html">BuffersBuilder</a> in order to generate any vertex type. In the
+example below, a struct WithColor implements the VertexConstructor trait in order to
+create vertices composed of a 2d position and a color value from an input 2d position.
+This separates the construction of vertex values from the assembly of the vertex buffers.
+Another, simpler example of vertex constructor is the <a href="struct.Identity.html">Identity</a>
+constructor which just returns its input, untransformed.</li>
+</ul>
+
+<p>Geometry builders are a practical way to add one last step to the tessellation pipeline,
+such as applying a transform or clipping the geometry.</p>
+
+<p>While this is module designed to facilitate the generation of vertex buffers and index
+buffers, nothing prevents a given GeometryBuilder implementation to only generate a
+vertex buffer without indices, or write into a completely different format.
+These builder traits are at the end of the tessellation pipelines and are meant for
+users of this crate to be able to adapt the output of the tessellators to their own
+needs.</p>
+
+<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
+<p>This example sets up a simple function that generates the vertices and indices for
+colored quads, using some of the tools provided in this crate.
+Note that for simplicity in this example we use [f32; 2] to represent positions,
+while most of the more advanced tessellator code use euclid points.</p>
+
+<pre class='rust rust-example-rendered'>
+<span class='kw'>use</span> <span class='ident'>lyon_tessellation</span>::<span class='ident'>geometry_builder</span>::<span class='op'>*</span>;
+
+<span class='comment'>// Define our vertex type.</span>
+<span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>, <span class='ident'>PartialEq</span>, <span class='ident'>Debug</span>)]</span>
+<span class='kw'>struct</span> <span class='ident'>Vertex2d</span> {
+  <span class='ident'>position</span>: [<span class='ident'>f32</span>; <span class='number'>2</span>],
+  <span class='ident'>color</span>: [<span class='ident'>f32</span>; <span class='number'>4</span>],
+}
+
+<span class='comment'>// The vertex constructor. This is the object that will be used to create vertices from</span>
+<span class='comment'>// a position provided by the geometry builder. In this specific case the vertex constructor</span>
+<span class='comment'>// stores a constant color which will be applied to all vertices.</span>
+<span class='kw'>struct</span> <span class='ident'>WithColor</span>([<span class='ident'>f32</span>; <span class='number'>4</span>]);
+
+<span class='comment'>// Implement the VertexConstructor trait accordingly. WithColor takes a [f32; 2] position as</span>
+<span class='comment'>// input and returns a Vertex2d.</span>
+<span class='kw'>impl</span> <span class='ident'>VertexConstructor</span><span class='op'>&lt;</span>[<span class='ident'>f32</span>; <span class='number'>2</span>], <span class='ident'>Vertex2d</span><span class='op'>&gt;</span> <span class='kw'>for</span> <span class='ident'>WithColor</span> {
+    <span class='kw'>fn</span> <span class='ident'>new_vertex</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='self'>self</span>, <span class='ident'>pos</span>: [<span class='ident'>f32</span>; <span class='number'>2</span>]) <span class='op'>-&gt;</span> <span class='ident'>Vertex2d</span> {
+        <span class='ident'>Vertex2d</span> {
+            <span class='ident'>position</span>: <span class='ident'>pos</span>,
+            <span class='ident'>color</span>: <span class='self'>self</span>.<span class='number'>0</span>
+        }
+    }
+}
+
+<span class='comment'>// A typical &quot;algortihm&quot; that generates some geometry, in this case a simple axis-aligned quad.</span>
+<span class='comment'>// Returns a structure containing the number of vertices and number of indices allocated during</span>
+<span class='comment'>// the execution of this method.</span>
+<span class='kw'>fn</span> <span class='ident'>make_quad</span><span class='op'>&lt;</span><span class='ident'>Builder</span>: <span class='ident'>GeometryBuilder</span><span class='op'>&lt;</span>[<span class='ident'>f32</span>; <span class='number'>2</span>]<span class='op'>&gt;&gt;</span>(
+    <span class='ident'>top_left</span>: [<span class='ident'>f32</span>; <span class='number'>2</span>],
+    <span class='ident'>size</span>: [<span class='ident'>f32</span>; <span class='number'>2</span>],
+    <span class='ident'>builder</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>Builder</span>
+) <span class='op'>-&gt;</span> <span class='ident'>Count</span> {
+    <span class='ident'>builder</span>.<span class='ident'>begin_geometry</span>();
+    <span class='comment'>// Create the vertices...</span>
+    <span class='kw'>let</span> <span class='ident'>a</span> <span class='op'>=</span> <span class='ident'>builder</span>.<span class='ident'>add_vertex</span>(<span class='ident'>top_left</span>);
+    <span class='kw'>let</span> <span class='ident'>b</span> <span class='op'>=</span> <span class='ident'>builder</span>.<span class='ident'>add_vertex</span>([<span class='ident'>top_left</span>[<span class='number'>0</span>] <span class='op'>+</span> <span class='ident'>size</span>[<span class='number'>0</span>], <span class='ident'>top_left</span>[<span class='number'>1</span>]]);
+    <span class='kw'>let</span> <span class='ident'>c</span> <span class='op'>=</span> <span class='ident'>builder</span>.<span class='ident'>add_vertex</span>([<span class='ident'>top_left</span>[<span class='number'>0</span>] <span class='op'>+</span> <span class='ident'>size</span>[<span class='number'>0</span>], <span class='ident'>top_left</span>[<span class='number'>1</span>] <span class='op'>+</span> <span class='ident'>size</span>[<span class='number'>1</span>]]);
+    <span class='kw'>let</span> <span class='ident'>d</span> <span class='op'>=</span> <span class='ident'>builder</span>.<span class='ident'>add_vertex</span>([<span class='ident'>top_left</span>[<span class='number'>0</span>], <span class='ident'>top_left</span>[<span class='number'>1</span>] <span class='op'>+</span> <span class='ident'>size</span>[<span class='number'>1</span>]]);
+    <span class='comment'>// ...and create triangle form these points. a, b, c, and d are relative offsets in the</span>
+    <span class='comment'>// vertex buffer.</span>
+    <span class='ident'>builder</span>.<span class='ident'>add_triangle</span>(<span class='ident'>a</span>, <span class='ident'>b</span>, <span class='ident'>c</span>);
+    <span class='ident'>builder</span>.<span class='ident'>add_triangle</span>(<span class='ident'>a</span>, <span class='ident'>c</span>, <span class='ident'>d</span>);
+    <span class='kw'>return</span> <span class='ident'>builder</span>.<span class='ident'>end_geometry</span>();
+}
+
+<span class='comment'>// Allocate a vertex buffer and an index buffer. This is typically what we would want to</span>
+<span class='comment'>// send to the GPU for rendering.</span>
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>buffers</span>: <span class='ident'>VertexBuffers</span><span class='op'>&lt;</span><span class='ident'>Vertex2d</span><span class='op'>&gt;</span> <span class='op'>=</span> <span class='ident'>VertexBuffers</span>::<span class='ident'>new</span>();
+
+<span class='comment'>// Finally, generate the geometry using the function we created above to make a red square...</span>
+<span class='kw'>let</span> <span class='ident'>red</span> <span class='op'>=</span> [<span class='number'>1.0</span>, <span class='number'>0.0</span>, <span class='number'>0.0</span>, <span class='number'>1.0</span>];
+<span class='ident'>make_quad</span>([<span class='number'>0.0</span>, <span class='number'>0.0</span>], [<span class='number'>1.0</span>, <span class='number'>1.0</span>], <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>BuffersBuilder</span>::<span class='ident'>new</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>buffers</span>, <span class='ident'>WithColor</span>(<span class='ident'>red</span>)));
+
+<span class='comment'>// ...an a green one.</span>
+<span class='kw'>let</span> <span class='ident'>green</span> <span class='op'>=</span> [<span class='number'>0.0</span>, <span class='number'>1.0</span>, <span class='number'>0.0</span>, <span class='number'>1.0</span>];
+<span class='ident'>make_quad</span>([<span class='number'>2.0</span>, <span class='number'>0.0</span>], [<span class='number'>1.0</span>, <span class='number'>1.0</span>], <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>BuffersBuilder</span>::<span class='ident'>new</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>buffers</span>, <span class='ident'>WithColor</span>(<span class='ident'>green</span>)));
+
+<span class='macro'>println</span><span class='macro'>!</span>(<span class='string'>&quot;The generated vertices are: {:?}.&quot;</span>, <span class='kw-2'>&amp;</span><span class='ident'>buffers</span>.<span class='ident'>vertices</span>[..]);
+<span class='macro'>println</span><span class='macro'>!</span>(<span class='string'>&quot;The generated indices are: {:?}.&quot;</span>, <span class='kw-2'>&amp;</span><span class='ident'>buffers</span>.<span class='ident'>indices</span>[..]);</pre>
+</div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.BuffersBuilder.html'
+                                  title='lyon::tessellation::geometry_builder::BuffersBuilder'>BuffersBuilder</a></td>
+                           <td class='docblock short'>
+                                <p>A temporary view on a VertexBuffers object which facilitate the population of vertex and index
+data.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.Count.html'
+                                  title='lyon::tessellation::geometry_builder::Count'>Count</a></td>
+                           <td class='docblock short'>
+                                <p>Number of vertices and indices added during the tessellation.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.Identity.html'
+                                  title='lyon::tessellation::geometry_builder::Identity'>Identity</a></td>
+                           <td class='docblock short'>
+                                <p>A dummy vertex constructor that just forwards its inputs.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.VertexBuffers.html'
+                                  title='lyon::tessellation::geometry_builder::VertexBuffers'>VertexBuffers</a></td>
+                           <td class='docblock short'>
+                                <p>Structure that holds the vertex and index data.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.VertexId.html'
+                                  title='lyon::tessellation::geometry_builder::VertexId'>VertexId</a></td>
+                           <td class='docblock short'>
+                                <p>A virtual vertex offset in a geometry.</p>
+                           </td>
+                       </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.BezierGeometryBuilder.html'
+                                  title='lyon::tessellation::geometry_builder::BezierGeometryBuilder'>BezierGeometryBuilder</a></td>
+                           <td class='docblock short'>
+                                <p>An extension to GeometryBuilder that can handle quadratic bezier segments.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.GeometryBuilder.html'
+                                  title='lyon::tessellation::geometry_builder::GeometryBuilder'>GeometryBuilder</a></td>
+                           <td class='docblock short'>
+                                <p>An interface separating tessellators and other geometry generation algorithms from the
+actual vertex construction.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.VertexConstructor.html'
+                                  title='lyon::tessellation::geometry_builder::VertexConstructor'>VertexConstructor</a></td>
+                           <td class='docblock short'>
+                                <p>A trait specifying how to create vertex values.</p>
+                           </td>
+                       </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.simple_builder.html'
+                                  title='lyon::tessellation::geometry_builder::simple_builder'>simple_builder</a></td>
+                           <td class='docblock short'>
+                                <p>Creates a SimpleBuffersBuilder.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.vertex_builder.html'
+                                  title='lyon::tessellation::geometry_builder::vertex_builder'>vertex_builder</a></td>
+                           <td class='docblock short'>
+                                <p>Creates a BuffersBuilder.</p>
+                           </td>
+                       </tr></table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='type' href='type.Index.html'
+                                  title='lyon::tessellation::geometry_builder::Index'>Index</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='type' href='type.SimpleBuffersBuilder.html'
+                                  title='lyon::tessellation::geometry_builder::SimpleBuffersBuilder'>SimpleBuffersBuilder</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "lyon";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../../jquery.js"></script>
+    <script src="../../../main.js"></script>
+    
+    <script defer src="../../../search-index.js"></script>
+</body>
+</html>
