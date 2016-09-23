@@ -50,9 +50,10 @@
                </span><a id='src-9' class='srclink' href='../../lyon_bezier/flatten_cubic/struct.CubicFlatteningIter.html?gotosrc=9' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct CubicFlatteningIter {
     // some fields omitted
-}</pre><div class='docblock'><p>An iterator that expresses the linearization of a cubic bezier segment for given a tolerance
-threshold.
-The iterator starts at the first point <em>after</em> the origin of the curve and ends at the
+}</pre><div class='docblock'><p>An iterator over a cubic bezier segment that yields line segments approximating the
+curve for a given approximation threshold.</p>
+
+<p>The iterator starts at the first point <em>after</em> the origin of the curve and ends at the
 destination.</p>
 </div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class='struct' href='../../lyon/bezier/struct.CubicFlatteningIter.html' title='lyon::bezier::CubicFlatteningIter'>CubicFlatteningIter</a></code></span><span class='out-of-band'></span></h3>
 <div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>(bezier: <a class='struct' href='../../lyon/bezier/struct.CubicBezierSegment.html' title='lyon::bezier::CubicBezierSegment'>CubicBezierSegment</a>, tolerance: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>) -&gt; <a class='struct' href='../../lyon/bezier/struct.CubicFlatteningIter.html' title='lyon::bezier::CubicFlatteningIter'>CubicFlatteningIter</a></code></h4>

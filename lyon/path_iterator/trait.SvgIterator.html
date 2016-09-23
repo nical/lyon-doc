@@ -48,7 +48,7 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a id='src-109' class='srclink' href='../../lyon_path_iterator/path_iterator/trait.SvgIterator.html?gotosrc=109' title='goto source code'>[src]</a></span></h1>
-<pre class='rust trait'>pub trait SvgIterator: <a class='trait' href='https://doc.rust-lang.org/nightly/core/iter/iterator/trait.Iterator.html' title='core::iter::iterator::Iterator'>Iterator</a>&lt;Item=<a class='enum' href='../../lyon/tessellation/events/enum.SvgEvent.html' title='lyon::tessellation::events::SvgEvent'>SvgEvent</a>&gt; {
+<pre class='rust trait'>pub trait SvgIterator: <a class='trait' href='https://doc.rust-lang.org/nightly/core/iter/iterator/trait.Iterator.html' title='core::iter::iterator::Iterator'>Iterator</a>&lt;Item=<a class='enum' href='../../lyon/tessellation/enum.SvgEvent.html' title='lyon::tessellation::SvgEvent'>SvgEvent</a>&gt; {
     fn <a href='#tymethod.get_state' class='fnname'>get_state</a>(&amp;self) -&gt; &amp;<a class='struct' href='../../lyon/tessellation/struct.PathState.html' title='lyon::tessellation::PathState'>PathState</a>;
 
     fn <a href='#method.flattened' class='fnname'>flattened</a>(self, tolerance: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>) -&gt; <a class='struct' href='../../lyon/path_iterator/struct.FlatteningIter.html' title='lyon::path_iterator::FlatteningIter'>FlatteningIter</a>&lt;<a class='struct' href='../../lyon/path_iterator/struct.SvgToPathIter.html' title='lyon::path_iterator::SvgToPathIter'>SvgToPathIter</a>&lt;Self&gt;&gt; { ... }
@@ -68,7 +68,7 @@ sub-path, and the position of the last control point.</p>
 </div></div>
         <h2 id='implementors'>Implementors</h2>
         <ul class='item-list' id='implementors-list'>
-    <li><code>impl&lt;Iter&gt; SvgIterator for <a class='struct' href='../../lyon/path_iterator/struct.PathStateSvgIter.html' title='lyon::path_iterator::PathStateSvgIter'>PathStateSvgIter</a>&lt;Iter&gt; <span class='where'>where Iter: <a class='trait' href='https://doc.rust-lang.org/nightly/core/iter/iterator/trait.Iterator.html' title='core::iter::iterator::Iterator'>Iterator</a>&lt;Item=<a class='enum' href='../../lyon/tessellation/events/enum.SvgEvent.html' title='lyon::tessellation::events::SvgEvent'>SvgEvent</a>&gt;</span></code></li>
+    <li><code>impl&lt;Iter&gt; SvgIterator for <a class='struct' href='../../lyon/path_iterator/struct.PathStateSvgIter.html' title='lyon::path_iterator::PathStateSvgIter'>PathStateSvgIter</a>&lt;Iter&gt; <span class='where'>where Iter: <a class='trait' href='https://doc.rust-lang.org/nightly/core/iter/iterator/trait.Iterator.html' title='core::iter::iterator::Iterator'>Iterator</a>&lt;Item=<a class='enum' href='../../lyon/tessellation/enum.SvgEvent.html' title='lyon::tessellation::SvgEvent'>SvgEvent</a>&gt;</span></code></li>
 </ul><script type="text/javascript" async
                          src="../../implementors/lyon_path_iterator/path_iterator/trait.SvgIterator.js">
                  </script></section>
