@@ -47,30 +47,36 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-657' class='srclink' href='../../../lyon_tessellation/path_fill/struct.FillOptions.html?gotosrc=657' title='goto source code'>[src]</a></span></h1>
+               </span><a id='src-511' class='srclink' href='../../../lyon_tessellation/path_fill/struct.FillOptions.html?gotosrc=511' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct FillOptions {
     pub tolerance: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,
     pub fill_rule: <a class='enum' href='../../../lyon/tessellation/path_fill/enum.FillRule.html' title='lyon::tessellation::path_fill::FillRule'>FillRule</a>,
     pub vertex_aa: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>,
     // some fields omitted
 }</pre><div class='docblock'><p>Parameters for the tessellator.</p>
-</div><h2 class='fields'>Fields</h2><span id='structfield.tolerance' class='structfield'><code>tolerance: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a></code>
-                           </span><span class='stab '></span><div class='docblock'><p>Maximum allowed distance to the path when building an approximation.</p>
-</div><span id='structfield.fill_rule' class='structfield'><code>fill_rule: <a class='enum' href='../../../lyon/tessellation/path_fill/enum.FillRule.html' title='lyon::tessellation::path_fill::FillRule'>FillRule</a></code>
-                           </span><span class='stab '></span><div class='docblock'><p>See the SVG specification.</p>
+</div><h2 class='fields'>Fields</h2><span id='structfield.tolerance' class='structfield'>
+                           <span id='tolerance.v' class='invisible'>
+                           <code>tolerance: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a></code>
+                           </span></span><span class='stab '></span><div class='docblock'><p>Maximum allowed distance to the path when building an approximation.</p>
+</div><span id='structfield.fill_rule' class='structfield'>
+                           <span id='fill_rule.v' class='invisible'>
+                           <code>fill_rule: <a class='enum' href='../../../lyon/tessellation/path_fill/enum.FillRule.html' title='lyon::tessellation::path_fill::FillRule'>FillRule</a></code>
+                           </span></span><span class='stab '></span><div class='docblock'><p>See the SVG specification.</p>
 
 <p>Currently, only the EvenOdd rule is implemented.</p>
-</div><span id='structfield.vertex_aa' class='structfield'><code>vertex_aa: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code>
-                           </span><span class='stab '></span><div class='docblock'><p>An anti-aliasing trick extruding a 1-px wide strip around the edges with
+</div><span id='structfield.vertex_aa' class='structfield'>
+                           <span id='vertex_aa.v' class='invisible'>
+                           <code>vertex_aa: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code>
+                           </span></span><span class='stab '></span><div class='docblock'><p>An anti-aliasing trick extruding a 1-px wide strip around the edges with
 a gradient to smooth the edges.</p>
 
 <p>Not implemented yet!</p>
 </div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class='struct' href='../../../lyon/tessellation/path_fill/struct.FillOptions.html' title='lyon::tessellation::path_fill::FillOptions'>FillOptions</a></code></span><span class='out-of-band'></span></h3>
-<div class='impl-items'><h4 id='method.default' class='method'><code>fn <a href='#method.default' class='fnname'>default</a>() -&gt; <a class='struct' href='../../../lyon/tessellation/path_fill/struct.FillOptions.html' title='lyon::tessellation::path_fill::FillOptions'>FillOptions</a></code></h4>
-<h4 id='method.even_odd' class='method'><code>fn <a href='#method.even_odd' class='fnname'>even_odd</a>() -&gt; <a class='struct' href='../../../lyon/tessellation/path_fill/struct.FillOptions.html' title='lyon::tessellation::path_fill::FillOptions'>FillOptions</a></code></h4>
-<h4 id='method.non_zero' class='method'><code>fn <a href='#method.non_zero' class='fnname'>non_zero</a>() -&gt; <a class='struct' href='../../../lyon/tessellation/path_fill/struct.FillOptions.html' title='lyon::tessellation::path_fill::FillOptions'>FillOptions</a></code></h4>
-<h4 id='method.with_tolerance' class='method'><code>fn <a href='#method.with_tolerance' class='fnname'>with_tolerance</a>(self, tolerance: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>) -&gt; <a class='struct' href='../../../lyon/tessellation/path_fill/struct.FillOptions.html' title='lyon::tessellation::path_fill::FillOptions'>FillOptions</a></code></h4>
-<h4 id='method.with_vertex_aa' class='method'><code>fn <a href='#method.with_vertex_aa' class='fnname'>with_vertex_aa</a>(self) -&gt; <a class='struct' href='../../../lyon/tessellation/path_fill/struct.FillOptions.html' title='lyon::tessellation::path_fill::FillOptions'>FillOptions</a></code></h4>
+<div class='impl-items'><h4 id='method.default' class='method'><span id='default.v' class='invisible'><code>fn <a href='#method.default' class='fnname'>default</a>() -&gt; <a class='struct' href='../../../lyon/tessellation/path_fill/struct.FillOptions.html' title='lyon::tessellation::path_fill::FillOptions'>FillOptions</a></code></span></h4>
+<h4 id='method.even_odd' class='method'><span id='even_odd.v' class='invisible'><code>fn <a href='#method.even_odd' class='fnname'>even_odd</a>() -&gt; <a class='struct' href='../../../lyon/tessellation/path_fill/struct.FillOptions.html' title='lyon::tessellation::path_fill::FillOptions'>FillOptions</a></code></span></h4>
+<h4 id='method.non_zero' class='method'><span id='non_zero.v' class='invisible'><code>fn <a href='#method.non_zero' class='fnname'>non_zero</a>() -&gt; <a class='struct' href='../../../lyon/tessellation/path_fill/struct.FillOptions.html' title='lyon::tessellation::path_fill::FillOptions'>FillOptions</a></code></span></h4>
+<h4 id='method.with_tolerance' class='method'><span id='with_tolerance.v' class='invisible'><code>fn <a href='#method.with_tolerance' class='fnname'>with_tolerance</a>(self, tolerance: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>) -&gt; <a class='struct' href='../../../lyon/tessellation/path_fill/struct.FillOptions.html' title='lyon::tessellation::path_fill::FillOptions'>FillOptions</a></code></span></h4>
+<h4 id='method.with_vertex_aa' class='method'><span id='with_vertex_aa.v' class='invisible'><code>fn <a href='#method.with_vertex_aa' class='fnname'>with_vertex_aa</a>(self) -&gt; <a class='struct' href='../../../lyon/tessellation/path_fill/struct.FillOptions.html' title='lyon::tessellation::path_fill::FillOptions'>FillOptions</a></code></span></h4>
 </div></section>
     <section id='search' class="content hidden"></section>
 
@@ -127,11 +133,9 @@ a gradient to smooth the edges.</p>
     <script>
         window.rootPath = "../../../";
         window.currentCrate = "lyon";
-        window.playgroundUrl = "";
     </script>
     <script src="../../../jquery.js"></script>
     <script src="../../../main.js"></script>
-    
     <script defer src="../../../search-index.js"></script>
 </body>
 </html>

@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["AttributeId","List of all SVG attributes."],["AttributeValue",""],["AttributeValue","Representation of the SVG attribute value."]],"struct":[["Attribute",""]]});

@@ -47,8 +47,8 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-17' class='srclink' href='../../../lyon_extra/triangle_rasterizer/fn.rasterize_triangles.html?gotosrc=17' title='goto source code'>[src]</a></span></h1>
-<pre class='rust fn'>pub fn rasterize_triangles&lt;Pixel,&nbsp;Constants,&nbsp;Vertex,&nbsp;Shader&gt;(vertices: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[Vertex]</a>, indices: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u16.html'>u16</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>, constants: &amp;Constants, output: &amp;mut <a class='struct' href='../../../lyon/extra/image/struct.MutableImageSlice.html' title='lyon::extra::image::MutableImageSlice'>MutableImageSlice</a>&lt;Pixel&gt;) <span class='where'>where Shader: <a class='trait' href='../../../lyon/extra/triangle_rasterizer/trait.PixelShader.html' title='lyon::extra::triangle_rasterizer::PixelShader'>PixelShader</a>&lt;Pixel,&nbsp;Vertex,&nbsp;Constants&gt;, Vertex: <a class='trait' href='../../../lyon/extra/triangle_rasterizer/trait.VertexData.html' title='lyon::extra::triangle_rasterizer::VertexData'>VertexData</a></span></pre><div class='docblock'><p>A software triangle rasterizer intended for ref testing and to help debugging
+               </span><a id='src-18' class='srclink' href='../../../lyon_extra/triangle_rasterizer/fn.rasterize_triangles.html?gotosrc=18' title='goto source code'>[src]</a></span></h1>
+<pre class='rust fn'>pub fn rasterize_triangles&lt;Constants, Vertex, Target&gt;(vertices: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[Vertex]</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; indices: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u16.html'>u16</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; constants: &amp;Constants,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; target: &amp;mut Target) <span class='where'>where Target: <a class='trait' href='../../../lyon/extra/triangle_rasterizer/trait.ShadingStage.html' title='lyon::extra::triangle_rasterizer::ShadingStage'>ShadingStage</a>&lt;Vertex, Constants&gt;, Vertex: <a class='trait' href='../../../lyon/extra/triangle_rasterizer/trait.VertexData.html' title='lyon::extra::triangle_rasterizer::VertexData'>VertexData</a></span></pre><div class='docblock'><p>A software triangle rasterizer intended for ref testing and to help debugging
 the output of the various tessellation routines.</p>
 
 <p>The triangles are defined by sequences of 3 indices in the input buffers.
@@ -58,7 +58,8 @@ the second triangle is:
 { vertices[indices[3]], vertices[indices[4]], vertices[indices[5]] }
 etc.</p>
 
-<p>For each triangle, the shading function is called on each covered pixel.</p>
+<p>The rasterizer processes pixels by block of 4 and hands blocks containing at
+least one affected pixel to the ShadingStage.</p>
 </div></section>
     <section id='search' class="content hidden"></section>
 
@@ -115,11 +116,9 @@ etc.</p>
     <script>
         window.rootPath = "../../../";
         window.currentCrate = "lyon";
-        window.playgroundUrl = "";
     </script>
     <script src="../../../jquery.js"></script>
     <script src="../../../main.js"></script>
-    
     <script defer src="../../../search-index.js"></script>
 </body>
 </html>

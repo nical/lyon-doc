@@ -47,16 +47,14 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-126' class='srclink' href='../../lyon_path_iterator/path_iterator/struct.SegmentIterator.html?gotosrc=126' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct SegmentIterator&lt;PathIt&gt; {
-    // some fields omitted
-}</pre><div class='docblock'><p>Consumes an iterator of path events and yields segments.</p>
-</div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl&lt;'l,&nbsp;PathIt&gt; <a class='struct' href='../../lyon/path_iterator/struct.SegmentIterator.html' title='lyon::path_iterator::SegmentIterator'>SegmentIterator</a>&lt;PathIt&gt; <span class='where'>where PathIt: 'l + <a class='trait' href='https://doc.rust-lang.org/nightly/core/iter/iterator/trait.Iterator.html' title='core::iter::iterator::Iterator'>Iterator</a>&lt;Item=<a class='enum' href='../../lyon/tessellation/enum.PathEvent.html' title='lyon::tessellation::PathEvent'>PathEvent</a>&gt;</span></code></span><span class='out-of-band'></span></h3>
-<div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>(it: PathIt) -&gt; <a class='struct' href='../../lyon/path_iterator/struct.SegmentIterator.html' title='lyon::path_iterator::SegmentIterator'>SegmentIterator</a>&lt;PathIt&gt;</code></h4>
+               </span><a id='src-37' class='srclink' href='../../lyon_path_iterator/path_iterator/struct.SegmentIterator.html?gotosrc=37' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct SegmentIterator&lt;PathIt&gt; { /* fields omitted */ }</pre><div class='docblock'><p>Consumes an iterator of path events and yields segments.</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl&lt;'l, PathIt&gt; <a class='struct' href='../../lyon/path_iterator/struct.SegmentIterator.html' title='lyon::path_iterator::SegmentIterator'>SegmentIterator</a>&lt;PathIt&gt; <span class='where'>where PathIt: 'l + <a class='trait' href='https://doc.rust-lang.org/nightly/core/iter/iterator/trait.Iterator.html' title='core::iter::iterator::Iterator'>Iterator</a>&lt;Item=<a class='enum' href='../../lyon/tessellation/events/enum.PathEvent.html' title='lyon::tessellation::events::PathEvent'>PathEvent</a>&gt;</span></code></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.new' class='method'><span id='new.v' class='invisible'><code>fn <a href='#method.new' class='fnname'>new</a>(it: PathIt) -&gt; <a class='struct' href='../../lyon/path_iterator/struct.SegmentIterator.html' title='lyon::path_iterator::SegmentIterator'>SegmentIterator</a>&lt;PathIt&gt;</code></span></h4>
 <div class='docblock'><p>Constructor.</p>
-</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl&lt;'l,&nbsp;PathIt&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/iter/iterator/trait.Iterator.html' title='core::iter::iterator::Iterator'>Iterator</a> for <a class='struct' href='../../lyon/path_iterator/struct.SegmentIterator.html' title='lyon::path_iterator::SegmentIterator'>SegmentIterator</a>&lt;PathIt&gt; <span class='where'>where PathIt: 'l + <a class='trait' href='https://doc.rust-lang.org/nightly/core/iter/iterator/trait.Iterator.html' title='core::iter::iterator::Iterator'>Iterator</a>&lt;Item=<a class='enum' href='../../lyon/tessellation/enum.PathEvent.html' title='lyon::tessellation::PathEvent'>PathEvent</a>&gt;</span></code></span><span class='out-of-band'></span></h3>
-<div class='impl-items'><h4 id='associatedtype.Item' class='type'><code>type <a href='https://doc.rust-lang.org/nightly/core/iter/iterator/trait.Iterator.html#associatedtype.Item' class='type'>Item</a> = <a class='enum' href='../../lyon/path_iterator/enum.Segment.html' title='lyon::path_iterator::Segment'>Segment</a></code></h4>
-<h4 id='method.next' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/iter/iterator/trait.Iterator.html#tymethod.next' class='fnname'>next</a>(&amp;mut self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='enum' href='../../lyon/path_iterator/enum.Segment.html' title='lyon::path_iterator::Segment'>Segment</a>&gt;</code></h4>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl&lt;'l, PathIt&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/iter/iterator/trait.Iterator.html' title='core::iter::iterator::Iterator'>Iterator</a> for <a class='struct' href='../../lyon/path_iterator/struct.SegmentIterator.html' title='lyon::path_iterator::SegmentIterator'>SegmentIterator</a>&lt;PathIt&gt; <span class='where'>where PathIt: 'l + <a class='trait' href='https://doc.rust-lang.org/nightly/core/iter/iterator/trait.Iterator.html' title='core::iter::iterator::Iterator'>Iterator</a>&lt;Item=<a class='enum' href='../../lyon/tessellation/events/enum.PathEvent.html' title='lyon::tessellation::events::PathEvent'>PathEvent</a>&gt;</span></code></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='associatedtype.Item' class='type'><span id='Item.t' class='invisible'><code>type <a href='https://doc.rust-lang.org/nightly/core/iter/iterator/trait.Iterator.html#associatedtype.Item' class='type'>Item</a> = <a class='enum' href='../../lyon/path_iterator/enum.Segment.html' title='lyon::path_iterator::Segment'>Segment</a></code></span></h4>
+<h4 id='method.next' class='method'><span id='next.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/iter/iterator/trait.Iterator.html#tymethod.next' class='fnname'>next</a>(&amp;mut self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='enum' href='../../lyon/path_iterator/enum.Segment.html' title='lyon::path_iterator::Segment'>Segment</a>&gt;</code></span></h4>
 </div></section>
     <section id='search' class="content hidden"></section>
 
@@ -113,11 +111,9 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "lyon";
-        window.playgroundUrl = "";
     </script>
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

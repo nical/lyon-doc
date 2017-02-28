@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `ColorTarget` struct in crate `lyon`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, ColorTarget">
+
+    <title>lyon::extra::triangle_rasterizer::ColorTarget - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../../index.html'>lyon</a>::<wbr><a href='../index.html'>extra</a>::<wbr><a href='index.html'>triangle_rasterizer</a></p><script>window.sidebarCurrent = {name: 'ColorTarget', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../../index.html'>lyon</a>::<wbr><a href='../index.html'>extra</a>::<wbr><a href='index.html'>triangle_rasterizer</a>::<wbr><a class='struct' href=''>ColorTarget</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-134' class='srclink' href='../../../lyon_extra/triangle_rasterizer/struct.ColorTarget.html?gotosrc=134' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct ColorTarget&lt;'a, 'b, Pixel, Shader&gt; <span class='where'>where 'b: 'a, Pixel: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> + 'static</span> { /* fields omitted */ }</pre><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl&lt;'l, 'm, Pixel, Vertex, Constants, Shader&gt; <a class='trait' href='../../../lyon/extra/triangle_rasterizer/trait.ShadingStage.html' title='lyon::extra::triangle_rasterizer::ShadingStage'>ShadingStage</a>&lt;Vertex, Constants&gt; for <a class='struct' href='../../../lyon/extra/triangle_rasterizer/struct.ColorTarget.html' title='lyon::extra::triangle_rasterizer::ColorTarget'>ColorTarget</a>&lt;'l, 'm, Pixel, Shader&gt; <span class='where'>where Pixel: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> + 'static, Shader: <a class='trait' href='../../../lyon/extra/triangle_rasterizer/trait.PixelShader.html' title='lyon::extra::triangle_rasterizer::PixelShader'>PixelShader</a>&lt;Pixel, Vertex, Constants&gt;</span></code></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.process_block' class='method'><span id='process_block.v' class='invisible'><code>fn <a href='../../../lyon/extra/triangle_rasterizer/trait.ShadingStage.html#tymethod.process_block' class='fnname'>process_block</a>(&amp;mut self,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.i32.html'>i32</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; y: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.i32.html'>i32</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mask: <a class='struct' href='../../../lyon/tessellation/math/struct.BoolVec4.html' title='lyon::tessellation::math::BoolVec4'>BoolVec4</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; vertex: &amp;Vertex,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; constants: &amp;Constants)</code></span></h4>
+<h4 id='method.get_size' class='method'><span id='get_size.v' class='invisible'><code>fn <a href='../../../lyon/extra/triangle_rasterizer/trait.ShadingStage.html#tymethod.get_size' class='fnname'>get_size</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>)</a></code></span></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "lyon";
+    </script>
+    <script src="../../../jquery.js"></script>
+    <script src="../../../main.js"></script>
+    <script defer src="../../../search-index.js"></script>
+</body>
+</html>

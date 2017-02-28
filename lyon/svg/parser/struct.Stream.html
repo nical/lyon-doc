@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Stream` struct in crate `lyon`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Stream">
+
+    <title>lyon::svg::parser::Stream - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../../index.html'>lyon</a>::<wbr><a href='../index.html'>svg</a>::<wbr><a href='index.html'>parser</a></p><script>window.sidebarCurrent = {name: 'Stream', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../../index.html'>lyon</a>::<wbr><a href='../index.html'>svg</a>::<wbr><a href='index.html'>parser</a>::<wbr><a class='struct' href=''>Stream</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-2504' class='srclink' href='../../../svgparser/stream/struct.Stream.html?gotosrc=2504' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct Stream&lt;'a&gt; { /* fields omitted */ }</pre><div class='docblock'><p>Streaming interface for <code>&amp;[u8]</code> data.</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl&lt;'a&gt; <a class='struct' href='../../../lyon/svg/parser/struct.Stream.html' title='lyon::svg::parser::Stream'>Stream</a>&lt;'a&gt;</code></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.new' class='method'><span id='new.v' class='invisible'><code>fn <a href='#method.new' class='fnname'>new</a>(text: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; <a class='struct' href='../../../lyon/svg/parser/struct.Stream.html' title='lyon::svg::parser::Stream'>Stream</a></code></span></h4>
+<div class='docblock'><p>Constructs a new <code>Stream</code> from data.</p>
+</div><h4 id='method.sub_stream' class='method'><span id='sub_stream.v' class='invisible'><code>fn <a href='#method.sub_stream' class='fnname'>sub_stream</a>(other: &amp;<a class='struct' href='../../../lyon/svg/parser/struct.Stream.html' title='lyon::svg::parser::Stream'>Stream</a>&lt;'a&gt;, start: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, end: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='struct' href='../../../lyon/svg/parser/struct.Stream.html' title='lyon::svg::parser::Stream'>Stream</a>&lt;'a&gt;</code></span></h4>
+<div class='docblock'><p>Constructs a new <code>Stream</code> from exists.</p>
+
+<p>Used to properly detect a current position on the error.</p>
+</div><h4 id='method.pos' class='method'><span id='pos.v' class='invisible'><code>fn <a href='#method.pos' class='fnname'>pos</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></span></h4>
+<div class='docblock'><p>Returns current position.</p>
+</div><h4 id='method.set_pos_raw' class='method'><span id='set_pos_raw.v' class='invisible'><code>fn <a href='#method.set_pos_raw' class='fnname'>set_pos_raw</a>(&amp;mut self, pos: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>)</code></span></h4>
+<div class='docblock'><p>Sets current position.</p>
+</div><h4 id='method.left' class='method'><span id='left.v' class='invisible'><code>fn <a href='#method.left' class='fnname'>left</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></span></h4>
+<div class='docblock'><p>Returns number of chars left.</p>
+
+<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
+<pre class='rust rust-example-rendered'>
+<span class='kw'>use</span> <span class='ident'>svgparser</span>::<span class='ident'>Stream</span>;
+
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='op'>=</span> <span class='ident'>Stream</span>::<span class='ident'>new</span>(<span class='string'>b&quot;text&quot;</span>);
+<span class='ident'>s</span>.<span class='ident'>advance_raw</span>(<span class='number'>4</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>at_end</span>(), <span class='bool-val'>true</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>left</span>(), <span class='number'>0</span>);</pre>
+</div><h4 id='method.at_end' class='method'><span id='at_end.v' class='invisible'><code>fn <a href='#method.at_end' class='fnname'>at_end</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></span></h4>
+<div class='docblock'><p>Returns <code>true</code> if we are at the end of the stream.</p>
+
+<p>Any <a href="#method.pos"><code>pos()</code></a> value larger than original text length indicates stream end.</p>
+
+<p>Accessing stream after reaching end via safe methods will produce <code>svgparser::Error</code>.</p>
+
+<p>Accessing stream after reaching end via unsafe/_raw methods will produce
+rust bound checking error.</p>
+
+<h1 id='examples-1' class='section-header'><a href='#examples-1'>Examples</a></h1>
+<pre class='rust rust-example-rendered'>
+<span class='kw'>use</span> <span class='ident'>svgparser</span>::<span class='ident'>Stream</span>;
+
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='op'>=</span> <span class='ident'>Stream</span>::<span class='ident'>new</span>(<span class='string'>b&quot;text&quot;</span>);
+<span class='ident'>s</span>.<span class='ident'>advance_raw</span>(<span class='number'>2</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>curr_char_raw</span>(), <span class='string'>b&#39;x&#39;</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>at_end</span>(), <span class='bool-val'>false</span>);
+<span class='ident'>s</span>.<span class='ident'>advance_raw</span>(<span class='number'>2</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>at_end</span>(), <span class='bool-val'>true</span>);</pre>
+</div><h4 id='method.curr_char' class='method'><span id='curr_char.v' class='invisible'><code>fn <a href='#method.curr_char' class='fnname'>curr_char</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>, <a class='enum' href='../../../svgparser/error/enum.Error.html' title='svgparser::error::Error'>Error</a>&gt;</code></span></h4>
+<div class='docblock'><p>Returns a char from current stream position.</p>
+
+<h1 id='errors' class='section-header'><a href='#errors'>Errors</a></h1>
+<p>Returns <code>Error::UnexpectedEndOfStream</code> if we at the end of the stream.</p>
+</div><h4 id='method.curr_char_raw' class='method'><span id='curr_char_raw.v' class='invisible'><code>fn <a href='#method.curr_char_raw' class='fnname'>curr_char_raw</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a></code></span></h4>
+<div class='docblock'><p>Unsafe version of <a href="#method.curr_char"><code>curr_char()</code></a>.</p>
+</div><h4 id='method.is_char_eq' class='method'><span id='is_char_eq.v' class='invisible'><code>fn <a href='#method.is_char_eq' class='fnname'>is_char_eq</a>(&amp;self, c: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>, <a class='enum' href='../../../svgparser/error/enum.Error.html' title='svgparser::error::Error'>Error</a>&gt;</code></span></h4>
+<div class='docblock'><p>Compares selected char with char from current stream position.</p>
+
+<h1 id='errors-1' class='section-header'><a href='#errors-1'>Errors</a></h1>
+<p>Returns <code>Error::UnexpectedEndOfStream</code> if we at the end of the stream.</p>
+</div><h4 id='method.is_char_eq_raw' class='method'><span id='is_char_eq_raw.v' class='invisible'><code>fn <a href='#method.is_char_eq_raw' class='fnname'>is_char_eq_raw</a>(&amp;self, c: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></span></h4>
+<div class='docblock'><p>Unsafe version of <a href="#method.is_char_eq"><code>is_char_eq()</code></a>.</p>
+</div><h4 id='method.char_at' class='method'><span id='char_at.v' class='invisible'><code>fn <a href='#method.char_at' class='fnname'>char_at</a>(&amp;self, pos: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.isize.html'>isize</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>, <a class='enum' href='../../../svgparser/error/enum.Error.html' title='svgparser::error::Error'>Error</a>&gt;</code></span></h4>
+<div class='docblock'><p>Returns char at the position relative to current.</p>
+
+<h1 id='errors-2' class='section-header'><a href='#errors-2'>Errors</a></h1>
+<p>Returns <code>Error::AdvanceError</code> if we are out of the stream bounds.</p>
+
+<h1 id='examples-2' class='section-header'><a href='#examples-2'>Examples</a></h1>
+<pre class='rust rust-example-rendered'>
+<span class='kw'>use</span> <span class='ident'>svgparser</span>::<span class='ident'>Stream</span>;
+
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='op'>=</span> <span class='ident'>Stream</span>::<span class='ident'>new</span>(<span class='string'>b&quot;text&quot;</span>);
+<span class='ident'>s</span>.<span class='ident'>advance_raw</span>(<span class='number'>2</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>char_at</span>(<span class='op'>-</span><span class='number'>2</span>).<span class='ident'>unwrap</span>(), <span class='string'>b&#39;t&#39;</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>char_at</span>(<span class='op'>-</span><span class='number'>1</span>).<span class='ident'>unwrap</span>(), <span class='string'>b&#39;e&#39;</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>char_at</span>(<span class='number'>0</span>).<span class='ident'>unwrap</span>(),  <span class='string'>b&#39;x&#39;</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>char_at</span>(<span class='number'>1</span>).<span class='ident'>unwrap</span>(),  <span class='string'>b&#39;t&#39;</span>);</pre>
+</div><h4 id='method.back' class='method'><span id='back.v' class='invisible'><code>fn <a href='#method.back' class='fnname'>back</a>(&amp;mut self, n: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='enum' href='../../../svgparser/error/enum.Error.html' title='svgparser::error::Error'>Error</a>&gt;</code></span></h4>
+<div class='docblock'><p>Moves back by <code>n</code> chars.</p>
+</div><h4 id='method.advance' class='method'><span id='advance.v' class='invisible'><code>fn <a href='#method.advance' class='fnname'>advance</a>(&amp;mut self, n: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='enum' href='../../../svgparser/error/enum.Error.html' title='svgparser::error::Error'>Error</a>&gt;</code></span></h4>
+<div class='docblock'><p>Advance by <code>n</code> chars.</p>
+
+<h1 id='errors-3' class='section-header'><a href='#errors-3'>Errors</a></h1>
+<p>Returns <code>Error::AdvanceError</code> if new position beyond stream end.</p>
+
+<h1 id='examples-3' class='section-header'><a href='#examples-3'>Examples</a></h1>
+<pre class='rust rust-example-rendered'>
+<span class='kw'>use</span> <span class='ident'>svgparser</span>::{<span class='ident'>Stream</span>, <span class='ident'>Error</span>, <span class='ident'>ErrorPos</span>};
+
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='op'>=</span> <span class='ident'>Stream</span>::<span class='ident'>new</span>(<span class='string'>b&quot;text&quot;</span>);
+<span class='ident'>s</span>.<span class='ident'>advance</span>(<span class='number'>2</span>).<span class='ident'>unwrap</span>(); <span class='comment'>// ok</span>
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>pos</span>(), <span class='number'>2</span>);
+<span class='ident'>s</span>.<span class='ident'>advance</span>(<span class='number'>2</span>).<span class='ident'>unwrap</span>(); <span class='comment'>// also ok, we at end now</span>
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>pos</span>(), <span class='number'>4</span>);
+<span class='comment'>// fail</span>
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>advance</span>(<span class='number'>2</span>).<span class='ident'>err</span>().<span class='ident'>unwrap</span>(), <span class='ident'>Error</span>::<span class='ident'>AdvanceError</span>{
+    <span class='ident'>expected</span>: <span class='number'>6</span>,
+    <span class='ident'>total</span>: <span class='number'>4</span>,
+    <span class='ident'>pos</span>: <span class='ident'>ErrorPos</span>::<span class='ident'>new</span>(<span class='number'>1</span>, <span class='number'>5</span>),
+});</pre>
+</div><h4 id='method.advance_raw' class='method'><span id='advance_raw.v' class='invisible'><code>fn <a href='#method.advance_raw' class='fnname'>advance_raw</a>(&amp;mut self, n: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>)</code></span></h4>
+<div class='docblock'><p>Unsafe version of <a href="#method.advance"><code>advance()</code></a>.</p>
+
+<h1 id='examples-4' class='section-header'><a href='#examples-4'>Examples</a></h1>
+<pre class='rust rust-example-rendered'>
+<span class='kw'>use</span> <span class='ident'>svgparser</span>::<span class='ident'>Stream</span>;
+
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='op'>=</span> <span class='ident'>Stream</span>::<span class='ident'>new</span>(<span class='string'>b&quot;text&quot;</span>);
+<span class='ident'>s</span>.<span class='ident'>advance_raw</span>(<span class='number'>2</span>); <span class='comment'>// ok</span>
+<span class='ident'>s</span>.<span class='ident'>advance_raw</span>(<span class='number'>20</span>); <span class='comment'>// will cause panic via debug_assert!().</span></pre>
+</div><h4 id='method.is_space' class='method'><span id='is_space.v' class='invisible'><code>fn <a href='#method.is_space' class='fnname'>is_space</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>, <a class='enum' href='../../../svgparser/error/enum.Error.html' title='svgparser::error::Error'>Error</a>&gt;</code></span></h4>
+<div class='docblock'><p>Checks that char at the current position is (white)space.</p>
+
+<p>Accepted chars: &#39; &#39;, &#39;\n&#39;, &#39;\r&#39;, &#39;\t&#39;.</p>
+
+<h1 id='examples-5' class='section-header'><a href='#examples-5'>Examples</a></h1>
+<pre class='rust rust-example-rendered'>
+<span class='kw'>use</span> <span class='ident'>svgparser</span>::<span class='ident'>Stream</span>;
+
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='op'>=</span> <span class='ident'>Stream</span>::<span class='ident'>new</span>(<span class='string'>b&quot;t e x t&quot;</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>is_space</span>().<span class='ident'>unwrap</span>(), <span class='bool-val'>false</span>);
+<span class='ident'>s</span>.<span class='ident'>advance_raw</span>(<span class='number'>1</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>is_space</span>().<span class='ident'>unwrap</span>(), <span class='bool-val'>true</span>);</pre>
+</div><h4 id='method.is_space_raw' class='method'><span id='is_space_raw.v' class='invisible'><code>fn <a href='#method.is_space_raw' class='fnname'>is_space_raw</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></span></h4>
+<div class='docblock'><p>Unsafe version of <a href="#method.is_space"><code>is_space()</code></a>.</p>
+</div><h4 id='method.skip_spaces' class='method'><span id='skip_spaces.v' class='invisible'><code>fn <a href='#method.skip_spaces' class='fnname'>skip_spaces</a>(&amp;mut self)</code></span></h4>
+<div class='docblock'><p>Skips (white)space&#39;s.</p>
+
+<h1 id='examples-6' class='section-header'><a href='#examples-6'>Examples</a></h1>
+<pre class='rust rust-example-rendered'>
+<span class='kw'>use</span> <span class='ident'>svgparser</span>::<span class='ident'>Stream</span>;
+
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='op'>=</span> <span class='ident'>Stream</span>::<span class='ident'>new</span>(<span class='string'>b&quot;Some \t\n\rtext&quot;</span>);
+<span class='ident'>s</span>.<span class='ident'>advance_raw</span>(<span class='number'>4</span>);
+<span class='ident'>s</span>.<span class='ident'>skip_spaces</span>();
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>slice_tail</span>(), <span class='string'>b&quot;text&quot;</span>);</pre>
+</div><h4 id='method.len_to' class='method'><span id='len_to.v' class='invisible'><code>fn <a href='#method.len_to' class='fnname'>len_to</a>(&amp;self, c: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, <a class='enum' href='../../../svgparser/error/enum.Error.html' title='svgparser::error::Error'>Error</a>&gt;</code></span></h4>
+<div class='docblock'><p>Calculates length to the selected char.</p>
+
+<h1 id='errors-4' class='section-header'><a href='#errors-4'>Errors</a></h1>
+<p>Returns <code>Error::UnexpectedEndOfStream</code> if no such char.</p>
+
+<h1 id='examples-7' class='section-header'><a href='#examples-7'>Examples</a></h1>
+<pre class='rust rust-example-rendered'>
+<span class='kw'>use</span> <span class='ident'>svgparser</span>::<span class='ident'>Stream</span>;
+
+<span class='kw'>let</span> <span class='ident'>s</span> <span class='op'>=</span> <span class='ident'>Stream</span>::<span class='ident'>new</span>(<span class='string'>b&quot;Some long text.&quot;</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>len_to</span>(<span class='string'>b&#39;l&#39;</span>).<span class='ident'>unwrap</span>(), <span class='number'>5</span>);</pre>
+</div><h4 id='method.len_to_char_or_end' class='method'><span id='len_to_char_or_end.v' class='invisible'><code>fn <a href='#method.len_to_char_or_end' class='fnname'>len_to_char_or_end</a>(&amp;self, c: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></span></h4>
+<div class='docblock'><p>Calculates length to the selected char.</p>
+
+<p>If char not found - returns length to the end of the stream.</p>
+
+<h1 id='examples-8' class='section-header'><a href='#examples-8'>Examples</a></h1>
+<pre class='rust rust-example-rendered'>
+<span class='kw'>use</span> <span class='ident'>svgparser</span>::<span class='ident'>Stream</span>;
+
+<span class='kw'>let</span> <span class='ident'>s</span> <span class='op'>=</span> <span class='ident'>Stream</span>::<span class='ident'>new</span>(<span class='string'>b&quot;Some long text.&quot;</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>len_to_char_or_end</span>(<span class='string'>b&#39;l&#39;</span>), <span class='number'>5</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>len_to_char_or_end</span>(<span class='string'>b&#39;q&#39;</span>), <span class='number'>15</span>);</pre>
+</div><h4 id='method.len_to_space_or_end' class='method'><span id='len_to_space_or_end.v' class='invisible'><code>fn <a href='#method.len_to_space_or_end' class='fnname'>len_to_space_or_end</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></span></h4>
+<div class='docblock'><p>Calculates length to the &#39;space&#39; char.</p>
+
+<p>Checked according to <a href="#method.is_space"><code>is_space()</code></a> method.</p>
+
+<h1 id='examples-9' class='section-header'><a href='#examples-9'>Examples</a></h1>
+<pre class='rust rust-example-rendered'>
+<span class='kw'>use</span> <span class='ident'>svgparser</span>::<span class='ident'>Stream</span>;
+
+<span class='kw'>let</span> <span class='ident'>s</span> <span class='op'>=</span> <span class='ident'>Stream</span>::<span class='ident'>new</span>(<span class='string'>b&quot;Some\ntext.&quot;</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>len_to_space_or_end</span>(), <span class='number'>4</span>);</pre>
+</div><h4 id='method.jump_to' class='method'><span id='jump_to.v' class='invisible'><code>fn <a href='#method.jump_to' class='fnname'>jump_to</a>(&amp;mut self, c: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='enum' href='../../../svgparser/error/enum.Error.html' title='svgparser::error::Error'>Error</a>&gt;</code></span></h4>
+<div class='docblock'><p>Jumps to the selected char.</p>
+
+<h1 id='errors-5' class='section-header'><a href='#errors-5'>Errors</a></h1>
+<p>Returns <code>Error::UnexpectedEndOfStream</code> if no such char.</p>
+
+<h1 id='examples-10' class='section-header'><a href='#examples-10'>Examples</a></h1>
+<pre class='rust rust-example-rendered'>
+<span class='kw'>use</span> <span class='ident'>svgparser</span>::<span class='ident'>Stream</span>;
+
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='op'>=</span> <span class='ident'>Stream</span>::<span class='ident'>new</span>(<span class='string'>b&quot;Some text.&quot;</span>);
+<span class='ident'>s</span>.<span class='ident'>jump_to</span>(<span class='string'>b&#39;t&#39;</span>).<span class='ident'>unwrap</span>();
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>pos</span>(), <span class='number'>5</span>);</pre>
+</div><h4 id='method.jump_to_char_or_end' class='method'><span id='jump_to_char_or_end.v' class='invisible'><code>fn <a href='#method.jump_to_char_or_end' class='fnname'>jump_to_char_or_end</a>(&amp;mut self, c: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>)</code></span></h4>
+<div class='docblock'><p>Jumps to the selected char or the end of the stream.</p>
+
+<h1 id='examples-11' class='section-header'><a href='#examples-11'>Examples</a></h1>
+<pre class='rust rust-example-rendered'>
+<span class='kw'>use</span> <span class='ident'>svgparser</span>::<span class='ident'>Stream</span>;
+
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='op'>=</span> <span class='ident'>Stream</span>::<span class='ident'>new</span>(<span class='string'>b&quot;Some text.&quot;</span>);
+<span class='ident'>s</span>.<span class='ident'>jump_to_char_or_end</span>(<span class='string'>b&#39;q&#39;</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>at_end</span>(), <span class='bool-val'>true</span>);</pre>
+</div><h4 id='method.jump_to_end' class='method'><span id='jump_to_end.v' class='invisible'><code>fn <a href='#method.jump_to_end' class='fnname'>jump_to_end</a>(&amp;mut self)</code></span></h4>
+<div class='docblock'><p>Jumps to the end of the stream.</p>
+
+<h1 id='examples-12' class='section-header'><a href='#examples-12'>Examples</a></h1>
+<pre class='rust rust-example-rendered'>
+<span class='kw'>use</span> <span class='ident'>svgparser</span>::<span class='ident'>Stream</span>;
+
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='op'>=</span> <span class='ident'>Stream</span>::<span class='ident'>new</span>(<span class='string'>b&quot;Some text.&quot;</span>);
+<span class='ident'>s</span>.<span class='ident'>jump_to_end</span>();
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>at_end</span>(), <span class='bool-val'>true</span>);</pre>
+</div><h4 id='method.read_raw' class='method'><span id='read_raw.v' class='invisible'><code>fn <a href='#method.read_raw' class='fnname'>read_raw</a>(&amp;mut self, len: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;'a [</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a></code></span></h4>
+<div class='docblock'><p>Returns reference to data with length <code>len</code> and advance stream to the same length.</p>
+
+<h1 id='examples-13' class='section-header'><a href='#examples-13'>Examples</a></h1>
+<pre class='rust rust-example-rendered'>
+<span class='kw'>use</span> <span class='ident'>svgparser</span>::<span class='ident'>Stream</span>;
+
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='op'>=</span> <span class='ident'>Stream</span>::<span class='ident'>new</span>(<span class='string'>b&quot;Some text.&quot;</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>read_raw</span>(<span class='number'>4</span>), <span class='string'>b&quot;Some&quot;</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>pos</span>(), <span class='number'>4</span>);</pre>
+</div><h4 id='method.read_to' class='method'><span id='read_to.v' class='invisible'><code>fn <a href='#method.read_to' class='fnname'>read_to</a>(&amp;mut self, c: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;'a [</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>, <a class='enum' href='../../../svgparser/error/enum.Error.html' title='svgparser::error::Error'>Error</a>&gt;</code></span></h4>
+<div class='docblock'><p>Returns reference to data until selected char and advance stream by the data length.</p>
+
+<p>Shorthand for: <a href="#method.len_to"><code>len_to()</code></a> + <a href="#method.read_raw"><code>read_raw()</code></a>.</p>
+
+<h1 id='errors-6' class='section-header'><a href='#errors-6'>Errors</a></h1>
+<p>Returns <code>Error::UnexpectedEndOfStream</code> if no such char.</p>
+
+<h1 id='examples-14' class='section-header'><a href='#examples-14'>Examples</a></h1>
+<pre class='rust rust-example-rendered'>
+<span class='kw'>use</span> <span class='ident'>svgparser</span>::<span class='ident'>Stream</span>;
+
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='op'>=</span> <span class='ident'>Stream</span>::<span class='ident'>new</span>(<span class='string'>b&quot;Some text.&quot;</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>read_to</span>(<span class='string'>b&#39;m&#39;</span>).<span class='ident'>unwrap</span>(), <span class='string'>b&quot;So&quot;</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>pos</span>(), <span class='number'>2</span>);</pre>
+</div><h4 id='method.slice_next_raw' class='method'><span id='slice_next_raw.v' class='invisible'><code>fn <a href='#method.slice_next_raw' class='fnname'>slice_next_raw</a>(&amp;self, len: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;'a [</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a></code></span></h4>
+<div class='docblock'><p>Returns next data of stream with selected length.</p>
+
+<h1 id='examples-15' class='section-header'><a href='#examples-15'>Examples</a></h1>
+<pre class='rust rust-example-rendered'>
+<span class='kw'>use</span> <span class='ident'>svgparser</span>::<span class='ident'>Stream</span>;
+
+<span class='kw'>let</span> <span class='ident'>s</span> <span class='op'>=</span> <span class='ident'>Stream</span>::<span class='ident'>new</span>(<span class='string'>b&quot;Text&quot;</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>slice_next_raw</span>(<span class='number'>3</span>), <span class='string'>b&quot;Tex&quot;</span>);</pre>
+</div><h4 id='method.slice_region_raw' class='method'><span id='slice_region_raw.v' class='invisible'><code>fn <a href='#method.slice_region_raw' class='fnname'>slice_region_raw</a>(&amp;self, start: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, end: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;'a [</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a></code></span></h4>
+<div class='docblock'><p>Returns data of stream within selected region.</p>
+
+<h1 id='examples-16' class='section-header'><a href='#examples-16'>Examples</a></h1>
+<pre class='rust rust-example-rendered'>
+<span class='kw'>use</span> <span class='ident'>svgparser</span>::<span class='ident'>Stream</span>;
+
+<span class='kw'>let</span> <span class='ident'>s</span> <span class='op'>=</span> <span class='ident'>Stream</span>::<span class='ident'>new</span>(<span class='string'>b&quot;Text&quot;</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>slice_region_raw</span>(<span class='number'>1</span>, <span class='number'>3</span>), <span class='string'>b&quot;ex&quot;</span>);</pre>
+</div><h4 id='method.slice' class='method'><span id='slice.v' class='invisible'><code>fn <a href='#method.slice' class='fnname'>slice</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;'a [</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a></code></span></h4>
+<div class='docblock'><p>Returns complete data of stream.</p>
+
+<h1 id='examples-17' class='section-header'><a href='#examples-17'>Examples</a></h1>
+<pre class='rust rust-example-rendered'>
+<span class='kw'>use</span> <span class='ident'>svgparser</span>::<span class='ident'>Stream</span>;
+
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='op'>=</span> <span class='ident'>Stream</span>::<span class='ident'>new</span>(<span class='string'>b&quot;Text&quot;</span>);
+<span class='ident'>s</span>.<span class='ident'>advance</span>(<span class='number'>2</span>).<span class='ident'>unwrap</span>();
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>slice</span>(), <span class='string'>b&quot;Text&quot;</span>);</pre>
+</div><h4 id='method.slice_tail' class='method'><span id='slice_tail.v' class='invisible'><code>fn <a href='#method.slice_tail' class='fnname'>slice_tail</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;'a [</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a></code></span></h4>
+<div class='docblock'><p>Returns tail data of stream.</p>
+
+<h1 id='examples-18' class='section-header'><a href='#examples-18'>Examples</a></h1>
+<pre class='rust rust-example-rendered'>
+<span class='kw'>use</span> <span class='ident'>svgparser</span>::<span class='ident'>Stream</span>;
+
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='op'>=</span> <span class='ident'>Stream</span>::<span class='ident'>new</span>(<span class='string'>b&quot;Some text.&quot;</span>);
+<span class='ident'>s</span>.<span class='ident'>advance</span>(<span class='number'>5</span>).<span class='ident'>unwrap</span>();
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>slice_tail</span>(), <span class='string'>b&quot;text.&quot;</span>);</pre>
+</div><h4 id='method.starts_with' class='method'><span id='starts_with.v' class='invisible'><code>fn <a href='#method.starts_with' class='fnname'>starts_with</a>(&amp;self, text: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></span></h4>
+<div class='docblock'><p>Returns <code>true</code> if stream data at current position starts with selected text.</p>
+
+<h1 id='examples-19' class='section-header'><a href='#examples-19'>Examples</a></h1>
+<pre class='rust rust-example-rendered'>
+<span class='kw'>use</span> <span class='ident'>svgparser</span>::<span class='ident'>Stream</span>;
+
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='op'>=</span> <span class='ident'>Stream</span>::<span class='ident'>new</span>(<span class='string'>b&quot;Some text.&quot;</span>);
+<span class='ident'>s</span>.<span class='ident'>advance</span>(<span class='number'>5</span>).<span class='ident'>unwrap</span>();
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>starts_with</span>(<span class='string'>b&quot;text&quot;</span>), <span class='bool-val'>true</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>starts_with</span>(<span class='string'>b&quot;long&quot;</span>), <span class='bool-val'>false</span>);</pre>
+</div><h4 id='method.consume_char' class='method'><span id='consume_char.v' class='invisible'><code>fn <a href='#method.consume_char' class='fnname'>consume_char</a>(&amp;mut self, c: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='enum' href='../../../svgparser/error/enum.Error.html' title='svgparser::error::Error'>Error</a>&gt;</code></span></h4>
+<div class='docblock'><p>Consumes selected char.</p>
+
+<h1 id='errors-7' class='section-header'><a href='#errors-7'>Errors</a></h1>
+<p>If current char is not equal to selected - we will get <code>Error::InvalidChar</code>.</p>
+
+<h1 id='examples-20' class='section-header'><a href='#examples-20'>Examples</a></h1>
+<pre class='rust rust-example-rendered'>
+<span class='kw'>use</span> <span class='ident'>svgparser</span>::<span class='ident'>Stream</span>;
+
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='op'>=</span> <span class='ident'>Stream</span>::<span class='ident'>new</span>(<span class='string'>b&quot;Some text.&quot;</span>);
+<span class='ident'>s</span>.<span class='ident'>consume_char</span>(<span class='string'>b&#39;S&#39;</span>).<span class='ident'>unwrap</span>();
+<span class='ident'>s</span>.<span class='ident'>consume_char</span>(<span class='string'>b&#39;o&#39;</span>).<span class='ident'>unwrap</span>();
+<span class='ident'>s</span>.<span class='ident'>consume_char</span>(<span class='string'>b&#39;m&#39;</span>).<span class='ident'>unwrap</span>();
+<span class='comment'>// s.consume_char(b&#39;q&#39;).unwrap(); // will produce error</span></pre>
+</div><h4 id='method.parse_number' class='method'><span id='parse_number.v' class='invisible'><code>fn <a href='#method.parse_number' class='fnname'>parse_number</a>(&amp;mut self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f64.html'>f64</a>, <a class='enum' href='../../../svgparser/error/enum.Error.html' title='svgparser::error::Error'>Error</a>&gt;</code></span></h4>
+<div class='docblock'><p>Parses number from the stream.</p>
+
+<p>We use own parser instead of Rust parser because we didn&#39;t know number length,
+to pass it to Rust parser and it will not return a number of consumed chars, which we need.
+And to detect length we need to actually parse the number,
+so getting only a length will be pointless.</p>
+
+<p><a href="https://www.w3.org/TR/SVG/types.html#DataTypeNumber">https://www.w3.org/TR/SVG/types.html#DataTypeNumber</a></p>
+
+<h1 id='errors-8' class='section-header'><a href='#errors-8'>Errors</a></h1>
+<p>Can return most of the <code>Error</code> errors.</p>
+
+<h1 id='examples-21' class='section-header'><a href='#examples-21'>Examples</a></h1>
+<pre class='rust rust-example-rendered'>
+<span class='kw'>use</span> <span class='ident'>svgparser</span>::<span class='ident'>Stream</span>;
+
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='op'>=</span> <span class='ident'>Stream</span>::<span class='ident'>new</span>(<span class='string'>b&quot;3.14&quot;</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>parse_number</span>().<span class='ident'>unwrap</span>(), <span class='number'>3.14</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>at_end</span>(), <span class='bool-val'>true</span>);</pre>
+</div><h4 id='method.parse_list_number' class='method'><span id='parse_list_number.v' class='invisible'><code>fn <a href='#method.parse_list_number' class='fnname'>parse_list_number</a>(&amp;mut self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f64.html'>f64</a>, <a class='enum' href='../../../svgparser/error/enum.Error.html' title='svgparser::error::Error'>Error</a>&gt;</code></span></h4>
+<div class='docblock'><p>Parses number from the list of numbers.</p>
+
+<h1 id='examples-22' class='section-header'><a href='#examples-22'>Examples</a></h1>
+<pre class='rust rust-example-rendered'>
+<span class='kw'>use</span> <span class='ident'>svgparser</span>::<span class='ident'>Stream</span>;
+
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='op'>=</span> <span class='ident'>Stream</span>::<span class='ident'>new</span>(<span class='string'>b&quot;3.14, 12,5 , 20-4&quot;</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>parse_list_number</span>().<span class='ident'>unwrap</span>(), <span class='number'>3.14</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>parse_list_number</span>().<span class='ident'>unwrap</span>(), <span class='number'>12.0</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>parse_list_number</span>().<span class='ident'>unwrap</span>(), <span class='number'>5.0</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>parse_list_number</span>().<span class='ident'>unwrap</span>(), <span class='number'>20.0</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>parse_list_number</span>().<span class='ident'>unwrap</span>(), <span class='op'>-</span><span class='number'>4.0</span>);</pre>
+</div><h4 id='method.parse_integer' class='method'><span id='parse_integer.v' class='invisible'><code>fn <a href='#method.parse_integer' class='fnname'>parse_integer</a>(&amp;mut self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.i32.html'>i32</a>, <a class='enum' href='../../../svgparser/error/enum.Error.html' title='svgparser::error::Error'>Error</a>&gt;</code></span></h4>
+<div class='docblock'><p>Parses integer number from the stream.</p>
+
+<p>Same as <a href="#method.parse_number"><code>parse_number()</code></a>, but only for integer. Does not refer to any SVG type.</p>
+</div><h4 id='method.parse_list_integer' class='method'><span id='parse_list_integer.v' class='invisible'><code>fn <a href='#method.parse_list_integer' class='fnname'>parse_list_integer</a>(&amp;mut self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.i32.html'>i32</a>, <a class='enum' href='../../../svgparser/error/enum.Error.html' title='svgparser::error::Error'>Error</a>&gt;</code></span></h4>
+<div class='docblock'><p>Parses integer from the list of numbers.</p>
+</div><h4 id='method.parse_length' class='method'><span id='parse_length.v' class='invisible'><code>fn <a href='#method.parse_length' class='fnname'>parse_length</a>(&amp;mut self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='../../../lyon/svg/parser/struct.Length.html' title='lyon::svg::parser::Length'>Length</a>, <a class='enum' href='../../../svgparser/error/enum.Error.html' title='svgparser::error::Error'>Error</a>&gt;</code></span></h4>
+<div class='docblock'><p>Parses length from the stream.</p>
+
+<p><a href="https://www.w3.org/TR/SVG/types.html#DataTypeLength">https://www.w3.org/TR/SVG/types.html#DataTypeLength</a></p>
+
+<h1 id='examples-23' class='section-header'><a href='#examples-23'>Examples</a></h1>
+<pre class='rust rust-example-rendered'>
+<span class='kw'>use</span> <span class='ident'>svgparser</span>::{<span class='ident'>Stream</span>, <span class='ident'>Length</span>, <span class='ident'>LengthUnit</span>};
+
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>s</span> <span class='op'>=</span> <span class='ident'>Stream</span>::<span class='ident'>new</span>(<span class='string'>b&quot;30%&quot;</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>s</span>.<span class='ident'>parse_length</span>().<span class='ident'>unwrap</span>(), <span class='ident'>Length</span>::<span class='ident'>new</span>(<span class='number'>30.0</span>, <span class='ident'>LengthUnit</span>::<span class='ident'>Percent</span>));</pre>
+
+<h1 id='notes' class='section-header'><a href='#notes'>Notes</a></h1>
+<ul>
+<li>Suffix must be lowercase, otherwise it will be skipped.</li>
+</ul>
+</div><h4 id='method.parse_list_length' class='method'><span id='parse_list_length.v' class='invisible'><code>fn <a href='#method.parse_list_length' class='fnname'>parse_list_length</a>(&amp;mut self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='../../../lyon/svg/parser/struct.Length.html' title='lyon::svg::parser::Length'>Length</a>, <a class='enum' href='../../../svgparser/error/enum.Error.html' title='svgparser::error::Error'>Error</a>&gt;</code></span></h4>
+<div class='docblock'><p>Parses length from the list of lengths.</p>
+</div><h4 id='method.gen_error_pos' class='method'><span id='gen_error_pos.v' class='invisible'><code>fn <a href='#method.gen_error_pos' class='fnname'>gen_error_pos</a>(&amp;self) -&gt; <a class='struct' href='../../../svgparser/error/struct.ErrorPos.html' title='svgparser::error::ErrorPos'>ErrorPos</a></code></span></h4>
+<div class='docblock'><p>Calculates a current absolute position.</p>
+</div><h4 id='method.gen_end_of_stream_error' class='method'><span id='gen_end_of_stream_error.v' class='invisible'><code>fn <a href='#method.gen_end_of_stream_error' class='fnname'>gen_end_of_stream_error</a>(&amp;self) -&gt; <a class='enum' href='../../../svgparser/error/enum.Error.html' title='svgparser::error::Error'>Error</a></code></span></h4>
+<div class='docblock'><p>Generates a new <code>UnexpectedEndOfStream</code> error from the current position.</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl&lt;'a&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='struct' href='../../../lyon/svg/parser/struct.Stream.html' title='lyon::svg::parser::Stream'>Stream</a>&lt;'a&gt;</code></span><span class='out-of-band'></span></h3>
+<div class='impl-items'></div><h3 class='impl'><span class='in-band'><code>impl&lt;'a&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='core::cmp::PartialEq'>PartialEq</a>&lt;<a class='struct' href='../../../lyon/svg/parser/struct.Stream.html' title='lyon::svg::parser::Stream'>Stream</a>&lt;'a&gt;&gt; for <a class='struct' href='../../../lyon/svg/parser/struct.Stream.html' title='lyon::svg::parser::Stream'>Stream</a>&lt;'a&gt;</code></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.eq' class='method'><span id='eq.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class='struct' href='../../../lyon/svg/parser/struct.Stream.html' title='lyon::svg::parser::Stream'>Stream</a>&lt;'a&gt;) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></span></h4>
+<h4 id='method.ne' class='method'><span id='ne.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne' class='fnname'>ne</a>(&amp;self, __arg_0: &amp;<a class='struct' href='../../../lyon/svg/parser/struct.Stream.html' title='lyon::svg::parser::Stream'>Stream</a>&lt;'a&gt;) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></span></h4>
+</div><h3 class='impl'><span class='in-band'><code>impl&lt;'a&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../../../lyon/svg/parser/struct.Stream.html' title='lyon::svg::parser::Stream'>Stream</a>&lt;'a&gt;</code></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class='method'><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, f: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Error.html' title='core::fmt::Error'>Error</a>&gt;</code></span></h4>
+</div><h3 class='impl'><span class='in-band'><code>impl&lt;'a&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../../../lyon/svg/parser/struct.Stream.html' title='lyon::svg::parser::Stream'>Stream</a>&lt;'a&gt;</code></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.clone' class='method'><span id='clone.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../../../lyon/svg/parser/struct.Stream.html' title='lyon::svg::parser::Stream'>Stream</a>&lt;'a&gt;</code></span></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "lyon";
+    </script>
+    <script src="../../../jquery.js"></script>
+    <script src="../../../main.js"></script>
+    <script defer src="../../../search-index.js"></script>
+</body>
+</html>

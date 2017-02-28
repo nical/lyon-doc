@@ -47,24 +47,24 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-100' class='srclink' href='../src/lyon_path_iterator/path_iterator/src/path_iterator.rs.html#34-46' title='goto source code'>[src]</a></span></h1>
+               </span><a id='src-11' class='srclink' href='../src/lyon_path_iterator/path_iterator/src/path_iterator.rs.html#34-46' title='goto source code'>[src]</a></span></h1>
 <pre class='rust trait'>pub trait PathIterator: <a class='trait' href='https://doc.rust-lang.org/nightly/core/iter/iterator/trait.Iterator.html' title='core::iter::iterator::Iterator'>Iterator</a>&lt;Item=<a class='enum' href='../lyon_core/events/enum.PathEvent.html' title='lyon_core::events::PathEvent'>PathEvent</a>&gt; + <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a> {
     fn <a href='#tymethod.get_state' class='fnname'>get_state</a>(&amp;self) -&gt; &amp;<a class='struct' href='../lyon_core/path_state/struct.PathState.html' title='lyon_core::path_state::PathState'>PathState</a>;
 
     fn <a href='#method.flattened' class='fnname'>flattened</a>(self, tolerance: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>) -&gt; <a class='struct' href='../lyon_path_iterator/struct.FlatteningIter.html' title='lyon_path_iterator::FlatteningIter'>FlatteningIter</a>&lt;Self&gt; { ... }
-    fn <a href='#method.svg_iter' class='fnname'>svg_iter</a>(self) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/core/iter/struct.Map.html' title='core::iter::Map'>Map</a>&lt;Self,&nbsp;fn(<a class='enum' href='../lyon_core/events/enum.PathEvent.html' title='lyon_core::events::PathEvent'>PathEvent</a>) -&gt; <a class='enum' href='../lyon_core/events/enum.SvgEvent.html' title='lyon_core::events::SvgEvent'>SvgEvent</a>&gt; { ... }
+    fn <a href='#method.svg_iter' class='fnname'>svg_iter</a>(self) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/core/iter/struct.Map.html' title='core::iter::Map'>Map</a>&lt;Self, fn(<a class='enum' href='../lyon_core/events/enum.PathEvent.html' title='lyon_core::events::PathEvent'>PathEvent</a>) -&gt; <a class='enum' href='../lyon_core/events/enum.SvgEvent.html' title='lyon_core::events::SvgEvent'>SvgEvent</a>&gt; { ... }
 }</pre><div class='docblock'><p>An extension to the common Iterator interface, that adds information which is useful when
 chaining path-specific iterators.</p>
 </div>
             <h2 id='required-methods'>Required Methods</h2>
             <div class='methods'>
-        <h3 id='tymethod.get_state' class='method stab '><code>fn <a href='#tymethod.get_state' class='fnname'>get_state</a>(&amp;self) -&gt; &amp;<a class='struct' href='../lyon_core/path_state/struct.PathState.html' title='lyon_core::path_state::PathState'>PathState</a></code></h3><div class='docblock'><p>The returned structure exposes the current position, the first position in the current
+        <h3 id='tymethod.get_state' class='method stab '><span id='get_state.v' class='invisible'><code>fn <a href='#tymethod.get_state' class='fnname'>get_state</a>(&amp;self) -&gt; &amp;<a class='struct' href='../lyon_core/path_state/struct.PathState.html' title='lyon_core::path_state::PathState'>PathState</a></code></span></h3><div class='docblock'><p>The returned structure exposes the current position, the first position in the current
 sub-path, and the position of the last control point.</p>
 </div></div>
             <h2 id='provided-methods'>Provided Methods</h2>
             <div class='methods'>
-        <h3 id='method.flattened' class='method stab '><code>fn <a href='#method.flattened' class='fnname'>flattened</a>(self, tolerance: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>) -&gt; <a class='struct' href='../lyon_path_iterator/struct.FlatteningIter.html' title='lyon_path_iterator::FlatteningIter'>FlatteningIter</a>&lt;Self&gt;</code></h3><div class='docblock'><p>Returns an iterator that turns curves into line segments.</p>
-</div><h3 id='method.svg_iter' class='method stab '><code>fn <a href='#method.svg_iter' class='fnname'>svg_iter</a>(self) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/core/iter/struct.Map.html' title='core::iter::Map'>Map</a>&lt;Self,&nbsp;fn(<a class='enum' href='../lyon_core/events/enum.PathEvent.html' title='lyon_core::events::PathEvent'>PathEvent</a>) -&gt; <a class='enum' href='../lyon_core/events/enum.SvgEvent.html' title='lyon_core::events::SvgEvent'>SvgEvent</a>&gt;</code></h3><div class='docblock'><p>Returns an iterator of SVG events.</p>
+        <h3 id='method.flattened' class='method stab '><span id='flattened.v' class='invisible'><code>fn <a href='#method.flattened' class='fnname'>flattened</a>(self, tolerance: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>) -&gt; <a class='struct' href='../lyon_path_iterator/struct.FlatteningIter.html' title='lyon_path_iterator::FlatteningIter'>FlatteningIter</a>&lt;Self&gt;</code></span></h3><div class='docblock'><p>Returns an iterator that turns curves into line segments.</p>
+</div><h3 id='method.svg_iter' class='method stab '><span id='svg_iter.v' class='invisible'><code>fn <a href='#method.svg_iter' class='fnname'>svg_iter</a>(self) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/core/iter/struct.Map.html' title='core::iter::Map'>Map</a>&lt;Self, fn(<a class='enum' href='../lyon_core/events/enum.PathEvent.html' title='lyon_core::events::PathEvent'>PathEvent</a>) -&gt; <a class='enum' href='../lyon_core/events/enum.SvgEvent.html' title='lyon_core::events::SvgEvent'>SvgEvent</a>&gt;</code></span></h3><div class='docblock'><p>Returns an iterator of SVG events.</p>
 </div></div>
         <h2 id='implementors'>Implementors</h2>
         <ul class='item-list' id='implementors-list'>
@@ -128,11 +128,9 @@ sub-path, and the position of the last control point.</p>
     <script>
         window.rootPath = "../";
         window.currentCrate = "lyon_path_iterator";
-        window.playgroundUrl = "";
     </script>
     <script src="../jquery.js"></script>
     <script src="../main.js"></script>
-    
     <script defer src="../search-index.js"></script>
 </body>
 </html>

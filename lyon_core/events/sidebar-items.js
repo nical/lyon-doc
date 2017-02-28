@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["FlattenedEvent",""],["PathEvent",""],["SvgEvent",""]]});
+initSidebarItems({"enum":[["FlattenedEvent",""],["PathEvent",""],["QuadraticPathEvent",""],["SvgEvent",""]]});

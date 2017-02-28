@@ -47,7 +47,7 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-77' class='srclink' href='../../src/lyon_tessellation/tessellation/src/path_fill.rs.html#1-2383' title='goto source code'>[src]</a></span></h1>
+               </span><a id='src-153' class='srclink' href='../../src/lyon_tessellation/tessellation/src/path_fill.rs.html#1-2532' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'>
 <h1 id='path-fill-tessellator' class='section-header'><a href='#path-fill-tessellator'>Path fill tessellator</a></h1>
 <p>Tessellation routines for complex path fill operations.</p>
@@ -98,7 +98,7 @@ inline documentation for the adventurous who want to delve into more details.</p
 <span class='kw'>let</span> <span class='ident'>path</span> <span class='op'>=</span> <span class='ident'>path_builder</span>.<span class='ident'>build</span>();
 
 <span class='comment'>// Create the destination vertex and index buffers.</span>
-<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>buffers</span>: <span class='ident'>VertexBuffers</span><span class='op'>&lt;</span><span class='ident'>Point</span><span class='op'>&gt;</span> <span class='op'>=</span> <span class='ident'>VertexBuffers</span>::<span class='ident'>new</span>();
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>buffers</span>: <span class='ident'>VertexBuffers</span><span class='op'>&lt;</span><span class='ident'>FillVertex</span><span class='op'>&gt;</span> <span class='op'>=</span> <span class='ident'>VertexBuffers</span>::<span class='ident'>new</span>();
 
 {
     <span class='comment'>// Create the destination vertex and index buffers.</span>
@@ -107,12 +107,9 @@ inline documentation for the adventurous who want to delve into more details.</p
     <span class='comment'>// Create the tessellator.</span>
     <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>tessellator</span> <span class='op'>=</span> <span class='ident'>FillTessellator</span>::<span class='ident'>new</span>();
 
-    <span class='comment'>// Allocate the FillEvents object and initialize it from a path iterator.</span>
-    <span class='kw'>let</span> <span class='ident'>events</span> <span class='op'>=</span> <span class='ident'>FillEvents</span>::<span class='ident'>from_iter</span>(<span class='ident'>path</span>.<span class='ident'>path_iter</span>().<span class='ident'>flattened</span>(<span class='number'>0.05</span>));
-
     <span class='comment'>// Compute the tessellation.</span>
-    <span class='kw'>let</span> <span class='ident'>result</span> <span class='op'>=</span> <span class='ident'>tessellator</span>.<span class='ident'>tessellate_events</span>(
-        <span class='kw-2'>&amp;</span><span class='ident'>events</span>,
+    <span class='kw'>let</span> <span class='ident'>result</span> <span class='op'>=</span> <span class='ident'>tessellator</span>.<span class='ident'>tessellate_path</span>(
+        <span class='ident'>path</span>.<span class='ident'>path_iter</span>().<span class='ident'>flattened</span>(<span class='number'>0.05</span>),
         <span class='kw-2'>&amp;</span><span class='ident'>FillOptions</span>::<span class='ident'>default</span>(),
         <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>vertex_builder</span>
     );
@@ -127,21 +124,21 @@ inline documentation for the adventurous who want to delve into more details.</p
                        <tr class=' module-item'>
                            <td><a class='struct' href='struct.FillEvents.html'
                                   title='lyon_tessellation::path_fill::FillEvents'>FillEvents</a></td>
-                           <td class='docblock short'>
+                           <td class='docblock-short'>
                                 <p>A sequence of edges sorted from top to bottom, to be used as the tessellator&#39;s input.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
                            <td><a class='struct' href='struct.FillOptions.html'
                                   title='lyon_tessellation::path_fill::FillOptions'>FillOptions</a></td>
-                           <td class='docblock short'>
+                           <td class='docblock-short'>
                                 <p>Parameters for the tessellator.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
                            <td><a class='struct' href='struct.FillTessellator.html'
                                   title='lyon_tessellation::path_fill::FillTessellator'>FillTessellator</a></td>
-                           <td class='docblock short'>
+                           <td class='docblock-short'>
                                 <p>A Context object that can tessellate fill operations for complex paths.</p>
                            </td>
                        </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
@@ -149,22 +146,30 @@ inline documentation for the adventurous who want to delve into more details.</p
                        <tr class=' module-item'>
                            <td><a class='enum' href='enum.FillError.html'
                                   title='lyon_tessellation::path_fill::FillError'>FillError</a></td>
-                           <td class='docblock short'>
+                           <td class='docblock-short'>
                                 <p>The fill tessellator&#39;s error enumeration.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
                            <td><a class='enum' href='enum.FillRule.html'
                                   title='lyon_tessellation::path_fill::FillRule'>FillRule</a></td>
-                           <td class='docblock short'>
+                           <td class='docblock-short'>
                                 <p>The fill rule defines how to determine what is inside and what is outside of the shape.</p>
+                           </td>
+                       </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.is_after.html'
+                                  title='lyon_tessellation::path_fill::is_after'>is_after</a></td>
+                           <td class='docblock-short'>
+                                <p>Defines an ordering between two points</p>
                            </td>
                        </tr></table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
 <table>
                        <tr class=' module-item'>
                            <td><a class='type' href='type.FillResult.html'
                                   title='lyon_tessellation::path_fill::FillResult'>FillResult</a></td>
-                           <td class='docblock short'>
+                           <td class='docblock-short'>
                                 <p>The fill tessellator&#39;s result type.</p>
                            </td>
                        </tr></table></section>
@@ -223,11 +228,9 @@ inline documentation for the adventurous who want to delve into more details.</p
     <script>
         window.rootPath = "../../";
         window.currentCrate = "lyon_tessellation";
-        window.playgroundUrl = "";
     </script>
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

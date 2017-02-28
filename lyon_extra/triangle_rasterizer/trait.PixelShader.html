@@ -47,14 +47,14 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-27' class='srclink' href='../../src/lyon_extra/extra/src/triangle_rasterizer.rs.html#29-31' title='goto source code'>[src]</a></span></h1>
-<pre class='rust trait'>pub trait PixelShader&lt;Pixel,&nbsp;Vertex,&nbsp;Constants&gt; {
-    fn <a href='#tymethod.shade' class='fnname'>shade</a>(pixel: Pixel, vertex_data: &amp;Vertex, constants: &amp;Constants) -&gt; Pixel;
+               </span><a id='src-85' class='srclink' href='../../src/lyon_extra/extra/src/triangle_rasterizer.rs.html#122-124' title='goto source code'>[src]</a></span></h1>
+<pre class='rust trait'>pub trait PixelShader&lt;Pixel, Vertex, Constants&gt; {
+    fn <a href='#tymethod.shade' class='fnname'>shade</a>(pixel: Pixel, vertex_pixels: &amp;Vertex, constants: &amp;Constants) -&gt; Pixel;
 }</pre><div class='docblock'><p>An operation that is applied to each rasterized pixel</p>
 </div>
             <h2 id='required-methods'>Required Methods</h2>
             <div class='methods'>
-        <h3 id='tymethod.shade' class='method stab '><code>fn <a href='#tymethod.shade' class='fnname'>shade</a>(pixel: Pixel, vertex_data: &amp;Vertex, constants: &amp;Constants) -&gt; Pixel</code></h3></div>
+        <h3 id='tymethod.shade' class='method stab '><span id='shade.v' class='invisible'><code>fn <a href='#tymethod.shade' class='fnname'>shade</a>(pixel: Pixel, vertex_pixels: &amp;Vertex, constants: &amp;Constants) -&gt; Pixel</code></span></h3></div>
         <h2 id='implementors'>Implementors</h2>
         <ul class='item-list' id='implementors-list'>
     </ul><script type="text/javascript" async
@@ -115,11 +115,9 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "lyon_extra";
-        window.playgroundUrl = "";
     </script>
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

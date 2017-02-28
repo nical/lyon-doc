@@ -53,8 +53,8 @@
     fn <a href='#tymethod.move_to' class='fnname'>move_to</a>(&amp;mut self, to: <a class='type' href='../lyon_core/math/type.Point.html' title='lyon_core::math::Point'>Point</a>);
     fn <a href='#tymethod.line_to' class='fnname'>line_to</a>(&amp;mut self, to: <a class='type' href='../lyon_core/math/type.Point.html' title='lyon_core::math::Point'>Point</a>);
     fn <a href='#tymethod.close' class='fnname'>close</a>(&amp;mut self);
-    fn <a href='#tymethod.build' class='fnname'>build</a>(self) -&gt; Self::<a class='trait' href='../lyon_path_builder/trait.BaseBuilder.html' title='lyon_path_builder::BaseBuilder'>PathType</a>;
-    fn <a href='#tymethod.build_and_reset' class='fnname'>build_and_reset</a>(&amp;mut self) -&gt; Self::<a class='trait' href='../lyon_path_builder/trait.BaseBuilder.html' title='lyon_path_builder::BaseBuilder'>PathType</a>;
+    fn <a href='#tymethod.build' class='fnname'>build</a>(self) -&gt; Self::PathType;
+    fn <a href='#tymethod.build_and_reset' class='fnname'>build_and_reset</a>(&amp;mut self) -&gt; Self::PathType;
     fn <a href='#tymethod.current_position' class='fnname'>current_position</a>(&amp;self) -&gt; <a class='type' href='../lyon_core/math/type.Point.html' title='lyon_core::math::Point'>Point</a>;
 
     fn <a href='#method.flat_event' class='fnname'>flat_event</a>(&amp;mut self, event: <a class='enum' href='../lyon_core/events/enum.FlattenedEvent.html' title='lyon_core::events::FlattenedEvent'>FlattenedEvent</a>) { ... }
@@ -63,23 +63,23 @@
 </div>
             <h2 id='associated-types'>Associated Types</h2>
             <div class='methods'>
-        <h3 id='associatedtype.PathType' class='method stab '><code>type <a href='#associatedtype.PathType' class='type'>PathType</a></code></h3><div class='docblock'><p>The type of object that is created by this builder.</p>
+        <h3 id='associatedtype.PathType' class='method stab '><span id='PathType.t' class='invisible'><code>type <a href='#associatedtype.PathType' class='type'>PathType</a></code></span></h3><div class='docblock'><p>The type of object that is created by this builder.</p>
 </div></div>
             <h2 id='required-methods'>Required Methods</h2>
             <div class='methods'>
-        <h3 id='tymethod.move_to' class='method stab '><code>fn <a href='#tymethod.move_to' class='fnname'>move_to</a>(&amp;mut self, to: <a class='type' href='../lyon_core/math/type.Point.html' title='lyon_core::math::Point'>Point</a>)</code></h3><div class='docblock'><p>Sets the current position in preparation for the next sub-path.
+        <h3 id='tymethod.move_to' class='method stab '><span id='move_to.v' class='invisible'><code>fn <a href='#tymethod.move_to' class='fnname'>move_to</a>(&amp;mut self, to: <a class='type' href='../lyon_core/math/type.Point.html' title='lyon_core::math::Point'>Point</a>)</code></span></h3><div class='docblock'><p>Sets the current position in preparation for the next sub-path.
 If the current sub-path contains edges, this ends the sub-path without closing it.</p>
-</div><h3 id='tymethod.line_to' class='method stab '><code>fn <a href='#tymethod.line_to' class='fnname'>line_to</a>(&amp;mut self, to: <a class='type' href='../lyon_core/math/type.Point.html' title='lyon_core::math::Point'>Point</a>)</code></h3><div class='docblock'><p>Adds a line segment to the current sub-path and set the current position.</p>
-</div><h3 id='tymethod.close' class='method stab '><code>fn <a href='#tymethod.close' class='fnname'>close</a>(&amp;mut self)</code></h3><div class='docblock'><p>Closes the current sub path and sets the current position to the first position of
+</div><h3 id='tymethod.line_to' class='method stab '><span id='line_to.v' class='invisible'><code>fn <a href='#tymethod.line_to' class='fnname'>line_to</a>(&amp;mut self, to: <a class='type' href='../lyon_core/math/type.Point.html' title='lyon_core::math::Point'>Point</a>)</code></span></h3><div class='docblock'><p>Adds a line segment to the current sub-path and set the current position.</p>
+</div><h3 id='tymethod.close' class='method stab '><span id='close.v' class='invisible'><code>fn <a href='#tymethod.close' class='fnname'>close</a>(&amp;mut self)</code></span></h3><div class='docblock'><p>Closes the current sub path and sets the current position to the first position of
 this the current sub-path.</p>
 
 <p>Subsequent commands will affect the next sub-path.</p>
-</div><h3 id='tymethod.build' class='method stab '><code>fn <a href='#tymethod.build' class='fnname'>build</a>(self) -&gt; Self::<a class='trait' href='../lyon_path_builder/trait.BaseBuilder.html' title='lyon_path_builder::BaseBuilder'>PathType</a></code></h3><div class='docblock'><p>Builds a path object and resets the builder so that it can be used again.</p>
-</div><h3 id='tymethod.build_and_reset' class='method stab '><code>fn <a href='#tymethod.build_and_reset' class='fnname'>build_and_reset</a>(&amp;mut self) -&gt; Self::<a class='trait' href='../lyon_path_builder/trait.BaseBuilder.html' title='lyon_path_builder::BaseBuilder'>PathType</a></code></h3><div class='docblock'><p>Builds a path object and resets the builder so that it can be used again.</p>
-</div><h3 id='tymethod.current_position' class='method stab '><code>fn <a href='#tymethod.current_position' class='fnname'>current_position</a>(&amp;self) -&gt; <a class='type' href='../lyon_core/math/type.Point.html' title='lyon_core::math::Point'>Point</a></code></h3></div>
+</div><h3 id='tymethod.build' class='method stab '><span id='build.v' class='invisible'><code>fn <a href='#tymethod.build' class='fnname'>build</a>(self) -&gt; Self::PathType</code></span></h3><div class='docblock'><p>Builds a path object and resets the builder so that it can be used again.</p>
+</div><h3 id='tymethod.build_and_reset' class='method stab '><span id='build_and_reset.v' class='invisible'><code>fn <a href='#tymethod.build_and_reset' class='fnname'>build_and_reset</a>(&amp;mut self) -&gt; Self::PathType</code></span></h3><div class='docblock'><p>Builds a path object and resets the builder so that it can be used again.</p>
+</div><h3 id='tymethod.current_position' class='method stab '><span id='current_position.v' class='invisible'><code>fn <a href='#tymethod.current_position' class='fnname'>current_position</a>(&amp;self) -&gt; <a class='type' href='../lyon_core/math/type.Point.html' title='lyon_core::math::Point'>Point</a></code></span></h3></div>
             <h2 id='provided-methods'>Provided Methods</h2>
             <div class='methods'>
-        <h3 id='method.flat_event' class='method stab '><code>fn <a href='#method.flat_event' class='fnname'>flat_event</a>(&amp;mut self, event: <a class='enum' href='../lyon_core/events/enum.FlattenedEvent.html' title='lyon_core::events::FlattenedEvent'>FlattenedEvent</a>)</code></h3><h3 id='method.flattened' class='method stab '><code>fn <a href='#method.flattened' class='fnname'>flattened</a>(self, tolerance: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>) -&gt; <a class='struct' href='../lyon_path_builder/struct.FlatteningBuilder.html' title='lyon_path_builder::FlatteningBuilder'>FlatteningBuilder</a>&lt;Self&gt;</code></h3><div class='docblock'><p>Returns a builder that approximates all curves with sequences of line segments.</p>
+        <h3 id='method.flat_event' class='method stab '><span id='flat_event.v' class='invisible'><code>fn <a href='#method.flat_event' class='fnname'>flat_event</a>(&amp;mut self, event: <a class='enum' href='../lyon_core/events/enum.FlattenedEvent.html' title='lyon_core::events::FlattenedEvent'>FlattenedEvent</a>)</code></span></h3><h3 id='method.flattened' class='method stab '><span id='flattened.v' class='invisible'><code>fn <a href='#method.flattened' class='fnname'>flattened</a>(self, tolerance: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>) -&gt; <a class='struct' href='../lyon_path_builder/struct.FlatteningBuilder.html' title='lyon_path_builder::FlatteningBuilder'>FlatteningBuilder</a>&lt;Self&gt;</code></span></h3><div class='docblock'><p>Returns a builder that approximates all curves with sequences of line segments.</p>
 </div></div>
         <h2 id='implementors'>Implementors</h2>
         <ul class='item-list' id='implementors-list'>
@@ -143,11 +143,9 @@ this the current sub-path.</p>
     <script>
         window.rootPath = "../";
         window.currentCrate = "lyon_path_builder";
-        window.playgroundUrl = "";
     </script>
     <script src="../jquery.js"></script>
     <script src="../main.js"></script>
-    
     <script defer src="../search-index.js"></script>
 </body>
 </html>

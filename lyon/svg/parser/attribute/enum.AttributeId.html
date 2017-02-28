@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `AttributeId` enum in crate `lyon`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, AttributeId">
+
+    <title>lyon::svg::parser::attribute::AttributeId - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../../../index.html'>lyon</a>::<wbr><a href='../../index.html'>svg</a>::<wbr><a href='../index.html'>parser</a>::<wbr><a href='index.html'>attribute</a></p><script>window.sidebarCurrent = {name: 'AttributeId', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content enum">
+<h1 class='fqn'><span class='in-band'>Enum <a href='../../../index.html'>lyon</a>::<wbr><a href='../../index.html'>svg</a>::<wbr><a href='../index.html'>parser</a>::<wbr><a href='index.html'>attribute</a>::<wbr><a class='enum' href=''>AttributeId</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-1494' class='srclink' href='../../../../svgparser/attribute/enum.AttributeId.html?gotosrc=1494' title='goto source code'>[src]</a></span></h1>
+<pre class='rust enum'>pub enum AttributeId {
+    AccentHeight,
+    Accumulate,
+    Additive,
+    AlignmentBaseline,
+    Alphabetic,
+    Amplitude,
+    ArabicForm,
+    Ascent,
+    AttributeName,
+    AttributeType,
+    Azimuth,
+    BaseFrequency,
+    BaselineShift,
+    BaseProfile,
+    Begin,
+    Bias,
+    By,
+    CalcMode,
+    CapHeight,
+    Class,
+    Clip,
+    ClipPath,
+    ClipRule,
+    ClipPathUnits,
+    Color,
+    ColorInterpolation,
+    ColorInterpolationFilters,
+    ColorProfile,
+    ColorRendering,
+    ContentScriptType,
+    ContentStyleType,
+    Cursor,
+    Cx,
+    Cy,
+    D,
+    Descent,
+    DiffuseConstant,
+    Direction,
+    Display,
+    Divisor,
+    DominantBaseline,
+    Dur,
+    Dx,
+    Dy,
+    EdgeMode,
+    Elevation,
+    EnableBackground,
+    End,
+    Exponent,
+    ExternalResourcesRequired,
+    Fill,
+    FillOpacity,
+    FillRule,
+    Filter,
+    FilterRes,
+    FilterUnits,
+    FloodColor,
+    FloodOpacity,
+    Font,
+    FontFamily,
+    FontSize,
+    FontSizeAdjust,
+    FontStretch,
+    FontStyle,
+    FontVariant,
+    FontWeight,
+    Format,
+    From,
+    Fx,
+    Fy,
+    G1,
+    G2,
+    GlyphName,
+    GlyphOrientationHorizontal,
+    GlyphOrientationVertical,
+    GlyphRef,
+    GradientTransform,
+    GradientUnits,
+    Hanging,
+    Height,
+    HorizAdvX,
+    HorizOriginX,
+    HorizOriginY,
+    Id,
+    Ideographic,
+    ImageRendering,
+    In,
+    In2,
+    Intercept,
+    K,
+    K1,
+    K2,
+    K3,
+    K4,
+    KernelMatrix,
+    KernelUnitLength,
+    Kerning,
+    KeyPoints,
+    KeySplines,
+    KeyTimes,
+    Lang,
+    LengthAdjust,
+    LetterSpacing,
+    LightingColor,
+    LimitingConeAngle,
+    LineHeight,
+    Local,
+    Marker,
+    MarkerEnd,
+    MarkerMid,
+    MarkerStart,
+    MarkerHeight,
+    MarkerUnits,
+    MarkerWidth,
+    Mask,
+    MaskContentUnits,
+    MaskUnits,
+    Mathematical,
+    Max,
+    Media,
+    Method,
+    Min,
+    Mode,
+    Name,
+    NumOctaves,
+    Offset,
+    Onabort,
+    Onactivate,
+    Onbegin,
+    Onclick,
+    Onend,
+    Onerror,
+    Onfocusin,
+    Onfocusout,
+    Onload,
+    Onmousedown,
+    Onmousemove,
+    Onmouseout,
+    Onmouseover,
+    Onmouseup,
+    Onrepeat,
+    Onresize,
+    Onscroll,
+    Onunload,
+    Onzoom,
+    Opacity,
+    Operator,
+    Order,
+    Orient,
+    Origin,
+    Overflow,
+    OverlinePosition,
+    OverlineThickness,
+    Panose1,
+    Path,
+    PathLength,
+    PatternContentUnits,
+    PatternTransform,
+    PatternUnits,
+    PointerEvents,
+    Points,
+    PointsAtX,
+    PointsAtY,
+    PointsAtZ,
+    PreserveAlpha,
+    PreserveAspectRatio,
+    PrimitiveUnits,
+    R,
+    Radius,
+    RefX,
+    RefY,
+    RenderingIntent,
+    RepeatCount,
+    RepeatDur,
+    RequiredExtensions,
+    RequiredFeatures,
+    Restart,
+    Result,
+    Rotate,
+    Rx,
+    Ry,
+    Scale,
+    ShapeRendering,
+    Slope,
+    Spacing,
+    SpecularConstant,
+    SpecularExponent,
+    SpreadMethod,
+    StartOffset,
+    StdDeviation,
+    Stemh,
+    Stemv,
+    StitchTiles,
+    StopColor,
+    StopOpacity,
+    StrikethroughPosition,
+    StrikethroughThickness,
+    String,
+    Stroke,
+    StrokeDasharray,
+    StrokeDashoffset,
+    StrokeLinecap,
+    StrokeLinejoin,
+    StrokeMiterlimit,
+    StrokeOpacity,
+    StrokeWidth,
+    Style,
+    SurfaceScale,
+    SystemLanguage,
+    TableValues,
+    Target,
+    TargetX,
+    TargetY,
+    TextAnchor,
+    TextDecoration,
+    TextRendering,
+    TextLength,
+    Title,
+    To,
+    Transform,
+    Type,
+    U1,
+    U2,
+    UnderlinePosition,
+    UnderlineThickness,
+    Unicode,
+    UnicodeBidi,
+    UnicodeRange,
+    UnitsPerEm,
+    VAlphabetic,
+    VHanging,
+    VIdeographic,
+    VMathematical,
+    Values,
+    Version,
+    VertAdvY,
+    VertOriginX,
+    VertOriginY,
+    ViewBox,
+    ViewTarget,
+    Visibility,
+    Width,
+    Widths,
+    WordSpacing,
+    WritingMode,
+    X,
+    XHeight,
+    X1,
+    X2,
+    XChannelSelector,
+    XlinkActuate,
+    XlinkArcrole,
+    XlinkHref,
+    XlinkShow,
+    XlinkTitle,
+    XlinkType,
+    XmlBase,
+    XmlLang,
+    XmlSpace,
+    Xmlns,
+    XmlnsXlink,
+    Y,
+    Y1,
+    Y2,
+    YChannelSelector,
+    Z,
+    ZoomAndPan,
+}</pre><div class='docblock'><p>List of all SVG attributes.</p>
+</div><h2 class='variants'>Variants</h2>
+<span id='variant.AccentHeight' class='variant'><span id='AccentHeight.v' class='invisible'><code>AccentHeight</code></span></span><span id='variant.Accumulate' class='variant'><span id='Accumulate.v' class='invisible'><code>Accumulate</code></span></span><span id='variant.Additive' class='variant'><span id='Additive.v' class='invisible'><code>Additive</code></span></span><span id='variant.AlignmentBaseline' class='variant'><span id='AlignmentBaseline.v' class='invisible'><code>AlignmentBaseline</code></span></span><span id='variant.Alphabetic' class='variant'><span id='Alphabetic.v' class='invisible'><code>Alphabetic</code></span></span><span id='variant.Amplitude' class='variant'><span id='Amplitude.v' class='invisible'><code>Amplitude</code></span></span><span id='variant.ArabicForm' class='variant'><span id='ArabicForm.v' class='invisible'><code>ArabicForm</code></span></span><span id='variant.Ascent' class='variant'><span id='Ascent.v' class='invisible'><code>Ascent</code></span></span><span id='variant.AttributeName' class='variant'><span id='AttributeName.v' class='invisible'><code>AttributeName</code></span></span><span id='variant.AttributeType' class='variant'><span id='AttributeType.v' class='invisible'><code>AttributeType</code></span></span><span id='variant.Azimuth' class='variant'><span id='Azimuth.v' class='invisible'><code>Azimuth</code></span></span><span id='variant.BaseFrequency' class='variant'><span id='BaseFrequency.v' class='invisible'><code>BaseFrequency</code></span></span><span id='variant.BaselineShift' class='variant'><span id='BaselineShift.v' class='invisible'><code>BaselineShift</code></span></span><span id='variant.BaseProfile' class='variant'><span id='BaseProfile.v' class='invisible'><code>BaseProfile</code></span></span><span id='variant.Begin' class='variant'><span id='Begin.v' class='invisible'><code>Begin</code></span></span><span id='variant.Bias' class='variant'><span id='Bias.v' class='invisible'><code>Bias</code></span></span><span id='variant.By' class='variant'><span id='By.v' class='invisible'><code>By</code></span></span><span id='variant.CalcMode' class='variant'><span id='CalcMode.v' class='invisible'><code>CalcMode</code></span></span><span id='variant.CapHeight' class='variant'><span id='CapHeight.v' class='invisible'><code>CapHeight</code></span></span><span id='variant.Class' class='variant'><span id='Class.v' class='invisible'><code>Class</code></span></span><span id='variant.Clip' class='variant'><span id='Clip.v' class='invisible'><code>Clip</code></span></span><span id='variant.ClipPath' class='variant'><span id='ClipPath.v' class='invisible'><code>ClipPath</code></span></span><span id='variant.ClipRule' class='variant'><span id='ClipRule.v' class='invisible'><code>ClipRule</code></span></span><span id='variant.ClipPathUnits' class='variant'><span id='ClipPathUnits.v' class='invisible'><code>ClipPathUnits</code></span></span><span id='variant.Color' class='variant'><span id='Color.v' class='invisible'><code>Color</code></span></span><span id='variant.ColorInterpolation' class='variant'><span id='ColorInterpolation.v' class='invisible'><code>ColorInterpolation</code></span></span><span id='variant.ColorInterpolationFilters' class='variant'><span id='ColorInterpolationFilters.v' class='invisible'><code>ColorInterpolationFilters</code></span></span><span id='variant.ColorProfile' class='variant'><span id='ColorProfile.v' class='invisible'><code>ColorProfile</code></span></span><span id='variant.ColorRendering' class='variant'><span id='ColorRendering.v' class='invisible'><code>ColorRendering</code></span></span><span id='variant.ContentScriptType' class='variant'><span id='ContentScriptType.v' class='invisible'><code>ContentScriptType</code></span></span><span id='variant.ContentStyleType' class='variant'><span id='ContentStyleType.v' class='invisible'><code>ContentStyleType</code></span></span><span id='variant.Cursor' class='variant'><span id='Cursor.v' class='invisible'><code>Cursor</code></span></span><span id='variant.Cx' class='variant'><span id='Cx.v' class='invisible'><code>Cx</code></span></span><span id='variant.Cy' class='variant'><span id='Cy.v' class='invisible'><code>Cy</code></span></span><span id='variant.D' class='variant'><span id='D.v' class='invisible'><code>D</code></span></span><span id='variant.Descent' class='variant'><span id='Descent.v' class='invisible'><code>Descent</code></span></span><span id='variant.DiffuseConstant' class='variant'><span id='DiffuseConstant.v' class='invisible'><code>DiffuseConstant</code></span></span><span id='variant.Direction' class='variant'><span id='Direction.v' class='invisible'><code>Direction</code></span></span><span id='variant.Display' class='variant'><span id='Display.v' class='invisible'><code>Display</code></span></span><span id='variant.Divisor' class='variant'><span id='Divisor.v' class='invisible'><code>Divisor</code></span></span><span id='variant.DominantBaseline' class='variant'><span id='DominantBaseline.v' class='invisible'><code>DominantBaseline</code></span></span><span id='variant.Dur' class='variant'><span id='Dur.v' class='invisible'><code>Dur</code></span></span><span id='variant.Dx' class='variant'><span id='Dx.v' class='invisible'><code>Dx</code></span></span><span id='variant.Dy' class='variant'><span id='Dy.v' class='invisible'><code>Dy</code></span></span><span id='variant.EdgeMode' class='variant'><span id='EdgeMode.v' class='invisible'><code>EdgeMode</code></span></span><span id='variant.Elevation' class='variant'><span id='Elevation.v' class='invisible'><code>Elevation</code></span></span><span id='variant.EnableBackground' class='variant'><span id='EnableBackground.v' class='invisible'><code>EnableBackground</code></span></span><span id='variant.End' class='variant'><span id='End.v' class='invisible'><code>End</code></span></span><span id='variant.Exponent' class='variant'><span id='Exponent.v' class='invisible'><code>Exponent</code></span></span><span id='variant.ExternalResourcesRequired' class='variant'><span id='ExternalResourcesRequired.v' class='invisible'><code>ExternalResourcesRequired</code></span></span><span id='variant.Fill' class='variant'><span id='Fill.v' class='invisible'><code>Fill</code></span></span><span id='variant.FillOpacity' class='variant'><span id='FillOpacity.v' class='invisible'><code>FillOpacity</code></span></span><span id='variant.FillRule' class='variant'><span id='FillRule.v' class='invisible'><code>FillRule</code></span></span><span id='variant.Filter' class='variant'><span id='Filter.v' class='invisible'><code>Filter</code></span></span><span id='variant.FilterRes' class='variant'><span id='FilterRes.v' class='invisible'><code>FilterRes</code></span></span><span id='variant.FilterUnits' class='variant'><span id='FilterUnits.v' class='invisible'><code>FilterUnits</code></span></span><span id='variant.FloodColor' class='variant'><span id='FloodColor.v' class='invisible'><code>FloodColor</code></span></span><span id='variant.FloodOpacity' class='variant'><span id='FloodOpacity.v' class='invisible'><code>FloodOpacity</code></span></span><span id='variant.Font' class='variant'><span id='Font.v' class='invisible'><code>Font</code></span></span><span id='variant.FontFamily' class='variant'><span id='FontFamily.v' class='invisible'><code>FontFamily</code></span></span><span id='variant.FontSize' class='variant'><span id='FontSize.v' class='invisible'><code>FontSize</code></span></span><span id='variant.FontSizeAdjust' class='variant'><span id='FontSizeAdjust.v' class='invisible'><code>FontSizeAdjust</code></span></span><span id='variant.FontStretch' class='variant'><span id='FontStretch.v' class='invisible'><code>FontStretch</code></span></span><span id='variant.FontStyle' class='variant'><span id='FontStyle.v' class='invisible'><code>FontStyle</code></span></span><span id='variant.FontVariant' class='variant'><span id='FontVariant.v' class='invisible'><code>FontVariant</code></span></span><span id='variant.FontWeight' class='variant'><span id='FontWeight.v' class='invisible'><code>FontWeight</code></span></span><span id='variant.Format' class='variant'><span id='Format.v' class='invisible'><code>Format</code></span></span><span id='variant.From' class='variant'><span id='From.v' class='invisible'><code>From</code></span></span><span id='variant.Fx' class='variant'><span id='Fx.v' class='invisible'><code>Fx</code></span></span><span id='variant.Fy' class='variant'><span id='Fy.v' class='invisible'><code>Fy</code></span></span><span id='variant.G1' class='variant'><span id='G1.v' class='invisible'><code>G1</code></span></span><span id='variant.G2' class='variant'><span id='G2.v' class='invisible'><code>G2</code></span></span><span id='variant.GlyphName' class='variant'><span id='GlyphName.v' class='invisible'><code>GlyphName</code></span></span><span id='variant.GlyphOrientationHorizontal' class='variant'><span id='GlyphOrientationHorizontal.v' class='invisible'><code>GlyphOrientationHorizontal</code></span></span><span id='variant.GlyphOrientationVertical' class='variant'><span id='GlyphOrientationVertical.v' class='invisible'><code>GlyphOrientationVertical</code></span></span><span id='variant.GlyphRef' class='variant'><span id='GlyphRef.v' class='invisible'><code>GlyphRef</code></span></span><span id='variant.GradientTransform' class='variant'><span id='GradientTransform.v' class='invisible'><code>GradientTransform</code></span></span><span id='variant.GradientUnits' class='variant'><span id='GradientUnits.v' class='invisible'><code>GradientUnits</code></span></span><span id='variant.Hanging' class='variant'><span id='Hanging.v' class='invisible'><code>Hanging</code></span></span><span id='variant.Height' class='variant'><span id='Height.v' class='invisible'><code>Height</code></span></span><span id='variant.HorizAdvX' class='variant'><span id='HorizAdvX.v' class='invisible'><code>HorizAdvX</code></span></span><span id='variant.HorizOriginX' class='variant'><span id='HorizOriginX.v' class='invisible'><code>HorizOriginX</code></span></span><span id='variant.HorizOriginY' class='variant'><span id='HorizOriginY.v' class='invisible'><code>HorizOriginY</code></span></span><span id='variant.Id' class='variant'><span id='Id.v' class='invisible'><code>Id</code></span></span><span id='variant.Ideographic' class='variant'><span id='Ideographic.v' class='invisible'><code>Ideographic</code></span></span><span id='variant.ImageRendering' class='variant'><span id='ImageRendering.v' class='invisible'><code>ImageRendering</code></span></span><span id='variant.In' class='variant'><span id='In.v' class='invisible'><code>In</code></span></span><span id='variant.In2' class='variant'><span id='In2.v' class='invisible'><code>In2</code></span></span><span id='variant.Intercept' class='variant'><span id='Intercept.v' class='invisible'><code>Intercept</code></span></span><span id='variant.K' class='variant'><span id='K.v' class='invisible'><code>K</code></span></span><span id='variant.K1' class='variant'><span id='K1.v' class='invisible'><code>K1</code></span></span><span id='variant.K2' class='variant'><span id='K2.v' class='invisible'><code>K2</code></span></span><span id='variant.K3' class='variant'><span id='K3.v' class='invisible'><code>K3</code></span></span><span id='variant.K4' class='variant'><span id='K4.v' class='invisible'><code>K4</code></span></span><span id='variant.KernelMatrix' class='variant'><span id='KernelMatrix.v' class='invisible'><code>KernelMatrix</code></span></span><span id='variant.KernelUnitLength' class='variant'><span id='KernelUnitLength.v' class='invisible'><code>KernelUnitLength</code></span></span><span id='variant.Kerning' class='variant'><span id='Kerning.v' class='invisible'><code>Kerning</code></span></span><span id='variant.KeyPoints' class='variant'><span id='KeyPoints.v' class='invisible'><code>KeyPoints</code></span></span><span id='variant.KeySplines' class='variant'><span id='KeySplines.v' class='invisible'><code>KeySplines</code></span></span><span id='variant.KeyTimes' class='variant'><span id='KeyTimes.v' class='invisible'><code>KeyTimes</code></span></span><span id='variant.Lang' class='variant'><span id='Lang.v' class='invisible'><code>Lang</code></span></span><span id='variant.LengthAdjust' class='variant'><span id='LengthAdjust.v' class='invisible'><code>LengthAdjust</code></span></span><span id='variant.LetterSpacing' class='variant'><span id='LetterSpacing.v' class='invisible'><code>LetterSpacing</code></span></span><span id='variant.LightingColor' class='variant'><span id='LightingColor.v' class='invisible'><code>LightingColor</code></span></span><span id='variant.LimitingConeAngle' class='variant'><span id='LimitingConeAngle.v' class='invisible'><code>LimitingConeAngle</code></span></span><span id='variant.LineHeight' class='variant'><span id='LineHeight.v' class='invisible'><code>LineHeight</code></span></span><span id='variant.Local' class='variant'><span id='Local.v' class='invisible'><code>Local</code></span></span><span id='variant.Marker' class='variant'><span id='Marker.v' class='invisible'><code>Marker</code></span></span><span id='variant.MarkerEnd' class='variant'><span id='MarkerEnd.v' class='invisible'><code>MarkerEnd</code></span></span><span id='variant.MarkerMid' class='variant'><span id='MarkerMid.v' class='invisible'><code>MarkerMid</code></span></span><span id='variant.MarkerStart' class='variant'><span id='MarkerStart.v' class='invisible'><code>MarkerStart</code></span></span><span id='variant.MarkerHeight' class='variant'><span id='MarkerHeight.v' class='invisible'><code>MarkerHeight</code></span></span><span id='variant.MarkerUnits' class='variant'><span id='MarkerUnits.v' class='invisible'><code>MarkerUnits</code></span></span><span id='variant.MarkerWidth' class='variant'><span id='MarkerWidth.v' class='invisible'><code>MarkerWidth</code></span></span><span id='variant.Mask' class='variant'><span id='Mask.v' class='invisible'><code>Mask</code></span></span><span id='variant.MaskContentUnits' class='variant'><span id='MaskContentUnits.v' class='invisible'><code>MaskContentUnits</code></span></span><span id='variant.MaskUnits' class='variant'><span id='MaskUnits.v' class='invisible'><code>MaskUnits</code></span></span><span id='variant.Mathematical' class='variant'><span id='Mathematical.v' class='invisible'><code>Mathematical</code></span></span><span id='variant.Max' class='variant'><span id='Max.v' class='invisible'><code>Max</code></span></span><span id='variant.Media' class='variant'><span id='Media.v' class='invisible'><code>Media</code></span></span><span id='variant.Method' class='variant'><span id='Method.v' class='invisible'><code>Method</code></span></span><span id='variant.Min' class='variant'><span id='Min.v' class='invisible'><code>Min</code></span></span><span id='variant.Mode' class='variant'><span id='Mode.v' class='invisible'><code>Mode</code></span></span><span id='variant.Name' class='variant'><span id='Name.v' class='invisible'><code>Name</code></span></span><span id='variant.NumOctaves' class='variant'><span id='NumOctaves.v' class='invisible'><code>NumOctaves</code></span></span><span id='variant.Offset' class='variant'><span id='Offset.v' class='invisible'><code>Offset</code></span></span><span id='variant.Onabort' class='variant'><span id='Onabort.v' class='invisible'><code>Onabort</code></span></span><span id='variant.Onactivate' class='variant'><span id='Onactivate.v' class='invisible'><code>Onactivate</code></span></span><span id='variant.Onbegin' class='variant'><span id='Onbegin.v' class='invisible'><code>Onbegin</code></span></span><span id='variant.Onclick' class='variant'><span id='Onclick.v' class='invisible'><code>Onclick</code></span></span><span id='variant.Onend' class='variant'><span id='Onend.v' class='invisible'><code>Onend</code></span></span><span id='variant.Onerror' class='variant'><span id='Onerror.v' class='invisible'><code>Onerror</code></span></span><span id='variant.Onfocusin' class='variant'><span id='Onfocusin.v' class='invisible'><code>Onfocusin</code></span></span><span id='variant.Onfocusout' class='variant'><span id='Onfocusout.v' class='invisible'><code>Onfocusout</code></span></span><span id='variant.Onload' class='variant'><span id='Onload.v' class='invisible'><code>Onload</code></span></span><span id='variant.Onmousedown' class='variant'><span id='Onmousedown.v' class='invisible'><code>Onmousedown</code></span></span><span id='variant.Onmousemove' class='variant'><span id='Onmousemove.v' class='invisible'><code>Onmousemove</code></span></span><span id='variant.Onmouseout' class='variant'><span id='Onmouseout.v' class='invisible'><code>Onmouseout</code></span></span><span id='variant.Onmouseover' class='variant'><span id='Onmouseover.v' class='invisible'><code>Onmouseover</code></span></span><span id='variant.Onmouseup' class='variant'><span id='Onmouseup.v' class='invisible'><code>Onmouseup</code></span></span><span id='variant.Onrepeat' class='variant'><span id='Onrepeat.v' class='invisible'><code>Onrepeat</code></span></span><span id='variant.Onresize' class='variant'><span id='Onresize.v' class='invisible'><code>Onresize</code></span></span><span id='variant.Onscroll' class='variant'><span id='Onscroll.v' class='invisible'><code>Onscroll</code></span></span><span id='variant.Onunload' class='variant'><span id='Onunload.v' class='invisible'><code>Onunload</code></span></span><span id='variant.Onzoom' class='variant'><span id='Onzoom.v' class='invisible'><code>Onzoom</code></span></span><span id='variant.Opacity' class='variant'><span id='Opacity.v' class='invisible'><code>Opacity</code></span></span><span id='variant.Operator' class='variant'><span id='Operator.v' class='invisible'><code>Operator</code></span></span><span id='variant.Order' class='variant'><span id='Order.v' class='invisible'><code>Order</code></span></span><span id='variant.Orient' class='variant'><span id='Orient.v' class='invisible'><code>Orient</code></span></span><span id='variant.Origin' class='variant'><span id='Origin.v' class='invisible'><code>Origin</code></span></span><span id='variant.Overflow' class='variant'><span id='Overflow.v' class='invisible'><code>Overflow</code></span></span><span id='variant.OverlinePosition' class='variant'><span id='OverlinePosition.v' class='invisible'><code>OverlinePosition</code></span></span><span id='variant.OverlineThickness' class='variant'><span id='OverlineThickness.v' class='invisible'><code>OverlineThickness</code></span></span><span id='variant.Panose1' class='variant'><span id='Panose1.v' class='invisible'><code>Panose1</code></span></span><span id='variant.Path' class='variant'><span id='Path.v' class='invisible'><code>Path</code></span></span><span id='variant.PathLength' class='variant'><span id='PathLength.v' class='invisible'><code>PathLength</code></span></span><span id='variant.PatternContentUnits' class='variant'><span id='PatternContentUnits.v' class='invisible'><code>PatternContentUnits</code></span></span><span id='variant.PatternTransform' class='variant'><span id='PatternTransform.v' class='invisible'><code>PatternTransform</code></span></span><span id='variant.PatternUnits' class='variant'><span id='PatternUnits.v' class='invisible'><code>PatternUnits</code></span></span><span id='variant.PointerEvents' class='variant'><span id='PointerEvents.v' class='invisible'><code>PointerEvents</code></span></span><span id='variant.Points' class='variant'><span id='Points.v' class='invisible'><code>Points</code></span></span><span id='variant.PointsAtX' class='variant'><span id='PointsAtX.v' class='invisible'><code>PointsAtX</code></span></span><span id='variant.PointsAtY' class='variant'><span id='PointsAtY.v' class='invisible'><code>PointsAtY</code></span></span><span id='variant.PointsAtZ' class='variant'><span id='PointsAtZ.v' class='invisible'><code>PointsAtZ</code></span></span><span id='variant.PreserveAlpha' class='variant'><span id='PreserveAlpha.v' class='invisible'><code>PreserveAlpha</code></span></span><span id='variant.PreserveAspectRatio' class='variant'><span id='PreserveAspectRatio.v' class='invisible'><code>PreserveAspectRatio</code></span></span><span id='variant.PrimitiveUnits' class='variant'><span id='PrimitiveUnits.v' class='invisible'><code>PrimitiveUnits</code></span></span><span id='variant.R' class='variant'><span id='R.v' class='invisible'><code>R</code></span></span><span id='variant.Radius' class='variant'><span id='Radius.v' class='invisible'><code>Radius</code></span></span><span id='variant.RefX' class='variant'><span id='RefX.v' class='invisible'><code>RefX</code></span></span><span id='variant.RefY' class='variant'><span id='RefY.v' class='invisible'><code>RefY</code></span></span><span id='variant.RenderingIntent' class='variant'><span id='RenderingIntent.v' class='invisible'><code>RenderingIntent</code></span></span><span id='variant.RepeatCount' class='variant'><span id='RepeatCount.v' class='invisible'><code>RepeatCount</code></span></span><span id='variant.RepeatDur' class='variant'><span id='RepeatDur.v' class='invisible'><code>RepeatDur</code></span></span><span id='variant.RequiredExtensions' class='variant'><span id='RequiredExtensions.v' class='invisible'><code>RequiredExtensions</code></span></span><span id='variant.RequiredFeatures' class='variant'><span id='RequiredFeatures.v' class='invisible'><code>RequiredFeatures</code></span></span><span id='variant.Restart' class='variant'><span id='Restart.v' class='invisible'><code>Restart</code></span></span><span id='variant.Result' class='variant'><span id='Result.v' class='invisible'><code>Result</code></span></span><span id='variant.Rotate' class='variant'><span id='Rotate.v' class='invisible'><code>Rotate</code></span></span><span id='variant.Rx' class='variant'><span id='Rx.v' class='invisible'><code>Rx</code></span></span><span id='variant.Ry' class='variant'><span id='Ry.v' class='invisible'><code>Ry</code></span></span><span id='variant.Scale' class='variant'><span id='Scale.v' class='invisible'><code>Scale</code></span></span><span id='variant.ShapeRendering' class='variant'><span id='ShapeRendering.v' class='invisible'><code>ShapeRendering</code></span></span><span id='variant.Slope' class='variant'><span id='Slope.v' class='invisible'><code>Slope</code></span></span><span id='variant.Spacing' class='variant'><span id='Spacing.v' class='invisible'><code>Spacing</code></span></span><span id='variant.SpecularConstant' class='variant'><span id='SpecularConstant.v' class='invisible'><code>SpecularConstant</code></span></span><span id='variant.SpecularExponent' class='variant'><span id='SpecularExponent.v' class='invisible'><code>SpecularExponent</code></span></span><span id='variant.SpreadMethod' class='variant'><span id='SpreadMethod.v' class='invisible'><code>SpreadMethod</code></span></span><span id='variant.StartOffset' class='variant'><span id='StartOffset.v' class='invisible'><code>StartOffset</code></span></span><span id='variant.StdDeviation' class='variant'><span id='StdDeviation.v' class='invisible'><code>StdDeviation</code></span></span><span id='variant.Stemh' class='variant'><span id='Stemh.v' class='invisible'><code>Stemh</code></span></span><span id='variant.Stemv' class='variant'><span id='Stemv.v' class='invisible'><code>Stemv</code></span></span><span id='variant.StitchTiles' class='variant'><span id='StitchTiles.v' class='invisible'><code>StitchTiles</code></span></span><span id='variant.StopColor' class='variant'><span id='StopColor.v' class='invisible'><code>StopColor</code></span></span><span id='variant.StopOpacity' class='variant'><span id='StopOpacity.v' class='invisible'><code>StopOpacity</code></span></span><span id='variant.StrikethroughPosition' class='variant'><span id='StrikethroughPosition.v' class='invisible'><code>StrikethroughPosition</code></span></span><span id='variant.StrikethroughThickness' class='variant'><span id='StrikethroughThickness.v' class='invisible'><code>StrikethroughThickness</code></span></span><span id='variant.String' class='variant'><span id='String.v' class='invisible'><code>String</code></span></span><span id='variant.Stroke' class='variant'><span id='Stroke.v' class='invisible'><code>Stroke</code></span></span><span id='variant.StrokeDasharray' class='variant'><span id='StrokeDasharray.v' class='invisible'><code>StrokeDasharray</code></span></span><span id='variant.StrokeDashoffset' class='variant'><span id='StrokeDashoffset.v' class='invisible'><code>StrokeDashoffset</code></span></span><span id='variant.StrokeLinecap' class='variant'><span id='StrokeLinecap.v' class='invisible'><code>StrokeLinecap</code></span></span><span id='variant.StrokeLinejoin' class='variant'><span id='StrokeLinejoin.v' class='invisible'><code>StrokeLinejoin</code></span></span><span id='variant.StrokeMiterlimit' class='variant'><span id='StrokeMiterlimit.v' class='invisible'><code>StrokeMiterlimit</code></span></span><span id='variant.StrokeOpacity' class='variant'><span id='StrokeOpacity.v' class='invisible'><code>StrokeOpacity</code></span></span><span id='variant.StrokeWidth' class='variant'><span id='StrokeWidth.v' class='invisible'><code>StrokeWidth</code></span></span><span id='variant.Style' class='variant'><span id='Style.v' class='invisible'><code>Style</code></span></span><span id='variant.SurfaceScale' class='variant'><span id='SurfaceScale.v' class='invisible'><code>SurfaceScale</code></span></span><span id='variant.SystemLanguage' class='variant'><span id='SystemLanguage.v' class='invisible'><code>SystemLanguage</code></span></span><span id='variant.TableValues' class='variant'><span id='TableValues.v' class='invisible'><code>TableValues</code></span></span><span id='variant.Target' class='variant'><span id='Target.v' class='invisible'><code>Target</code></span></span><span id='variant.TargetX' class='variant'><span id='TargetX.v' class='invisible'><code>TargetX</code></span></span><span id='variant.TargetY' class='variant'><span id='TargetY.v' class='invisible'><code>TargetY</code></span></span><span id='variant.TextAnchor' class='variant'><span id='TextAnchor.v' class='invisible'><code>TextAnchor</code></span></span><span id='variant.TextDecoration' class='variant'><span id='TextDecoration.v' class='invisible'><code>TextDecoration</code></span></span><span id='variant.TextRendering' class='variant'><span id='TextRendering.v' class='invisible'><code>TextRendering</code></span></span><span id='variant.TextLength' class='variant'><span id='TextLength.v' class='invisible'><code>TextLength</code></span></span><span id='variant.Title' class='variant'><span id='Title.v' class='invisible'><code>Title</code></span></span><span id='variant.To' class='variant'><span id='To.v' class='invisible'><code>To</code></span></span><span id='variant.Transform' class='variant'><span id='Transform.v' class='invisible'><code>Transform</code></span></span><span id='variant.Type' class='variant'><span id='Type.v' class='invisible'><code>Type</code></span></span><span id='variant.U1' class='variant'><span id='U1.v' class='invisible'><code>U1</code></span></span><span id='variant.U2' class='variant'><span id='U2.v' class='invisible'><code>U2</code></span></span><span id='variant.UnderlinePosition' class='variant'><span id='UnderlinePosition.v' class='invisible'><code>UnderlinePosition</code></span></span><span id='variant.UnderlineThickness' class='variant'><span id='UnderlineThickness.v' class='invisible'><code>UnderlineThickness</code></span></span><span id='variant.Unicode' class='variant'><span id='Unicode.v' class='invisible'><code>Unicode</code></span></span><span id='variant.UnicodeBidi' class='variant'><span id='UnicodeBidi.v' class='invisible'><code>UnicodeBidi</code></span></span><span id='variant.UnicodeRange' class='variant'><span id='UnicodeRange.v' class='invisible'><code>UnicodeRange</code></span></span><span id='variant.UnitsPerEm' class='variant'><span id='UnitsPerEm.v' class='invisible'><code>UnitsPerEm</code></span></span><span id='variant.VAlphabetic' class='variant'><span id='VAlphabetic.v' class='invisible'><code>VAlphabetic</code></span></span><span id='variant.VHanging' class='variant'><span id='VHanging.v' class='invisible'><code>VHanging</code></span></span><span id='variant.VIdeographic' class='variant'><span id='VIdeographic.v' class='invisible'><code>VIdeographic</code></span></span><span id='variant.VMathematical' class='variant'><span id='VMathematical.v' class='invisible'><code>VMathematical</code></span></span><span id='variant.Values' class='variant'><span id='Values.v' class='invisible'><code>Values</code></span></span><span id='variant.Version' class='variant'><span id='Version.v' class='invisible'><code>Version</code></span></span><span id='variant.VertAdvY' class='variant'><span id='VertAdvY.v' class='invisible'><code>VertAdvY</code></span></span><span id='variant.VertOriginX' class='variant'><span id='VertOriginX.v' class='invisible'><code>VertOriginX</code></span></span><span id='variant.VertOriginY' class='variant'><span id='VertOriginY.v' class='invisible'><code>VertOriginY</code></span></span><span id='variant.ViewBox' class='variant'><span id='ViewBox.v' class='invisible'><code>ViewBox</code></span></span><span id='variant.ViewTarget' class='variant'><span id='ViewTarget.v' class='invisible'><code>ViewTarget</code></span></span><span id='variant.Visibility' class='variant'><span id='Visibility.v' class='invisible'><code>Visibility</code></span></span><span id='variant.Width' class='variant'><span id='Width.v' class='invisible'><code>Width</code></span></span><span id='variant.Widths' class='variant'><span id='Widths.v' class='invisible'><code>Widths</code></span></span><span id='variant.WordSpacing' class='variant'><span id='WordSpacing.v' class='invisible'><code>WordSpacing</code></span></span><span id='variant.WritingMode' class='variant'><span id='WritingMode.v' class='invisible'><code>WritingMode</code></span></span><span id='variant.X' class='variant'><span id='X.v' class='invisible'><code>X</code></span></span><span id='variant.XHeight' class='variant'><span id='XHeight.v' class='invisible'><code>XHeight</code></span></span><span id='variant.X1' class='variant'><span id='X1.v' class='invisible'><code>X1</code></span></span><span id='variant.X2' class='variant'><span id='X2.v' class='invisible'><code>X2</code></span></span><span id='variant.XChannelSelector' class='variant'><span id='XChannelSelector.v' class='invisible'><code>XChannelSelector</code></span></span><span id='variant.XlinkActuate' class='variant'><span id='XlinkActuate.v' class='invisible'><code>XlinkActuate</code></span></span><span id='variant.XlinkArcrole' class='variant'><span id='XlinkArcrole.v' class='invisible'><code>XlinkArcrole</code></span></span><span id='variant.XlinkHref' class='variant'><span id='XlinkHref.v' class='invisible'><code>XlinkHref</code></span></span><span id='variant.XlinkShow' class='variant'><span id='XlinkShow.v' class='invisible'><code>XlinkShow</code></span></span><span id='variant.XlinkTitle' class='variant'><span id='XlinkTitle.v' class='invisible'><code>XlinkTitle</code></span></span><span id='variant.XlinkType' class='variant'><span id='XlinkType.v' class='invisible'><code>XlinkType</code></span></span><span id='variant.XmlBase' class='variant'><span id='XmlBase.v' class='invisible'><code>XmlBase</code></span></span><span id='variant.XmlLang' class='variant'><span id='XmlLang.v' class='invisible'><code>XmlLang</code></span></span><span id='variant.XmlSpace' class='variant'><span id='XmlSpace.v' class='invisible'><code>XmlSpace</code></span></span><span id='variant.Xmlns' class='variant'><span id='Xmlns.v' class='invisible'><code>Xmlns</code></span></span><span id='variant.XmlnsXlink' class='variant'><span id='XmlnsXlink.v' class='invisible'><code>XmlnsXlink</code></span></span><span id='variant.Y' class='variant'><span id='Y.v' class='invisible'><code>Y</code></span></span><span id='variant.Y1' class='variant'><span id='Y1.v' class='invisible'><code>Y1</code></span></span><span id='variant.Y2' class='variant'><span id='Y2.v' class='invisible'><code>Y2</code></span></span><span id='variant.YChannelSelector' class='variant'><span id='YChannelSelector.v' class='invisible'><code>YChannelSelector</code></span></span><span id='variant.Z' class='variant'><span id='Z.v' class='invisible'><code>Z</code></span></span><span id='variant.ZoomAndPan' class='variant'><span id='ZoomAndPan.v' class='invisible'><code>ZoomAndPan</code></span></span><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class='enum' href='../../../../lyon/svg/parser/enum.AttributeId.html' title='lyon::svg::parser::AttributeId'>AttributeId</a></code></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.from_name' class='method'><span id='from_name.v' class='invisible'><code>fn <a href='#method.from_name' class='fnname'>from_name</a>(text: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='enum' href='../../../../lyon/svg/parser/enum.AttributeId.html' title='lyon::svg::parser::AttributeId'>AttributeId</a>&gt;</code></span></h4>
+<div class='docblock'><p>Converts name into id.</p>
+</div><h4 id='method.name' class='method'><span id='name.v' class='invisible'><code>fn <a href='#method.name' class='fnname'>name</a>(&amp;self) -&gt; &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a></code></span></h4>
+<div class='docblock'><p>Converts id into name.</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='enum' href='../../../../lyon/svg/parser/enum.AttributeId.html' title='lyon::svg::parser::AttributeId'>AttributeId</a></code></span><span class='out-of-band'></span></h3>
+<div class='impl-items'></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='core::cmp::PartialEq'>PartialEq</a>&lt;<a class='enum' href='../../../../lyon/svg/parser/enum.AttributeId.html' title='lyon::svg::parser::AttributeId'>AttributeId</a>&gt; for <a class='enum' href='../../../../lyon/svg/parser/enum.AttributeId.html' title='lyon::svg::parser::AttributeId'>AttributeId</a></code></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.eq' class='method'><span id='eq.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class='enum' href='../../../../lyon/svg/parser/enum.AttributeId.html' title='lyon::svg::parser::AttributeId'>AttributeId</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></span></h4>
+</div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='enum' href='../../../../lyon/svg/parser/enum.AttributeId.html' title='lyon::svg::parser::AttributeId'>AttributeId</a></code></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class='method'><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, f: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Error.html' title='core::fmt::Error'>Error</a>&gt;</code></span></h4>
+</div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='enum' href='../../../../lyon/svg/parser/enum.AttributeId.html' title='lyon::svg::parser::AttributeId'>AttributeId</a></code></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.clone' class='method'><span id='clone.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='enum' href='../../../../lyon/svg/parser/enum.AttributeId.html' title='lyon::svg::parser::AttributeId'>AttributeId</a></code></span></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../../";
+        window.currentCrate = "lyon";
+    </script>
+    <script src="../../../../jquery.js"></script>
+    <script src="../../../../main.js"></script>
+    <script defer src="../../../../search-index.js"></script>
+</body>
+</html>

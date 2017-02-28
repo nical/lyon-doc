@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["bezier",""],["extra",""],["path",""],["path_builder",""],["path_iterator",""],["tessellation",""]]});
+initSidebarItems({"mod":[["bezier","Bezier curve related maths and tools."],["extra",""],["path","Lyon path"],["path_builder","Lyon path builder"],["path_iterator","Lyon path builder"],["svg",""],["tessellation","Lyon Tessellation"]]});

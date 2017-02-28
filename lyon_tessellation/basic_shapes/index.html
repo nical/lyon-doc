@@ -47,79 +47,100 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-6' class='srclink' href='../../src/lyon_tessellation/tessellation/src/basic_shapes.rs.html#1-142' title='goto source code'>[src]</a></span></h1>
+               </span><a id='src-7' class='srclink' href='../../src/lyon_tessellation/tessellation/src/basic_shapes.rs.html#1-485' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>Tessellation routines for simple shapes.</p>
 </div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
                        <tr class=' module-item'>
+                           <td><a class='struct' href='struct.PolylineEvents.html'
+                                  title='lyon_tessellation::basic_shapes::PolylineEvents'>PolylineEvents</a></td>
+                           <td class='docblock-short'>
+                                <p>An iterator that consumes an iterator of points and produces FlattenedEvents.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
                            <td><a class='struct' href='struct.RoundedRect.html'
                                   title='lyon_tessellation::basic_shapes::RoundedRect'>RoundedRect</a></td>
-                           <td class='docblock short'>
-                                
+                           <td class='docblock-short'>
+                                <p>An axis-aligned rounded rectangle.</p>
                            </td>
                        </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
 <table>
                        <tr class=' module-item'>
-                           <td><a class='fn' href='fn.add_quad.html'
-                                  title='lyon_tessellation::basic_shapes::add_quad'>add_quad</a></td>
-                           <td class='docblock short'>
-                                <p>Add a quad to a geometry.</p>
+                           <td><a class='fn' href='fn.fill_convex_polyline.html'
+                                  title='lyon_tessellation::basic_shapes::fill_convex_polyline'>fill_convex_polyline</a></td>
+                           <td class='docblock-short'>
+                                <p>Tessellate a convex polyline.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class='fn' href='fn.add_rectangle.html'
-                                  title='lyon_tessellation::basic_shapes::add_rectangle'>add_rectangle</a></td>
-                           <td class='docblock short'>
-                                <p>Add a Rect to a geometry.</p>
+                           <td><a class='fn' href='fn.fill_ellipse.html'
+                                  title='lyon_tessellation::basic_shapes::fill_ellipse'>fill_ellipse</a></td>
+                           <td class='docblock-short'>
+                                <p>Tessellate an ellipsis.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class='fn' href='fn.add_rounded_rectangle.html'
-                                  title='lyon_tessellation::basic_shapes::add_rounded_rectangle'>add_rounded_rectangle</a></td>
-                           <td class='docblock short'>
-                                <p>Add a rounded reactangle to a geometry.</p>
+                           <td><a class='fn' href='fn.fill_quad.html'
+                                  title='lyon_tessellation::basic_shapes::fill_quad'>fill_quad</a></td>
+                           <td class='docblock-short'>
+                                <p>Tessellate a quad.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class='fn' href='fn.add_triangle.html'
-                                  title='lyon_tessellation::basic_shapes::add_triangle'>add_triangle</a></td>
-                           <td class='docblock short'>
-                                <p>Add a triangle to a geometry.</p>
+                           <td><a class='fn' href='fn.fill_rectangle.html'
+                                  title='lyon_tessellation::basic_shapes::fill_rectangle'>fill_rectangle</a></td>
+                           <td class='docblock-short'>
+                                <p>Tessellate an axis-aligned rectangle.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class='fn' href='fn.tessellate_ellipsis.html'
-                                  title='lyon_tessellation::basic_shapes::tessellate_ellipsis'>tessellate_ellipsis</a></td>
-                           <td class='docblock short'>
-                                <p>Tessellate a simple ellipsis.</p>
+                           <td><a class='fn' href='fn.fill_rounded_rectangle.html'
+                                  title='lyon_tessellation::basic_shapes::fill_rounded_rectangle'>fill_rounded_rectangle</a></td>
+                           <td class='docblock-short'>
+                                <p>Tessellate an axis-aligned rounded rectangle.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class='fn' href='fn.tessellate_quad.html'
-                                  title='lyon_tessellation::basic_shapes::tessellate_quad'>tessellate_quad</a></td>
-                           <td class='docblock short'>
-                                <p>Tessellate a simple quad geometry.</p>
+                           <td><a class='fn' href='fn.fill_triangle.html'
+                                  title='lyon_tessellation::basic_shapes::fill_triangle'>fill_triangle</a></td>
+                           <td class='docblock-short'>
+                                <p>Tessellate a triangle.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class='fn' href='fn.tessellate_rectangle.html'
-                                  title='lyon_tessellation::basic_shapes::tessellate_rectangle'>tessellate_rectangle</a></td>
-                           <td class='docblock short'>
-                                <p>Tessellate a simple Rect.</p>
+                           <td><a class='fn' href='fn.stroke_polyline.html'
+                                  title='lyon_tessellation::basic_shapes::stroke_polyline'>stroke_polyline</a></td>
+                           <td class='docblock-short'>
+                                
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class='fn' href='fn.tessellate_rounded_rectangle.html'
-                                  title='lyon_tessellation::basic_shapes::tessellate_rounded_rectangle'>tessellate_rounded_rectangle</a></td>
-                           <td class='docblock short'>
-                                <p>Tessellate a simple rounded rectangle.</p>
+                           <td><a class='fn' href='fn.stroke_quad.html'
+                                  title='lyon_tessellation::basic_shapes::stroke_quad'>stroke_quad</a></td>
+                           <td class='docblock-short'>
+                                <p>Tessellate the stroke of a quad.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class='fn' href='fn.tessellate_triangle.html'
-                                  title='lyon_tessellation::basic_shapes::tessellate_triangle'>tessellate_triangle</a></td>
-                           <td class='docblock short'>
-                                <p>Tessellate a simple triangle geometry.</p>
+                           <td><a class='fn' href='fn.stroke_rectangle.html'
+                                  title='lyon_tessellation::basic_shapes::stroke_rectangle'>stroke_rectangle</a></td>
+                           <td class='docblock-short'>
+                                <p>Tessellate the stroke for an axis-aligne rectangle.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.stroke_rounded_rectangle.html'
+                                  title='lyon_tessellation::basic_shapes::stroke_rounded_rectangle'>stroke_rounded_rectangle</a></td>
+                           <td class='docblock-short'>
+                                <p>Tessellate the stroke of an axis-aligned rounded rectangle.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.stroke_triangle.html'
+                                  title='lyon_tessellation::basic_shapes::stroke_triangle'>stroke_triangle</a></td>
+                           <td class='docblock-short'>
+                                <p>Tessellate the stroke of a triangle.</p>
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>
@@ -177,11 +198,9 @@
     <script>
         window.rootPath = "../../";
         window.currentCrate = "lyon_tessellation";
-        window.playgroundUrl = "";
     </script>
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

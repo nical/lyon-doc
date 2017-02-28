@@ -47,7 +47,7 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-764' class='srclink' href='../../../lyon_tessellation/path_stroke/index.html?gotosrc=764' title='goto source code'>[src]</a></span></h1>
+               </span><a id='src-575' class='srclink' href='../../../lyon_tessellation/path_stroke/index.html?gotosrc=575' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'>
 <h2 id='path-stroke-tessellator' class='section-header'><a href='#path-stroke-tessellator'>Path stroke tessellator</a></h2>
 <p>Tessellation routines for path stroke operations.</p>
@@ -67,7 +67,7 @@ which exposes a similar interface to its
 <a href="../path_fill/struct.FillTessellator.html">fill equivalent</a>.</p>
 
 <p>This stroke tessellator takes an iterator of path events as inputs as well as
-a <a href="struct.StrokeOptions.html">StrokeOption</a>, and prodices its outputs using
+a <a href="struct.StrokeOptions.html">StrokeOption</a>, and produces its outputs using
 a <a href="../geometry_builder/trait.BezierGeometryBuilder.html">BezierGeometryBuilder</a>.</p>
 
 <p>See the <a href="../geometry_builder/index.html">geometry_builder module documentation</a>
@@ -85,7 +85,7 @@ for more details about how to output custom vertex layouts.</p>
 <span class='kw'>let</span> <span class='ident'>path</span> <span class='op'>=</span> <span class='ident'>path_builder</span>.<span class='ident'>build</span>();
 
 <span class='comment'>// Create the destination vertex and index buffers.</span>
-<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>buffers</span>: <span class='ident'>VertexBuffers</span><span class='op'>&lt;</span><span class='ident'>Point</span><span class='op'>&gt;</span> <span class='op'>=</span> <span class='ident'>VertexBuffers</span>::<span class='ident'>new</span>();
+<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>buffers</span>: <span class='ident'>VertexBuffers</span><span class='op'>&lt;</span><span class='ident'>Vertex</span><span class='op'>&gt;</span> <span class='op'>=</span> <span class='ident'>VertexBuffers</span>::<span class='ident'>new</span>();
 
 {
     <span class='comment'>// Create the destination vertex and index buffers.</span>
@@ -111,21 +111,21 @@ for more details about how to output custom vertex layouts.</p>
                        <tr class=' module-item'>
                            <td><a class='struct' href='struct.StrokeBuilder.html'
                                   title='lyon::tessellation::path_stroke::StrokeBuilder'>StrokeBuilder</a></td>
-                           <td class='docblock short'>
+                           <td class='docblock-short'>
                                 <p>A builder that tessellates a stroke directly without allocating any intermediate data structure.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
                            <td><a class='struct' href='struct.StrokeOptions.html'
                                   title='lyon::tessellation::path_stroke::StrokeOptions'>StrokeOptions</a></td>
-                           <td class='docblock short'>
+                           <td class='docblock-short'>
                                 <p>Parameters for the tessellator.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
                            <td><a class='struct' href='struct.StrokeTessellator.html'
                                   title='lyon::tessellation::path_stroke::StrokeTessellator'>StrokeTessellator</a></td>
-                           <td class='docblock short'>
+                           <td class='docblock-short'>
                                 <p>A Context object that can tessellate stroke operations for complex paths.</p>
                            </td>
                        </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
@@ -133,14 +133,14 @@ for more details about how to output custom vertex layouts.</p>
                        <tr class=' module-item'>
                            <td><a class='enum' href='enum.LineCap.html'
                                   title='lyon::tessellation::path_stroke::LineCap'>LineCap</a></td>
-                           <td class='docblock short'>
+                           <td class='docblock-short'>
                                 <p>Line cap as defined by the SVG specification.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
                            <td><a class='enum' href='enum.LineJoin.html'
                                   title='lyon::tessellation::path_stroke::LineJoin'>LineJoin</a></td>
-                           <td class='docblock short'>
+                           <td class='docblock-short'>
                                 <p>Line join as defined by the SVG specification.</p>
                            </td>
                        </tr></table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
@@ -148,7 +148,7 @@ for more details about how to output custom vertex layouts.</p>
                        <tr class=' module-item'>
                            <td><a class='type' href='type.StrokeResult.html'
                                   title='lyon::tessellation::path_stroke::StrokeResult'>StrokeResult</a></td>
-                           <td class='docblock short'>
+                           <td class='docblock-short'>
                                 
                            </td>
                        </tr></table></section>
@@ -207,11 +207,9 @@ for more details about how to output custom vertex layouts.</p>
     <script>
         window.rootPath = "../../../";
         window.currentCrate = "lyon";
-        window.playgroundUrl = "";
     </script>
     <script src="../../../jquery.js"></script>
     <script src="../../../main.js"></script>
-    
     <script defer src="../../../search-index.js"></script>
 </body>
 </html>

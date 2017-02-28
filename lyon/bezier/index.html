@@ -48,12 +48,21 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a id='src-0' class='srclink' href='../../lyon_bezier/index.html?gotosrc=0' title='goto source code'>[src]</a></span></h1>
-<h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<div class='docblock'><p>Bezier curve related maths and tools.</p>
+
+<p>This crate implement simple 2d quadratic and cubic bezier math, and an efficient
+flattening algorithm.</p>
+
+<p>The flatteing algorithm implemented here is the most interesting part. It is based on:
+<a href="http://cis.usouthal.edu/%7Ehain/general/Publications/Bezier/Bezier%20Offset%20Curves.pdf">http://cis.usouthal.edu/~hain/general/Publications/Bezier/Bezier%20Offset%20Curves.pdf</a>
+It produces a better approximations than the usual recursive subdivision approach (or
+in other words, it generates less points for a given tolerance threshold).</p>
+</div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
                        <tr class=' module-item'>
                            <td><a class='struct' href='struct.CubicBezierSegment.html'
                                   title='lyon::bezier::CubicBezierSegment'>CubicBezierSegment</a></td>
-                           <td class='docblock short'>
+                           <td class='docblock-short'>
                                 <p>A 2d curve segment defined by four points: the beginning of the segment, two control
 points and the end of the segment.</p>
                            </td>
@@ -61,7 +70,7 @@ points and the end of the segment.</p>
                        <tr class=' module-item'>
                            <td><a class='struct' href='struct.CubicFlatteningIter.html'
                                   title='lyon::bezier::CubicFlatteningIter'>CubicFlatteningIter</a></td>
-                           <td class='docblock short'>
+                           <td class='docblock-short'>
                                 <p>An iterator over a cubic bezier segment that yields line segments approximating the
 curve for a given approximation threshold.</p>
                            </td>
@@ -69,7 +78,7 @@ curve for a given approximation threshold.</p>
                        <tr class=' module-item'>
                            <td><a class='struct' href='struct.QuadraticBezierSegment.html'
                                   title='lyon::bezier::QuadraticBezierSegment'>QuadraticBezierSegment</a></td>
-                           <td class='docblock short'>
+                           <td class='docblock-short'>
                                 <p>A 2d curve segment defined by three points: the beginning of the segment, a control
 point and the end of the segment.</p>
                            </td>
@@ -77,23 +86,31 @@ point and the end of the segment.</p>
                        <tr class=' module-item'>
                            <td><a class='struct' href='struct.QuadraticFlatteningIter.html'
                                   title='lyon::bezier::QuadraticFlatteningIter'>QuadraticFlatteningIter</a></td>
-                           <td class='docblock short'>
+                           <td class='docblock-short'>
                                 <p>An iterator over a quadratic bezier segment that yields line segments approximating the
 curve for a given approximation threshold.</p>
+                           </td>
+                       </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.cubic_to_quadratic.html'
+                                  title='lyon::bezier::cubic_to_quadratic'>cubic_to_quadratic</a></td>
+                           <td class='docblock-short'>
+                                <p>Approximate a cubic bezier segment with a sequence of quadratic bezier segments.</p>
                            </td>
                        </tr></table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
 <table>
                        <tr class=' module-item'>
                            <td><a class='type' href='type.Point.html'
                                   title='lyon::bezier::Point'>Point</a></td>
-                           <td class='docblock short'>
+                           <td class='docblock-short'>
                                 
                            </td>
                        </tr>
                        <tr class=' module-item'>
                            <td><a class='type' href='type.Vec2.html'
                                   title='lyon::bezier::Vec2'>Vec2</a></td>
-                           <td class='docblock short'>
+                           <td class='docblock-short'>
                                 
                            </td>
                        </tr></table></section>
@@ -152,11 +169,9 @@ curve for a given approximation threshold.</p>
     <script>
         window.rootPath = "../../";
         window.currentCrate = "lyon";
-        window.playgroundUrl = "";
     </script>
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

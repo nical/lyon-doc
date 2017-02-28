@@ -47,21 +47,21 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-1075' class='srclink' href='../../src/lyon_tessellation/tessellation/src/geometry_builder.rs.html#170-176' title='goto source code'>[src]</a></span></h1>
+               </span><a id='src-732' class='srclink' href='../../src/lyon_tessellation/tessellation/src/geometry_builder.rs.html#170-176' title='goto source code'>[src]</a></span></h1>
 <pre class='rust trait'>pub trait BezierGeometryBuilder&lt;Input&gt;: <a class='trait' href='../../lyon_tessellation/geometry_builder/trait.GeometryBuilder.html' title='lyon_tessellation::geometry_builder::GeometryBuilder'>GeometryBuilder</a>&lt;Input&gt; {
     fn <a href='#tymethod.add_quadratic_bezier' class='fnname'>add_quadratic_bezier</a>(&amp;mut self, from: <a class='struct' href='../../lyon_tessellation/geometry_builder/struct.VertexId.html' title='lyon_tessellation::geometry_builder::VertexId'>VertexId</a>, to: <a class='struct' href='../../lyon_tessellation/geometry_builder/struct.VertexId.html' title='lyon_tessellation::geometry_builder::VertexId'>VertexId</a>, ctrl: Input);
 }</pre><div class='docblock'><p>An extension to GeometryBuilder that can handle quadratic bezier segments.</p>
 </div>
             <h2 id='required-methods'>Required Methods</h2>
             <div class='methods'>
-        <h3 id='tymethod.add_quadratic_bezier' class='method stab '><code>fn <a href='#tymethod.add_quadratic_bezier' class='fnname'>add_quadratic_bezier</a>(&amp;mut self, from: <a class='struct' href='../../lyon_tessellation/geometry_builder/struct.VertexId.html' title='lyon_tessellation::geometry_builder::VertexId'>VertexId</a>, to: <a class='struct' href='../../lyon_tessellation/geometry_builder/struct.VertexId.html' title='lyon_tessellation::geometry_builder::VertexId'>VertexId</a>, ctrl: Input)</code></h3><div class='docblock'><p>Insert a quadratic bezier curve.
+        <h3 id='tymethod.add_quadratic_bezier' class='method stab '><span id='add_quadratic_bezier.v' class='invisible'><code>fn <a href='#tymethod.add_quadratic_bezier' class='fnname'>add_quadratic_bezier</a>(&amp;mut self, from: <a class='struct' href='../../lyon_tessellation/geometry_builder/struct.VertexId.html' title='lyon_tessellation::geometry_builder::VertexId'>VertexId</a>, to: <a class='struct' href='../../lyon_tessellation/geometry_builder/struct.VertexId.html' title='lyon_tessellation::geometry_builder::VertexId'>VertexId</a>, ctrl: Input)</code></span></h3><div class='docblock'><p>Insert a quadratic bezier curve.
 The interrior is on the right side of the curve.</p>
 
 <p>This method can only be called between begin_geometry and end_geometry.</p>
 </div></div>
         <h2 id='implementors'>Implementors</h2>
         <ul class='item-list' id='implementors-list'>
-    <li><code>impl&lt;'l,&nbsp;VertexType,&nbsp;Input,&nbsp;Ctor&gt; BezierGeometryBuilder&lt;Input&gt; for <a class='struct' href='../../lyon_tessellation/geometry_builder/struct.BuffersBuilder.html' title='lyon_tessellation::geometry_builder::BuffersBuilder'>BuffersBuilder</a>&lt;'l,&nbsp;VertexType,&nbsp;Input,&nbsp;Ctor&gt; <span class='where'>where VertexType: 'l + <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a>, Ctor: <a class='trait' href='../../lyon_tessellation/geometry_builder/trait.VertexConstructor.html' title='lyon_tessellation::geometry_builder::VertexConstructor'>VertexConstructor</a>&lt;Input,&nbsp;VertexType&gt;</span></code></li>
+    <li><code>impl&lt;'l, VertexType, Input, Ctor&gt; BezierGeometryBuilder&lt;Input&gt; for <a class='struct' href='../../lyon_tessellation/geometry_builder/struct.BuffersBuilder.html' title='lyon_tessellation::geometry_builder::BuffersBuilder'>BuffersBuilder</a>&lt;'l, VertexType, Input, Ctor&gt; <span class='where'>where VertexType: 'l + <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a>, Ctor: <a class='trait' href='../../lyon_tessellation/geometry_builder/trait.VertexConstructor.html' title='lyon_tessellation::geometry_builder::VertexConstructor'>VertexConstructor</a>&lt;Input, VertexType&gt;</span></code></li>
 </ul><script type="text/javascript" async
                          src="../../implementors/lyon_tessellation/geometry_builder/trait.BezierGeometryBuilder.js">
                  </script></section>
@@ -120,11 +120,9 @@ The interrior is on the right side of the curve.</p>
     <script>
         window.rootPath = "../../";
         window.currentCrate = "lyon_tessellation";
-        window.playgroundUrl = "";
     </script>
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

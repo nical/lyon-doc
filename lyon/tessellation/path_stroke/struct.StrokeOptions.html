@@ -47,9 +47,8 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-942' class='srclink' href='../../../lyon_tessellation/path_stroke/struct.StrokeOptions.html?gotosrc=942' title='goto source code'>[src]</a></span></h1>
+               </span><a id='src-1064' class='srclink' href='../../../lyon_tessellation/path_stroke/struct.StrokeOptions.html?gotosrc=1064' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct StrokeOptions {
-    pub stroke_width: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,
     pub line_cap: <a class='enum' href='../../../lyon/tessellation/path_stroke/enum.LineCap.html' title='lyon::tessellation::path_stroke::LineCap'>LineCap</a>,
     pub line_join: <a class='enum' href='../../../lyon/tessellation/path_stroke/enum.LineJoin.html' title='lyon::tessellation::path_stroke::LineJoin'>LineJoin</a>,
     pub miter_limit: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,
@@ -57,43 +56,49 @@
     pub vertex_aa: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>,
     // some fields omitted
 }</pre><div class='docblock'><p>Parameters for the tessellator.</p>
-</div><h2 class='fields'>Fields</h2><span id='structfield.stroke_width' class='structfield'><code>stroke_width: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a></code>
-                           </span><span class='stab '></span><div class='docblock'><p>Thickness of the stroke.</p>
-</div><span id='structfield.line_cap' class='structfield'><code>line_cap: <a class='enum' href='../../../lyon/tessellation/path_stroke/enum.LineCap.html' title='lyon::tessellation::path_stroke::LineCap'>LineCap</a></code>
-                           </span><span class='stab '></span><div class='docblock'><p>See the SVG secification.</p>
-</div><span id='structfield.line_join' class='structfield'><code>line_join: <a class='enum' href='../../../lyon/tessellation/path_stroke/enum.LineJoin.html' title='lyon::tessellation::path_stroke::LineJoin'>LineJoin</a></code>
-                           </span><span class='stab '></span><div class='docblock'><p>See the SVG secification.</p>
+</div><h2 class='fields'>Fields</h2><span id='structfield.line_cap' class='structfield'>
+                           <span id='line_cap.v' class='invisible'>
+                           <code>line_cap: <a class='enum' href='../../../lyon/tessellation/path_stroke/enum.LineCap.html' title='lyon::tessellation::path_stroke::LineCap'>LineCap</a></code>
+                           </span></span><span class='stab '></span><div class='docblock'><p>See the SVG secification.</p>
+</div><span id='structfield.line_join' class='structfield'>
+                           <span id='line_join.v' class='invisible'>
+                           <code>line_join: <a class='enum' href='../../../lyon/tessellation/path_stroke/enum.LineJoin.html' title='lyon::tessellation::path_stroke::LineJoin'>LineJoin</a></code>
+                           </span></span><span class='stab '></span><div class='docblock'><p>See the SVG secification.</p>
 
 <p>Not implemented yet!</p>
-</div><span id='structfield.miter_limit' class='structfield'><code>miter_limit: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a></code>
-                           </span><span class='stab '></span><div class='docblock'><p>See the SVG secification.</p>
+</div><span id='structfield.miter_limit' class='structfield'>
+                           <span id='miter_limit.v' class='invisible'>
+                           <code>miter_limit: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a></code>
+                           </span></span><span class='stab '></span><div class='docblock'><p>See the SVG secification.</p>
 
 <p>Not implemented yet!</p>
-</div><span id='structfield.tolerance' class='structfield'><code>tolerance: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a></code>
-                           </span><span class='stab '></span><div class='docblock'><p>Maximum allowed distance to the path when building an approximation.</p>
-</div><span id='structfield.vertex_aa' class='structfield'><code>vertex_aa: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code>
-                           </span><span class='stab '></span><div class='docblock'><p>An anti-aliasing trick extruding a 1-px wide strip around the edges with
+</div><span id='structfield.tolerance' class='structfield'>
+                           <span id='tolerance.v' class='invisible'>
+                           <code>tolerance: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a></code>
+                           </span></span><span class='stab '></span><div class='docblock'><p>Maximum allowed distance to the path when building an approximation.</p>
+</div><span id='structfield.vertex_aa' class='structfield'>
+                           <span id='vertex_aa.v' class='invisible'>
+                           <code>vertex_aa: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code>
+                           </span></span><span class='stab '></span><div class='docblock'><p>An anti-aliasing trick extruding a 1-px wide strip around the edges with
 a gradient to smooth the edges.</p>
 
 <p>Not implemented yet!</p>
 </div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class='struct' href='../../../lyon/tessellation/path_stroke/struct.StrokeOptions.html' title='lyon::tessellation::path_stroke::StrokeOptions'>StrokeOptions</a></code></span><span class='out-of-band'></span></h3>
-<div class='impl-items'><h4 id='method.stroke_width' class='method'><code>fn <a href='#method.stroke_width' class='fnname'>stroke_width</a>(stroke_width: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>) -&gt; <a class='struct' href='../../../lyon/tessellation/path_stroke/struct.StrokeOptions.html' title='lyon::tessellation::path_stroke::StrokeOptions'>StrokeOptions</a></code></h4>
-<h4 id='method.default' class='method'><code>fn <a href='#method.default' class='fnname'>default</a>() -&gt; <a class='struct' href='../../../lyon/tessellation/path_stroke/struct.StrokeOptions.html' title='lyon::tessellation::path_stroke::StrokeOptions'>StrokeOptions</a></code></h4>
-<h4 id='method.with_tolerance' class='method'><code>fn <a href='#method.with_tolerance' class='fnname'>with_tolerance</a>(self, tolerance: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>) -&gt; <a class='struct' href='../../../lyon/tessellation/path_stroke/struct.StrokeOptions.html' title='lyon::tessellation::path_stroke::StrokeOptions'>StrokeOptions</a></code></h4>
-<h4 id='method.with_line_cap' class='method'><code>fn <a href='#method.with_line_cap' class='fnname'>with_line_cap</a>(self, cap: <a class='enum' href='../../../lyon/tessellation/path_stroke/enum.LineCap.html' title='lyon::tessellation::path_stroke::LineCap'>LineCap</a>) -&gt; <a class='struct' href='../../../lyon/tessellation/path_stroke/struct.StrokeOptions.html' title='lyon::tessellation::path_stroke::StrokeOptions'>StrokeOptions</a></code></h4>
-<h4 id='method.with_line_join' class='method'><code>fn <a href='#method.with_line_join' class='fnname'>with_line_join</a>(self, join: <a class='enum' href='../../../lyon/tessellation/path_stroke/enum.LineJoin.html' title='lyon::tessellation::path_stroke::LineJoin'>LineJoin</a>) -&gt; <a class='struct' href='../../../lyon/tessellation/path_stroke/struct.StrokeOptions.html' title='lyon::tessellation::path_stroke::StrokeOptions'>StrokeOptions</a></code></h4>
-<h4 id='method.with_miter_limit' class='method'><code>fn <a href='#method.with_miter_limit' class='fnname'>with_miter_limit</a>(self, limit: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>) -&gt; <a class='struct' href='../../../lyon/tessellation/path_stroke/struct.StrokeOptions.html' title='lyon::tessellation::path_stroke::StrokeOptions'>StrokeOptions</a></code></h4>
-<h4 id='method.with_stroke_width' class='method'><code>fn <a href='#method.with_stroke_width' class='fnname'>with_stroke_width</a>(self, width: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>) -&gt; <a class='struct' href='../../../lyon/tessellation/path_stroke/struct.StrokeOptions.html' title='lyon::tessellation::path_stroke::StrokeOptions'>StrokeOptions</a></code></h4>
-<h4 id='method.with_vertex_aa' class='method'><code>fn <a href='#method.with_vertex_aa' class='fnname'>with_vertex_aa</a>(self) -&gt; <a class='struct' href='../../../lyon/tessellation/path_stroke/struct.StrokeOptions.html' title='lyon::tessellation::path_stroke::StrokeOptions'>StrokeOptions</a></code></h4>
-</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='core::cmp::PartialEq'>PartialEq</a>&lt;<a class='struct' href='../../../lyon/tessellation/path_stroke/struct.StrokeOptions.html' title='lyon::tessellation::path_stroke::StrokeOptions'>StrokeOptions</a>&gt; for <a class='struct' href='../../../lyon/tessellation/path_stroke/struct.StrokeOptions.html' title='lyon::tessellation::path_stroke::StrokeOptions'>StrokeOptions</a></code></span><span class='out-of-band'></span></h3>
-<div class='impl-items'><h4 id='method.eq' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class='struct' href='../../../lyon/tessellation/path_stroke/struct.StrokeOptions.html' title='lyon::tessellation::path_stroke::StrokeOptions'>StrokeOptions</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
-<h4 id='method.ne' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne' class='fnname'>ne</a>(&amp;self, __arg_0: &amp;<a class='struct' href='../../../lyon/tessellation/path_stroke/struct.StrokeOptions.html' title='lyon::tessellation::path_stroke::StrokeOptions'>StrokeOptions</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='impl-items'><h4 id='method.default' class='method'><span id='default.v' class='invisible'><code>fn <a href='#method.default' class='fnname'>default</a>() -&gt; <a class='struct' href='../../../lyon/tessellation/path_stroke/struct.StrokeOptions.html' title='lyon::tessellation::path_stroke::StrokeOptions'>StrokeOptions</a></code></span></h4>
+<h4 id='method.with_tolerance' class='method'><span id='with_tolerance.v' class='invisible'><code>fn <a href='#method.with_tolerance' class='fnname'>with_tolerance</a>(self, tolerance: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>) -&gt; <a class='struct' href='../../../lyon/tessellation/path_stroke/struct.StrokeOptions.html' title='lyon::tessellation::path_stroke::StrokeOptions'>StrokeOptions</a></code></span></h4>
+<h4 id='method.with_line_cap' class='method'><span id='with_line_cap.v' class='invisible'><code>fn <a href='#method.with_line_cap' class='fnname'>with_line_cap</a>(self, cap: <a class='enum' href='../../../lyon/tessellation/path_stroke/enum.LineCap.html' title='lyon::tessellation::path_stroke::LineCap'>LineCap</a>) -&gt; <a class='struct' href='../../../lyon/tessellation/path_stroke/struct.StrokeOptions.html' title='lyon::tessellation::path_stroke::StrokeOptions'>StrokeOptions</a></code></span></h4>
+<h4 id='method.with_line_join' class='method'><span id='with_line_join.v' class='invisible'><code>fn <a href='#method.with_line_join' class='fnname'>with_line_join</a>(self, join: <a class='enum' href='../../../lyon/tessellation/path_stroke/enum.LineJoin.html' title='lyon::tessellation::path_stroke::LineJoin'>LineJoin</a>) -&gt; <a class='struct' href='../../../lyon/tessellation/path_stroke/struct.StrokeOptions.html' title='lyon::tessellation::path_stroke::StrokeOptions'>StrokeOptions</a></code></span></h4>
+<h4 id='method.with_miter_limit' class='method'><span id='with_miter_limit.v' class='invisible'><code>fn <a href='#method.with_miter_limit' class='fnname'>with_miter_limit</a>(self, limit: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>) -&gt; <a class='struct' href='../../../lyon/tessellation/path_stroke/struct.StrokeOptions.html' title='lyon::tessellation::path_stroke::StrokeOptions'>StrokeOptions</a></code></span></h4>
+<h4 id='method.with_vertex_aa' class='method'><span id='with_vertex_aa.v' class='invisible'><code>fn <a href='#method.with_vertex_aa' class='fnname'>with_vertex_aa</a>(self) -&gt; <a class='struct' href='../../../lyon/tessellation/path_stroke/struct.StrokeOptions.html' title='lyon::tessellation::path_stroke::StrokeOptions'>StrokeOptions</a></code></span></h4>
+</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='struct' href='../../../lyon/tessellation/path_stroke/struct.StrokeOptions.html' title='lyon::tessellation::path_stroke::StrokeOptions'>StrokeOptions</a></code></span><span class='out-of-band'></span></h3>
+<div class='impl-items'></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='core::cmp::PartialEq'>PartialEq</a>&lt;<a class='struct' href='../../../lyon/tessellation/path_stroke/struct.StrokeOptions.html' title='lyon::tessellation::path_stroke::StrokeOptions'>StrokeOptions</a>&gt; for <a class='struct' href='../../../lyon/tessellation/path_stroke/struct.StrokeOptions.html' title='lyon::tessellation::path_stroke::StrokeOptions'>StrokeOptions</a></code></span><span class='out-of-band'></span></h3>
+<div class='impl-items'><h4 id='method.eq' class='method'><span id='eq.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class='struct' href='../../../lyon/tessellation/path_stroke/struct.StrokeOptions.html' title='lyon::tessellation::path_stroke::StrokeOptions'>StrokeOptions</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></span></h4>
+<h4 id='method.ne' class='method'><span id='ne.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne' class='fnname'>ne</a>(&amp;self, __arg_0: &amp;<a class='struct' href='../../../lyon/tessellation/path_stroke/struct.StrokeOptions.html' title='lyon::tessellation::path_stroke::StrokeOptions'>StrokeOptions</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></span></h4>
 </div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../../../lyon/tessellation/path_stroke/struct.StrokeOptions.html' title='lyon::tessellation::path_stroke::StrokeOptions'>StrokeOptions</a></code></span><span class='out-of-band'></span></h3>
-<div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>,&nbsp;<a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Error.html' title='core::fmt::Error'>Error</a>&gt;</code></h4>
+<div class='impl-items'><h4 id='method.fmt' class='method'><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Error.html' title='core::fmt::Error'>Error</a>&gt;</code></span></h4>
 </div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../../../lyon/tessellation/path_stroke/struct.StrokeOptions.html' title='lyon::tessellation::path_stroke::StrokeOptions'>StrokeOptions</a></code></span><span class='out-of-band'></span></h3>
-<div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../../../lyon/tessellation/path_stroke/struct.StrokeOptions.html' title='lyon::tessellation::path_stroke::StrokeOptions'>StrokeOptions</a></code></h4>
-</div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='struct' href='../../../lyon/tessellation/path_stroke/struct.StrokeOptions.html' title='lyon::tessellation::path_stroke::StrokeOptions'>StrokeOptions</a></code></span><span class='out-of-band'></span></h3>
-<div class='impl-items'></div></section>
+<div class='impl-items'><h4 id='method.clone' class='method'><span id='clone.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../../../lyon/tessellation/path_stroke/struct.StrokeOptions.html' title='lyon::tessellation::path_stroke::StrokeOptions'>StrokeOptions</a></code></span></h4>
+</div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -149,11 +154,9 @@ a gradient to smooth the edges.</p>
     <script>
         window.rootPath = "../../../";
         window.currentCrate = "lyon";
-        window.playgroundUrl = "";
     </script>
     <script src="../../../jquery.js"></script>
     <script src="../../../main.js"></script>
-    
     <script defer src="../../../search-index.js"></script>
 </body>
 </html>

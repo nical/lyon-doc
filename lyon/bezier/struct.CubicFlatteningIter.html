@@ -48,20 +48,18 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a id='src-9' class='srclink' href='../../lyon_bezier/flatten_cubic/struct.CubicFlatteningIter.html?gotosrc=9' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct CubicFlatteningIter {
-    // some fields omitted
-}</pre><div class='docblock'><p>An iterator over a cubic bezier segment that yields line segments approximating the
+<pre class='rust struct'>pub struct CubicFlatteningIter { /* fields omitted */ }</pre><div class='docblock'><p>An iterator over a cubic bezier segment that yields line segments approximating the
 curve for a given approximation threshold.</p>
 
 <p>The iterator starts at the first point <em>after</em> the origin of the curve and ends at the
 destination.</p>
 </div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class='struct' href='../../lyon/bezier/struct.CubicFlatteningIter.html' title='lyon::bezier::CubicFlatteningIter'>CubicFlatteningIter</a></code></span><span class='out-of-band'></span></h3>
-<div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>(bezier: <a class='struct' href='../../lyon/bezier/struct.CubicBezierSegment.html' title='lyon::bezier::CubicBezierSegment'>CubicBezierSegment</a>, tolerance: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>) -&gt; <a class='struct' href='../../lyon/bezier/struct.CubicFlatteningIter.html' title='lyon::bezier::CubicFlatteningIter'>CubicFlatteningIter</a></code></h4>
+<div class='impl-items'><h4 id='method.new' class='method'><span id='new.v' class='invisible'><code>fn <a href='#method.new' class='fnname'>new</a>(bezier: <a class='struct' href='../../lyon/bezier/struct.CubicBezierSegment.html' title='lyon::bezier::CubicBezierSegment'>CubicBezierSegment</a>, tolerance: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>) -&gt; <a class='struct' href='../../lyon/bezier/struct.CubicFlatteningIter.html' title='lyon::bezier::CubicFlatteningIter'>CubicFlatteningIter</a></code></span></h4>
 <div class='docblock'><p>Creates an iterator that yields points along a cubic bezier segment, useful to build a
 flattened approximation of the curve given a certain tolerance.</p>
 </div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/iter/iterator/trait.Iterator.html' title='core::iter::iterator::Iterator'>Iterator</a> for <a class='struct' href='../../lyon/bezier/struct.CubicFlatteningIter.html' title='lyon::bezier::CubicFlatteningIter'>CubicFlatteningIter</a></code></span><span class='out-of-band'></span></h3>
-<div class='impl-items'><h4 id='associatedtype.Item' class='type'><code>type <a href='https://doc.rust-lang.org/nightly/core/iter/iterator/trait.Iterator.html#associatedtype.Item' class='type'>Item</a> = <a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;</code></h4>
-<h4 id='method.next' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/iter/iterator/trait.Iterator.html#tymethod.next' class='fnname'>next</a>(&amp;mut self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../euclid/point/struct.TypedPoint2D.html' title='euclid::point::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>,&nbsp;<a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;&gt;</code></h4>
+<div class='impl-items'><h4 id='associatedtype.Item' class='type'><span id='Item.t' class='invisible'><code>type <a href='https://doc.rust-lang.org/nightly/core/iter/iterator/trait.Iterator.html#associatedtype.Item' class='type'>Item</a> = <a class='struct' href='../../lyon/tessellation/math/struct.TypedPoint2D.html' title='lyon::tessellation::math::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>, <a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;</code></span></h4>
+<h4 id='method.next' class='method'><span id='next.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/iter/iterator/trait.Iterator.html#tymethod.next' class='fnname'>next</a>(&amp;mut self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../lyon/tessellation/math/struct.TypedPoint2D.html' title='lyon::tessellation::math::TypedPoint2D'>TypedPoint2D</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>, <a class='struct' href='../../euclid/struct.UnknownUnit.html' title='euclid::UnknownUnit'>UnknownUnit</a>&gt;&gt;</code></span></h4>
 </div></section>
     <section id='search' class="content hidden"></section>
 
@@ -118,11 +116,9 @@ flattened approximation of the curve given a certain tolerance.</p>
     <script>
         window.rootPath = "../../";
         window.currentCrate = "lyon";
-        window.playgroundUrl = "";
     </script>
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

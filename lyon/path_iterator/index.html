@@ -48,40 +48,49 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a id='src-0' class='srclink' href='../../lyon_path_iterator/index.html?gotosrc=0' title='goto source code'>[src]</a></span></h1>
-<h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<div class='docblock'>
+<h1 id='lyon-path-builder' class='section-header'><a href='#lyon-path-builder'>Lyon path builder</a></h1>
+<p>Tools to iterate over path objects.</p>
+
+<h2 id='overview' class='section-header'><a href='#overview'>Overview</a></h2>
+<p>TODO</p>
+
+<h2 id='examples' class='section-header'><a href='#examples'>Examples</a></h2>
+<p>TODO</p>
+</div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
                        <tr class=' module-item'>
                            <td><a class='struct' href='struct.FlatteningIter.html'
                                   title='lyon::path_iterator::FlatteningIter'>FlatteningIter</a></td>
-                           <td class='docblock short'>
+                           <td class='docblock-short'>
                                 <p>An iterator that consumes an PathIterator and yields FlattenedEvents.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
                            <td><a class='struct' href='struct.PathStateIter.html'
                                   title='lyon::path_iterator::PathStateIter'>PathStateIter</a></td>
-                           <td class='docblock short'>
+                           <td class='docblock-short'>
                                 <p>An adapater iterator that implements PathIterator on top of an Iterator<Item=PatheEvent>.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
                            <td><a class='struct' href='struct.PathStateSvgIter.html'
                                   title='lyon::path_iterator::PathStateSvgIter'>PathStateSvgIter</a></td>
-                           <td class='docblock short'>
+                           <td class='docblock-short'>
                                 <p>An adapater iterator that implements SvgIterator on top of an Iterator<Item=SvgEvent>.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
                            <td><a class='struct' href='struct.SegmentIterator.html'
                                   title='lyon::path_iterator::SegmentIterator'>SegmentIterator</a></td>
-                           <td class='docblock short'>
+                           <td class='docblock-short'>
                                 <p>Consumes an iterator of path events and yields segments.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
                            <td><a class='struct' href='struct.SvgToPathIter.html'
                                   title='lyon::path_iterator::SvgToPathIter'>SvgToPathIter</a></td>
-                           <td class='docblock short'>
+                           <td class='docblock-short'>
                                 
                            </td>
                        </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
@@ -89,7 +98,7 @@
                        <tr class=' module-item'>
                            <td><a class='enum' href='enum.Segment.html'
                                   title='lyon::path_iterator::Segment'>Segment</a></td>
-                           <td class='docblock short'>
+                           <td class='docblock-short'>
                                 <p>Convenience for algorithms which prefer to iterate over segments directly rather than
 path events.</p>
                            </td>
@@ -98,7 +107,7 @@ path events.</p>
                        <tr class=' module-item'>
                            <td><a class='trait' href='trait.FlattenedIterator.html'
                                   title='lyon::path_iterator::FlattenedIterator'>FlattenedIterator</a></td>
-                           <td class='docblock short'>
+                           <td class='docblock-short'>
                                 <p>An extension to the common Iterator interface, that adds information which is useful when
 chaining path-specific iterators.</p>
                            </td>
@@ -106,7 +115,7 @@ chaining path-specific iterators.</p>
                        <tr class=' module-item'>
                            <td><a class='trait' href='trait.PathIterator.html'
                                   title='lyon::path_iterator::PathIterator'>PathIterator</a></td>
-                           <td class='docblock short'>
+                           <td class='docblock-short'>
                                 <p>An extension to the common Iterator interface, that adds information which is useful when
 chaining path-specific iterators.</p>
                            </td>
@@ -114,7 +123,7 @@ chaining path-specific iterators.</p>
                        <tr class=' module-item'>
                            <td><a class='trait' href='trait.SvgIterator.html'
                                   title='lyon::path_iterator::SvgIterator'>SvgIterator</a></td>
-                           <td class='docblock short'>
+                           <td class='docblock-short'>
                                 <p>An extension to the common Iterator interface, that adds information which is useful when
 chaining path-specific iterators.</p>
                            </td>
@@ -174,11 +183,9 @@ chaining path-specific iterators.</p>
     <script>
         window.rootPath = "../../";
         window.currentCrate = "lyon";
-        window.playgroundUrl = "";
     </script>
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>

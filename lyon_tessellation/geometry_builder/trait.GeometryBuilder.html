@@ -47,7 +47,7 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-1059' class='srclink' href='../../src/lyon_tessellation/tessellation/src/geometry_builder.rs.html#139-167' title='goto source code'>[src]</a></span></h1>
+               </span><a id='src-716' class='srclink' href='../../src/lyon_tessellation/tessellation/src/geometry_builder.rs.html#139-167' title='goto source code'>[src]</a></span></h1>
 <pre class='rust trait'>pub trait GeometryBuilder&lt;Input&gt; {
     fn <a href='#tymethod.begin_geometry' class='fnname'>begin_geometry</a>(&amp;mut self);
     fn <a href='#tymethod.end_geometry' class='fnname'>end_geometry</a>(&amp;mut self) -&gt; <a class='struct' href='../../lyon_tessellation/geometry_builder/struct.Count.html' title='lyon_tessellation::geometry_builder::Count'>Count</a>;
@@ -59,20 +59,20 @@ actual vertex construction.</p>
 </div>
             <h2 id='required-methods'>Required Methods</h2>
             <div class='methods'>
-        <h3 id='tymethod.begin_geometry' class='method stab '><code>fn <a href='#tymethod.begin_geometry' class='fnname'>begin_geometry</a>(&amp;mut self)</code></h3><div class='docblock'><p>Called at the beginning of a generation.</p>
+        <h3 id='tymethod.begin_geometry' class='method stab '><span id='begin_geometry.v' class='invisible'><code>fn <a href='#tymethod.begin_geometry' class='fnname'>begin_geometry</a>(&amp;mut self)</code></span></h3><div class='docblock'><p>Called at the beginning of a generation.</p>
 
 <p>end_geometry must be called before begin_geometry is called again.</p>
-</div><h3 id='tymethod.end_geometry' class='method stab '><code>fn <a href='#tymethod.end_geometry' class='fnname'>end_geometry</a>(&amp;mut self) -&gt; <a class='struct' href='../../lyon_tessellation/geometry_builder/struct.Count.html' title='lyon_tessellation::geometry_builder::Count'>Count</a></code></h3><div class='docblock'><p>Called at the end of a generation.
+</div><h3 id='tymethod.end_geometry' class='method stab '><span id='end_geometry.v' class='invisible'><code>fn <a href='#tymethod.end_geometry' class='fnname'>end_geometry</a>(&amp;mut self) -&gt; <a class='struct' href='../../lyon_tessellation/geometry_builder/struct.Count.html' title='lyon_tessellation::geometry_builder::Count'>Count</a></code></span></h3><div class='docblock'><p>Called at the end of a generation.
 Returns the number of vertices and indices added since the last time begin_geometry was
 called.</p>
-</div><h3 id='tymethod.add_vertex' class='method stab '><code>fn <a href='#tymethod.add_vertex' class='fnname'>add_vertex</a>(&amp;mut self, vertex: Input) -&gt; <a class='struct' href='../../lyon_tessellation/geometry_builder/struct.VertexId.html' title='lyon_tessellation::geometry_builder::VertexId'>VertexId</a></code></h3><div class='docblock'><p>Inserts a vertex, providing its position, and optionally a normal.
+</div><h3 id='tymethod.add_vertex' class='method stab '><span id='add_vertex.v' class='invisible'><code>fn <a href='#tymethod.add_vertex' class='fnname'>add_vertex</a>(&amp;mut self, vertex: Input) -&gt; <a class='struct' href='../../lyon_tessellation/geometry_builder/struct.VertexId.html' title='lyon_tessellation::geometry_builder::VertexId'>VertexId</a></code></span></h3><div class='docblock'><p>Inserts a vertex, providing its position, and optionally a normal.
 Retuns a vertex id that is only valid between begin_geometry and end_geometry.</p>
 
 <p>This method can only be called between begin_geometry and end_geometry.</p>
-</div><h3 id='tymethod.add_triangle' class='method stab '><code>fn <a href='#tymethod.add_triangle' class='fnname'>add_triangle</a>(&amp;mut self, a: <a class='struct' href='../../lyon_tessellation/geometry_builder/struct.VertexId.html' title='lyon_tessellation::geometry_builder::VertexId'>VertexId</a>, b: <a class='struct' href='../../lyon_tessellation/geometry_builder/struct.VertexId.html' title='lyon_tessellation::geometry_builder::VertexId'>VertexId</a>, c: <a class='struct' href='../../lyon_tessellation/geometry_builder/struct.VertexId.html' title='lyon_tessellation::geometry_builder::VertexId'>VertexId</a>)</code></h3><div class='docblock'><p>Insert a triangle made of vertices that were added after the last call to begin_geometry.</p>
+</div><h3 id='tymethod.add_triangle' class='method stab '><span id='add_triangle.v' class='invisible'><code>fn <a href='#tymethod.add_triangle' class='fnname'>add_triangle</a>(&amp;mut self, a: <a class='struct' href='../../lyon_tessellation/geometry_builder/struct.VertexId.html' title='lyon_tessellation::geometry_builder::VertexId'>VertexId</a>, b: <a class='struct' href='../../lyon_tessellation/geometry_builder/struct.VertexId.html' title='lyon_tessellation::geometry_builder::VertexId'>VertexId</a>, c: <a class='struct' href='../../lyon_tessellation/geometry_builder/struct.VertexId.html' title='lyon_tessellation::geometry_builder::VertexId'>VertexId</a>)</code></span></h3><div class='docblock'><p>Insert a triangle made of vertices that were added after the last call to begin_geometry.</p>
 
 <p>This method can only be called between begin_geometry and end_geometry.</p>
-</div><h3 id='tymethod.abort_geometry' class='method stab '><code>fn <a href='#tymethod.abort_geometry' class='fnname'>abort_geometry</a>(&amp;mut self)</code></h3><div class='docblock'><p>abort_geometry is called instead of end_geometry if an error occured while producing
+</div><h3 id='tymethod.abort_geometry' class='method stab '><span id='abort_geometry.v' class='invisible'><code>fn <a href='#tymethod.abort_geometry' class='fnname'>abort_geometry</a>(&amp;mut self)</code></span></h3><div class='docblock'><p>abort_geometry is called instead of end_geometry if an error occured while producing
 the geometry and we won&#39;t be able to finish.</p>
 
 <p>The implementation is expected to discard the geometry that was generated since the last
@@ -80,7 +80,7 @@ time begin_geometry was called, and to remain in a usable state.</p>
 </div></div>
         <h2 id='implementors'>Implementors</h2>
         <ul class='item-list' id='implementors-list'>
-    <li><code>impl&lt;'l,&nbsp;VertexType,&nbsp;Input,&nbsp;Ctor&gt; GeometryBuilder&lt;Input&gt; for <a class='struct' href='../../lyon_tessellation/geometry_builder/struct.BuffersBuilder.html' title='lyon_tessellation::geometry_builder::BuffersBuilder'>BuffersBuilder</a>&lt;'l,&nbsp;VertexType,&nbsp;Input,&nbsp;Ctor&gt; <span class='where'>where VertexType: 'l + <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a>, Ctor: <a class='trait' href='../../lyon_tessellation/geometry_builder/trait.VertexConstructor.html' title='lyon_tessellation::geometry_builder::VertexConstructor'>VertexConstructor</a>&lt;Input,&nbsp;VertexType&gt;</span></code></li>
+    <li><code>impl&lt;'l, VertexType, Input, Ctor&gt; GeometryBuilder&lt;Input&gt; for <a class='struct' href='../../lyon_tessellation/geometry_builder/struct.BuffersBuilder.html' title='lyon_tessellation::geometry_builder::BuffersBuilder'>BuffersBuilder</a>&lt;'l, VertexType, Input, Ctor&gt; <span class='where'>where VertexType: 'l + <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a>, Ctor: <a class='trait' href='../../lyon_tessellation/geometry_builder/trait.VertexConstructor.html' title='lyon_tessellation::geometry_builder::VertexConstructor'>VertexConstructor</a>&lt;Input, VertexType&gt;</span></code></li>
 </ul><script type="text/javascript" async
                          src="../../implementors/lyon_tessellation/geometry_builder/trait.GeometryBuilder.js">
                  </script></section>
@@ -139,11 +139,9 @@ time begin_geometry was called, and to remain in a usable state.</p>
     <script>
         window.rootPath = "../../";
         window.currentCrate = "lyon_tessellation";
-        window.playgroundUrl = "";
     </script>
     <script src="../../jquery.js"></script>
     <script src="../../main.js"></script>
-    
     <script defer src="../../search-index.js"></script>
 </body>
 </html>
